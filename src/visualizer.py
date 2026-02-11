@@ -10,8 +10,8 @@ import os
 import sys
 
 # ==================== CONSTANTS ====================
-TEMP_FILE = "data/temp.txt"
-GRAPH_TITLE = "Shortest Path Visualization"
+TEMP_FILE = "../data/temp.txt"
+GRAPH_TITLE = "trực quan hóa đường đi ngắn nhất"
 VERTEX_SIZE = 1500
 FONT_SIZE = 10
 EDGE_WIDTH = 2

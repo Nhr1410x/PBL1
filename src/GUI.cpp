@@ -1,4 +1,4 @@
-#include "GUI.h"
+#include "../lib/GUI.h"
 #include <iostream>
 #include <cstring>
 #include <cctype>

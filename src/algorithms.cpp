@@ -1,4 +1,4 @@
-#include "Algorithms.h"
+#include "../lib/Algorithms.h"
 #include <queue>
 #include <limits>
 #include <sstream>
@@ -148,7 +148,7 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
 
     if (showSteps) {
         logStep(result.logs, "           ======= THUẬT TOÁN BELLMAN-FORD =======");
-        logStep(result.logs, "Đỉnh bắt đầu: " + graph.getVertexLabel(start-1));
+        logStep(result.logs, "Đỉnh bắt đầu: " + graph.getVertexLabel(start));
         logStep(result.logs, "Khởi tạo khoảng cách: tất cả = INF, riêng đỉnh bắt đầu = 0");
     }
 

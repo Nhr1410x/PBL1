@@ -3,14 +3,12 @@
 #include <vector>
 #include "Global.h"
 
-// ==================== EDGE STRUCT ====================
 struct Edge {
     int destination;
     int weight;
     Edge(int dest, int w) : destination(dest), weight(w) {}
 };
 
-// ==================== GRAPH CLASS ====================
 class Graph {
 private:
     int V;
@@ -36,10 +34,8 @@ public:
     bool hasEdge(int source, int destination) const;
     void makeUndirected();
 
-    // Input
     void inputFromKeyboard();
 
-    // File I/O
     bool fileExists(const std::string& filename) const;
     bool readFromFile(const std::string& filename);
     bool readFromFile(const std::string& filename, bool& needCreate);
@@ -48,7 +44,6 @@ public:
     bool exportForPython(const std::vector<int>& path) const;
     bool exportWithPath(const std::string& filename, const std::vector<int>& path) const;
 
-    // Validation
     bool isValid() const;
     bool hasNegativeWeights() const;
 };

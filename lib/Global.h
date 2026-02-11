@@ -18,8 +18,8 @@ enum class AlgorithmType {
     BOTH
 };
 
-const std::string DATA_FOLDER = "data";
-const std::string TEMP_EXPORT_FILE = "data/temp.txt";
-const std::string DEFAULT_GRAPH_FILE = "data/graph.txt";
-const std::string DEFAULT_REPORT_FILE = "data/report.txt";
+const std::string DATA_FOLDER = "../data";
+const std::string TEMP_EXPORT_FILE = "../data/temp.txt";
+const std::string DEFAULT_GRAPH_FILE = "../data/graph.txt";
+const std::string DEFAULT_REPORT_FILE = "../data/report.txt";
 const std::string DEFAULT_FONT_PATH = "assets/arial.ttf";

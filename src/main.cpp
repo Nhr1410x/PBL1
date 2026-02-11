@@ -7,12 +7,12 @@
 #include <windows.h>
 #include <cwchar>
 #endif
-#include "graphics.h"
-#include "Global.h"
-#include "GUI.h"
-#include "graph.h"
-#include "Algorithms.h"
-#include "Comparison.h"
+#include "../lib/graphics.h"
+#include "../lib/Global.h"
+#include "../lib/GUI.h"
+#include "../lib/graph.h"
+#include "../lib/Algorithms.h"
+#include "../lib/Comparison.h"
 
 // ==================== GLOBAL VARIABLES ====================
 Graph graph;

@@ -7,13 +7,12 @@
 #include "Algorithms.h"
 #include "Graph.h"
 
-// ==================== PERFORMANCE METRICS ====================
 struct PerformanceMetrics {
     std::string algorithmName;
-    long long executionTimeUs;       // Microseconds
-    long long memoryUsageBytes;      // Bytes
+    long long executionTimeUs;       // tinh bang micro giay
+    long long memoryUsageBytes;      // byte
     int distancesCalculated;
-    double complexity;              // Estimated O(...)
+    double complexity;              // do phuc tap
     bool success;
 
     PerformanceMetrics() : algorithmName(""), executionTimeUs(0), 
@@ -21,37 +20,31 @@ struct PerformanceMetrics {
                           complexity(0.0), success(false) {}
 };
 
-// ==================== COMPARISON REPORT ====================
+
 struct ComparisonReport {
     int startVertex;
-    int V;  // Number of vertices
-    int E;  // Number of edges
+    int V;  // só dinh
+    int E;  // canh
     std::vector<PerformanceMetrics> metrics;
     std::vector<std::string> logs;
 
     ComparisonReport() : startVertex(-1), V(0), E(0) {}
 };
 
-// ==================== COMPARISON CLASS ====================
 class Comparison {
 private:
     const Graph& graph;
     Algorithms algorithms;
 
 public:
-    // Constructor
     explicit Comparison(const Graph& g);
 
-    // Performance comparison
     ComparisonReport comparePerformance(int startVertex, AlgorithmType type = AlgorithmType::BOTH);
 
-    // Individual algorithm timing
     PerformanceMetrics measureAlgorithm(int startVertex, AlgorithmType type);
 
-    // Theoretical complexity estimation
     std::string estimateComplexity(const std::string& algorithmName, int V, int E);
 
-    // Generate report
     void generateReport(const ComparisonReport& report, const std::string& filename);
 };
 

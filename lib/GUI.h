@@ -10,7 +10,6 @@
 #include "Global.h"
 #include "Colors.h"
 
-// ==================== BUTTON CLASS ====================
 class Button {
 private:
     int x, y, width, height;
@@ -29,7 +28,6 @@ public:
     void getRect(int& rx, int& ry, int& rw, int& rh) const;
 };
 
-// ==================== TEXT BOX CLASS ====================
 class TextBox {
 private:
     int x, y, width, height;
@@ -47,7 +45,6 @@ public:
     void setActive(bool active);
 };
 
-// ==================== GUI CLASS ====================
 class GUI {
 private:
     int screenWidth;
@@ -66,7 +63,6 @@ public:
     void handleEvent();
     void clearScreen();
 
-    // GUI-based input/output
     int promptMenuChoice();
     int promptChoice(const std::string& title, const std::vector<std::string>& options,
                      const std::string& prompt, int minValue, int maxValue);
