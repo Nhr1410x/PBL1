@@ -62,15 +62,21 @@ def main():
             if line:
                 parts = line.split()
                 if len(parts) >= 3:
-                    source = int(parts[0])
-                    dest = int(parts[1])
+                    source = int(parts[0]) - 1
+                    dest = int(parts[1]) - 1
                     weight = int(parts[2])
-                    G.add_edge(source, dest, weight=weight)
+                    if source >= 0 and dest >= 0:
+                        G.add_edge(source, dest, weight=weight)
         
         # Parse path if it exists
         if path_start_line > 0 and path_start_line < len(lines):
             path_parts = lines[path_start_line].strip().split()
-            path = [int(v) for v in path_parts if v.isdigit()]
+            path = []
+            for v in path_parts:
+                if v.isdigit():
+                    idx = int(v) - 1
+                    if idx >= 0:
+                        path.append(idx)
         
         # Set up the plot
         plt.figure(figsize=(12, 8))

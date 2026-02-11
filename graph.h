@@ -33,6 +33,8 @@ public:
     void addVertex(const std::string& label);
     void addEdge(int source, int destination, int weight);
     void removeEdge(int source, int destination);
+    bool hasEdge(int source, int destination) const;
+    void makeUndirected();
 
     // Input
     void inputFromKeyboard();

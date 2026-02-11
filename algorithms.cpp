@@ -3,11 +3,38 @@
 #include <limits>
 #include <sstream>
 #include <cmath>
+#include <iomanip>
 
-// ==================== CONSTRUCTOR ====================
+namespace {
+std::vector<std::string> formatDistanceTable(const Graph& graph, const std::vector<int>& distances) {
+    std::vector<std::string> lines;
+    if (distances.empty()) return lines;
+
+    const int INF = std::numeric_limits<int>::max();
+    std::ostringstream header;
+    std::ostringstream values;
+
+    header << "Đỉnh :";
+    values << "D(i) :";
+
+    for (size_t i = 0; i < distances.size(); ++i) {
+        const std::string label = graph.getVertexLabel(static_cast<int>(i));
+        header << std::setw(6) << label;
+        if (distances[i] == INF) {
+            values << std::setw(6) << "INF";
+        } else {
+            values << std::setw(6) << distances[i];
+        }
+    }
+
+    lines.push_back(header.str());
+    lines.push_back(values.str());
+    return lines;
+}
+} // namespace
+
 Algorithms::Algorithms(const Graph& g) : graph(g) {}
 
-// ==================== HELPER METHODS ====================
 void Algorithms::logStep(std::vector<std::string>& logs, const std::string& message) {
     logs.push_back(message);
 }
@@ -22,29 +49,26 @@ std::vector<int> Algorithms::reconstructPath(int destination, const std::vector<
     return path;
 }
 
-// ==================== DIJKSTRA'S ALGORITHM ====================
+
+// Dijkstra 
 PathResult Algorithms::dijkstra(int start, bool showSteps) {
     PathResult result;
     result.startVertex = start;
     int V = graph.getVertexCount();
     const auto& adjList = graph.getAdjacencyList();
 
-    // Initialize distances and previous vertices
     const int INF = std::numeric_limits<int>::max();
     result.distances.assign(V, INF);
     result.previousVertex.assign(V, -1);
     result.distances[start] = 0;
 
-    // Priority queue: pair<distance, vertex>
-    std::priority_queue<std::pair<int, int>, 
-                       std::vector<std::pair<int, int>>,
-                       std::greater<std::pair<int, int>>> pq;
+    std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>,std::greater<std::pair<int, int>>> pq;
     pq.push({0, start});
 
     if (showSteps) {
-        logStep(result.logs, "=== DIJKSTRA'S ALGORITHM ===");
-        logStep(result.logs, "Starting vertex: " + graph.getVertexLabel(start));
-        logStep(result.logs, "Initializing distances: all = INF except start = 0");
+        logStep(result.logs, "              ======= THUẬT TOÁN DIJKSTRA =======");
+        logStep(result.logs, "Đỉnh bắt đầu: " + graph.getVertexLabel(start));
+        logStep(result.logs, "Khởi tạo khoảng cách: tất cả = INF, riêng đỉnh bắt đầu = 0");
     }
 
     std::vector<bool> visited(V, false);
@@ -59,12 +83,12 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
         iterations++;
 
         if (showSteps) {
-            logStep(result.logs, "\n[Iteration " + std::to_string(iterations) + "]");
-            logStep(result.logs, "Processing vertex: " + graph.getVertexLabel(u) + 
-                                 " (distance = " + std::to_string(dist) + ")");
+            logStep(result.logs, "");
+            logStep(result.logs, "[Lần lặp " + std::to_string(iterations) + "]");
+            logStep(result.logs, "Xử lý đỉnh: " + graph.getVertexLabel(u) +
+                                 " (khoảng cách = " + std::to_string(dist) + ")");
         }
 
-        // Relax edges
         for (const auto& edge : adjList[u]) {
             int v = edge.destination;
             int weight = edge.weight;
@@ -77,21 +101,31 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
                 pq.push({result.distances[v], v});
 
                 if (showSteps) {
-                    logStep(result.logs, "  Relax: " + graph.getVertexLabel(u) + " -> " + 
-                                         graph.getVertexLabel(v) + 
-                                         " (new distance = " + std::to_string(result.distances[v]) + ")");
+                    logStep(result.logs, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
+                                         graph.getVertexLabel(v) +
+                                         " (khoảng cách mới = " + std::to_string(result.distances[v]) + ")");
                 }
+            }
+        }
+
+        if (showSteps) {
+            logStep(result.logs, "Khoảng cách sau lần lặp " + std::to_string(iterations) + ":");
+            auto table = formatDistanceTable(graph, result.distances);
+            for (const auto& line : table) {
+                logStep(result.logs, line);
             }
         }
     }
 
     if (showSteps) {
-        logStep(result.logs, "\n=== FINAL DISTANCES ===");
+        logStep(result.logs, "");
+        logStep(result.logs, "                  === KHOẢNG CÁCH CUỐI ===");
         for (int i = 0; i < V; i++) {
             if (result.distances[i] == INF) {
-                logStep(result.logs, graph.getVertexLabel(i) + " = INF (unreachable)");
-            } else {
-                logStep(result.logs, graph.getVertexLabel(i) + " = " + std::to_string(result.distances[i]));
+                logStep(result.logs,"dist[" + std::to_string(i+1) + "] = INF (không tồn tại đường đi)");
+            } 
+            else {
+                logStep(result.logs,"dist[" + std::to_string(i+1) + "] = " + std::to_string(result.distances[i]));
             }
         }
     }
@@ -100,31 +134,30 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
     return result;
 }
 
-// ==================== BELLMAN-FORD ALGORITHM ====================
+//bellman
 PathResult Algorithms::bellmanFord(int start, bool showSteps) {
     PathResult result;
     result.startVertex = start;
     int V = graph.getVertexCount();
     const auto& adjList = graph.getAdjacencyList();
 
-    // Initialize distances and previous vertices
     const int INF = std::numeric_limits<int>::max();
     result.distances.assign(V, INF);
     result.previousVertex.assign(V, -1);
     result.distances[start] = 0;
 
     if (showSteps) {
-        logStep(result.logs, "=== BELLMAN-FORD ALGORITHM ===");
-        logStep(result.logs, "Starting vertex: " + graph.getVertexLabel(start));
-        logStep(result.logs, "Initializing distances: all = INF except start = 0");
+        logStep(result.logs, "           ======= THUẬT TOÁN BELLMAN-FORD =======");
+        logStep(result.logs, "Đỉnh bắt đầu: " + graph.getVertexLabel(start-1));
+        logStep(result.logs, "Khởi tạo khoảng cách: tất cả = INF, riêng đỉnh bắt đầu = 0");
     }
 
-    // Relax edges V-1 times
     for (int i = 0; i < V - 1; i++) {
         bool updated = false;
 
         if (showSteps) {
-            logStep(result.logs, "\n[Pass " + std::to_string(i + 1) + "/" + std::to_string(V - 1) + "]");
+            logStep(result.logs, "");
+            logStep(result.logs, "[Lượt " + std::to_string(i + 1) + "/" + std::to_string(V - 1) + "]");
         }
 
         for (int u = 0; u < V; u++) {
@@ -140,23 +173,31 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
                     updated = true;
 
                     if (showSteps) {
-                        logStep(result.logs, "  Relax: " + graph.getVertexLabel(u) + " -> " + 
-                                             graph.getVertexLabel(v) + 
-                                             " (new distance = " + std::to_string(result.distances[v]) + ")");
+                        logStep(result.logs, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
+                                             graph.getVertexLabel(v) +
+                                             " (khoảng cách mới = " + std::to_string(result.distances[v]) + ")");
                     }
                 }
             }
         }
 
         if (!updated && showSteps) {
-            logStep(result.logs, "  (No updates in this pass - early termination possible)");
+            logStep(result.logs, "  (Không có cập nhật ở lượt này - có thể dừng sớm)");
+        }
+
+        if (showSteps) {
+            logStep(result.logs, "Bảng khoảng cách sau lượt " + std::to_string(i + 1) + ":");
+            auto table = formatDistanceTable(graph, result.distances);
+            for (const auto& line : table) {
+                logStep(result.logs, line);
+            }
         }
     }
 
-    // Check for negative cycles
     result.hasNegativeCycle = false;
     if (showSteps) {
-        logStep(result.logs, "\n=== CHECKING FOR NEGATIVE CYCLES ===");
+        logStep(result.logs, "");
+        logStep(result.logs, "=== KIỂM TRA CHU TRÌNH ÂM ===");
     }
 
     for (int u = 0; u < V; u++) {
@@ -169,24 +210,25 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
                 result.hasNegativeCycle = true;
 
                 if (showSteps) {
-                    logStep(result.logs, "NEGATIVE CYCLE DETECTED!");
-                    logStep(result.logs, "Edge: " + graph.getVertexLabel(u) + " -> " + 
-                                         graph.getVertexLabel(v) + 
-                                         " (weight = " + std::to_string(weight) + ")");
+                    logStep(result.logs, "PHÁT HIỆN CHU TRÌNH ÂM!");
+                    logStep(result.logs, "Cạnh: " + graph.getVertexLabel(u) + " -> " +
+                                         graph.getVertexLabel(v) +
+                                         " (trọng số = " + std::to_string(weight) + ")");
                 }
             }
         }
     }
 
     if (!result.hasNegativeCycle && showSteps) {
-        logStep(result.logs, "No negative cycles detected.");
+        logStep(result.logs, "Không phát hiện chu trình âm.");
     }
 
     if (showSteps) {
-        logStep(result.logs, "\n=== FINAL DISTANCES ===");
+        logStep(result.logs, "");
+        logStep(result.logs, "=== KHOẢNG CÁCH CUỐI ===");
         for (int i = 0; i < V; i++) {
             if (result.distances[i] == INF) {
-                logStep(result.logs, graph.getVertexLabel(i) + " = INF (unreachable)");
+                logStep(result.logs, graph.getVertexLabel(i) + " = INF (không tới được)");
             } else {
                 logStep(result.logs, graph.getVertexLabel(i) + " = " + std::to_string(result.distances[i]));
             }
@@ -197,7 +239,6 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
     return result;
 }
 
-// ==================== UTILITY METHODS ====================
 std::vector<int> Algorithms::getShortestPath(const PathResult& result, int destination) const {
     if (destination < 0 || destination >= result.previousVertex.size()) {
         return {};

@@ -88,6 +88,28 @@ void Graph::removeEdge(int source, int destination) {
     }
 }
 
+bool Graph::hasEdge(int source, int destination) const {
+    if (source < 0 || source >= V) {
+        return false;
+    }
+    for (const auto& edge : adjList[source]) {
+        if (edge.destination == destination) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Graph::makeUndirected() {
+    for (int i = 0; i < V; i++) {
+        for (const auto& edge : adjList[i]) {
+            if (!hasEdge(edge.destination, i)) {
+                addEdge(edge.destination, i, edge.weight);
+            }
+        }
+    }
+}
+
 // ==================== INPUT ====================
 void Graph::inputFromKeyboard() {
     clear();
@@ -99,10 +121,10 @@ void Graph::inputFromKeyboard() {
 
     for (int i = 0; i < numVertices; i++) {
         std::string label;
-        std::cout << "Label for vertex " << i << ": ";
+        std::cout << "Label for vertex " << (i + 1) << ": ";
         std::getline(std::cin, label);
         if (label.empty()) {
-            label = "V" + std::to_string(i);
+            label = std::to_string(i + 1);
         }
         addVertex(label);
     }
@@ -114,9 +136,9 @@ void Graph::inputFromKeyboard() {
 
     for (int i = 0; i < numEdges; i++) {
         int source = 0, dest = 0, weight = 0;
-        std::cout << "Edge " << i << " (source destination weight): ";
+        std::cout << "Edge " << (i + 1) << " (source destination weight): ";
         std::cin >> source >> dest >> weight;
-        addEdge(source, dest, weight);
+        addEdge(source - 1, dest - 1, weight);
     }
 }
 
@@ -148,7 +170,7 @@ bool Graph::readFromFile(const std::string& filename, bool& needCreate) {
     for (int i = 0; i < numVertices; i++) {
         std::string label;
         if (!(file >> label)) {
-            label = "V" + std::to_string(i);
+            label = std::to_string(i + 1);
         }
         addVertex(label);
     }
@@ -161,7 +183,7 @@ bool Graph::readFromFile(const std::string& filename, bool& needCreate) {
     for (int i = 0; i < numEdges; i++) {
         int source = 0, dest = 0, weight = 0;
         if (file >> source >> dest >> weight) {
-            addEdge(source, dest, weight);
+            addEdge(source - 1, dest - 1, weight);
         }
     }
 
@@ -188,7 +210,7 @@ bool Graph::saveToFile(const std::string& filename) const {
     file << E << "\n";
     for (int i = 0; i < V; i++) {
         for (const auto& edge : adjList[i]) {
-            file << i << " " << edge.destination << " " << edge.weight << "\n";
+            file << (i + 1) << " " << (edge.destination + 1) << " " << edge.weight << "\n";
         }
     }
 
@@ -209,7 +231,7 @@ bool Graph::exportForPython(const std::string& filename) const {
 
     for (int i = 0; i < V; i++) {
         for (const auto& edge : adjList[i]) {
-            file << i << " " << edge.destination << " " << edge.weight << "\n";
+            file << (i + 1) << " " << (edge.destination + 1) << " " << edge.weight << "\n";
         }
     }
 
@@ -230,13 +252,13 @@ bool Graph::exportWithPath(const std::string& filename, const std::vector<int>& 
 
     for (int i = 0; i < V; i++) {
         for (const auto& edge : adjList[i]) {
-            file << i << " " << edge.destination << " " << edge.weight << "\n";
+            file << (i + 1) << " " << (edge.destination + 1) << " " << edge.weight << "\n";
         }
     }
 
     file << "\nPATH:\n";
     for (int v : path) {
-        file << v << " ";
+        file << (v + 1) << " ";
     }
     file << "\n";
 
