@@ -174,32 +174,32 @@ static void runAlgorithm(AlgorithmType type) {
     result.shortestPath = algorithms->getShortestPath(result, end);
     lastResult = result;
     std::string algoTitle = (type == AlgorithmType::DIJKSTRA)
-        ? "DIỄN BIẾN THUẬT TOÁN DIJKSTRA"
-        : "DIỄN BIẾN THUẬT TOÁN BELLMAN-FORD";
+        ? "QUÁ TRÌNH THỰC HIỆN THUẬT TOÁN DIJKSTRA"
+        : "QUÁ TRÌNH THỰC HIỆN THUẬT TOÁN BELLMAN-FORD";
 
     std::vector<std::string> displayLogs;
     std::string startLabel = graph.getVertexLabel(start);
     std::string endLabel = graph.getVertexLabel(end);
     int dist = algorithms->getDistance(result, end);
-    if (dist >= 0 && dist != INT_MAX) {
-        displayLogs.push_back("Đường đi ngắn nhất từ đỉnh " + startLabel + " đến đỉnh " + endLabel + " là " + std::to_string(dist));
-    } 
+    // if (dist >= 0 && dist != INT_MAX) {
+    //     displayLogs.push_back("Đường đi ngắn nhất từ đỉnh " + startLabel + " đến đỉnh " + endLabel + " là " + std::to_string(dist));
+    // } 
     // else {
     //     displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
     // }
 
-    if (result.shortestPath.empty()) {
-        displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
-    } else {
-        std::string pathLine = "Đường đi: ";
-        for (size_t i = 0; i < result.shortestPath.size(); i++) {
-            if (i > 0) pathLine += " -> ";
-            pathLine += graph.getVertexLabel(result.shortestPath[i]);
-        }
-        displayLogs.push_back(pathLine);
-    }
-    displayLogs.push_back("Thời gian thực hiện: " + std::to_string(execUs) + " us");
-    displayLogs.push_back("");
+    // if (result.shortestPath.empty()) {
+    //     displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
+    // } else {
+    //     std::string pathLine = "Đường đi: ";
+    //     for (size_t i = 0; i < result.shortestPath.size(); i++) {
+    //         if (i > 0) pathLine += " -> ";
+    //         pathLine += graph.getVertexLabel(result.shortestPath[i]);
+    //     }
+    //     displayLogs.push_back(pathLine);
+    // }
+    // displayLogs.push_back("Thời gian thực hiện: " + std::to_string(execUs) + " us");
+    // displayLogs.push_back("");
     displayLogs.insert(displayLogs.end(), result.logs.begin(), result.logs.end());
 
     gui->showAlgorithmLogs(algoTitle, displayLogs);

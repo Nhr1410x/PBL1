@@ -24,20 +24,15 @@ public:
     int getVertexCount() const;
     int getEdgeCount() const;
     const std::vector<std::vector<Edge>>& getAdjacencyList() const;
-    const std::vector<std::string>& getVertexLabels() const;
     std::string getVertexLabel(int vertex) const;
 
     void clear();
     void addVertex(const std::string& label);
     void addEdge(int source, int destination, int weight);
-    void removeEdge(int source, int destination);
     bool hasEdge(int source, int destination) const;
     void makeUndirected();
 
-    void inputFromKeyboard();
-
     bool fileExists(const std::string& filename) const;
-    bool readFromFile(const std::string& filename);
     bool readFromFile(const std::string& filename, bool& needCreate);
     bool saveToFile(const std::string& filename) const;
     bool exportForPython(const std::string& filename) const;

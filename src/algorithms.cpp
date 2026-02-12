@@ -2,7 +2,6 @@
 #include <queue>
 #include <limits>
 #include <sstream>
-#include <cmath>
 #include <iomanip>
 
 namespace {
@@ -259,7 +258,3 @@ int Algorithms::getDistance(const PathResult& result, int destination) const {
     return result.distances[destination];
 }
 
-void Algorithms::visualizePath(const PathResult& result, int destination, const std::string& filename) {
-    auto path = getShortestPath(result, destination);
-    graph.exportWithPath(filename, path);
-}

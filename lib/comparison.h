@@ -42,10 +42,6 @@ public:
     ComparisonReport comparePerformance(int startVertex, AlgorithmType type = AlgorithmType::BOTH);
 
     PerformanceMetrics measureAlgorithm(int startVertex, AlgorithmType type);
-
-    std::string estimateComplexity(const std::string& algorithmName, int V, int E);
-
-    void generateReport(const ComparisonReport& report, const std::string& filename);
 };
 
 #endif

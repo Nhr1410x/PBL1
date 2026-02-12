@@ -1,8 +1,6 @@
 #include "../lib/Graph.h"
 #include <filesystem>
 #include <fstream>
-#include <iostream>
-#include <algorithm>
 
 // ==================== CONSTRUCTOR & DESTRUCTOR ====================
 Graph::Graph() : V(0), E(0) {
@@ -31,10 +29,6 @@ int Graph::getEdgeCount() const {
 
 const std::vector<std::vector<Edge>>& Graph::getAdjacencyList() const {
     return adjList;
-}
-
-const std::vector<std::string>& Graph::getVertexLabels() const {
-    return vertexLabels;
 }
 
 std::string Graph::getVertexLabel(int vertex) const {
@@ -74,20 +68,6 @@ void Graph::addEdge(int source, int destination, int weight) {
     E++;
 }
 
-void Graph::removeEdge(int source, int destination) {
-    if (source < 0 || source >= V) {
-        return;
-    }
-
-    auto& edges = adjList[source];
-    auto it = std::find_if(edges.begin(), edges.end(),
-        [destination](const Edge& e) { return e.destination == destination; });
-    if (it != edges.end()) {
-        edges.erase(it);
-        E--;
-    }
-}
-
 bool Graph::hasEdge(int source, int destination) const {
     if (source < 0 || source >= V) {
         return false;
@@ -107,38 +87,6 @@ void Graph::makeUndirected() {
                 addEdge(edge.destination, i, edge.weight);
             }
         }
-    }
-}
-
-// ==================== INPUT ====================
-void Graph::inputFromKeyboard() {
-    clear();
-
-    std::cout << "Enter number of vertices: ";
-    int numVertices = 0;
-    std::cin >> numVertices;
-    std::cin.ignore();
-
-    for (int i = 0; i < numVertices; i++) {
-        std::string label;
-        std::cout << "Label for vertex " << (i + 1) << ": ";
-        std::getline(std::cin, label);
-        if (label.empty()) {
-            label = std::to_string(i + 1);
-        }
-        addVertex(label);
-    }
-
-    std::cout << "Enter number of edges: ";
-    int numEdges = 0;
-    std::cin >> numEdges;
-    std::cin.ignore();
-
-    for (int i = 0; i < numEdges; i++) {
-        int source = 0, dest = 0, weight = 0;
-        std::cout << "Edge " << (i + 1) << " (source destination weight): ";
-        std::cin >> source >> dest >> weight;
-        addEdge(source - 1, dest - 1, weight);
     }
 }
 
@@ -188,11 +136,6 @@ bool Graph::readFromFile(const std::string& filename, bool& needCreate) {
     }
 
     return true;
-}
-
-bool Graph::readFromFile(const std::string& filename) {
-    bool needCreate = false;
-    return readFromFile(filename, needCreate);
 }
 
 bool Graph::saveToFile(const std::string& filename) const {

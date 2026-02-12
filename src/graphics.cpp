@@ -11,7 +11,6 @@ static int g_graph_result = 0;
 static bool g_ansi_enabled = false;
 static int g_current_color = WHITE;
 
-// Virtual window size (pixels) -> console size (cols/rows)
 static const int g_virtual_width = 1200;
 static const int g_virtual_height = 800;
 static const int g_console_cols = 120;
@@ -65,6 +64,8 @@ static int mapY(int y) {
 }
 
 static int ansiColorCode(int color) {
+    // thiết lập màu thích đổi màu giề thì đổi ở đây.
+
     switch (color) {
         case BLACK: return 30;
         case BLUE: return 34;
@@ -143,8 +144,6 @@ void cleardevice() {
     }
 }
 
-void clearviewport() {}
-
 void setcolor(int color) {
     g_current_color = color;
 }
@@ -169,9 +168,6 @@ void outtextxy(int x, int y, char *textstring) {
         std::cout << std::endl;
     }
 }
-
-void circle(int x, int y, int radius) { (void)x; (void)y; (void)radius; }
-void line(int x1, int y1, int x2, int y2) { (void)x1; (void)y1; (void)x2; (void)y2; }
 
 void rectangle(int left, int top, int right, int bottom) {
     if (!g_ansi_enabled) return;
@@ -202,8 +198,4 @@ void rectangle(int left, int top, int right, int bottom) {
 int getch() {
     int c = std::getchar();
     return c;
-}
-
-int kbhit() {
-    return 0; // not implemented
 }

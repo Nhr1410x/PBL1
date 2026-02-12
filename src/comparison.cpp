@@ -1,7 +1,4 @@
 #include "../lib/Comparison.h"
-#include <fstream>
-#include <sstream>
-#include <iomanip>
 #include <cmath>
 
 // ==================== CONSTRUCTOR ====================
@@ -177,32 +174,4 @@ ComparisonReport Comparison::comparePerformance(int startVertex, AlgorithmType t
 
 
     return report;
-}
-
-// ==================== COMPLEXITY ESTIMATION ====================
-std::string Comparison::estimateComplexity(const std::string& algorithmName, int V, int E) {
-    std::ostringstream oss;
-    
-    if (algorithmName == "Dijkstra") {
-        oss << "O(E log V) = O(" << E << " * log " << V << ") ≈ O("
-            << (int)(E * std::log(V)) << ")";
-    } else if (algorithmName == "Bellman-Ford") {
-        oss << "O(V * E) = O(" << V << " * " << E << ") = O(" << (V * E) << ")";
-    }
-    
-    return oss.str();
-}
-
-// ==================== REPORT GENERATION ====================
-void Comparison::generateReport(const ComparisonReport& report, const std::string& filename) {
-    std::ofstream file(filename);
-    if (!file.is_open()) {
-        return;
-    }
-
-    for (const auto& log : report.logs) {
-        file << log << "\n";
-    }
-
-    file.close();
 }

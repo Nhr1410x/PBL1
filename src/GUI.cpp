@@ -1,6 +1,5 @@
 #include "../lib/GUI.h"
 #include <iostream>
-#include <cstring>
 #include <cctype>
 #include <sstream>
 
@@ -243,7 +242,7 @@ void drawFrameBox(const std::string& title, int left, int top, int right, int bo
 }
 
 void drawHeaderFrame(int screenW) {
-    int extra = 2 * approxCharWidth(); // expand 4 characters total (2 each side)
+    int extra = 2 * approxCharWidth(); 
     int left = OUTER_MARGIN - extra;
     int right = screenW - OUTER_MARGIN + extra;
     if (left < 0) left = 0;
@@ -282,7 +281,7 @@ void drawHeaderFrame(int screenW) {
 
 void drawContentFrame(const std::string& title, int screenW, int screenH,
                       int& left, int& top, int& right, int& bottom, int& centerX, int& innerLeft, int& innerTop) {
-    int extra = 2 * approxCharWidth(); // expand 4 characters total (2 each side)
+    int extra = 2 * approxCharWidth(); 
     left = OUTER_MARGIN - extra;
     right = screenW - OUTER_MARGIN + extra;
     if (left < 0) left = 0;
@@ -292,14 +291,14 @@ void drawContentFrame(const std::string& title, int screenW, int screenH,
     drawFrameBox(title, left, top, right, bottom, centerX, innerLeft, innerTop);
 }
 
-void drawContentFrameCustom(const std::string& title, int screenW, int screenH, int outerMargin, int headerGap,
-                            int& left, int& top, int& right, int& bottom, int& centerX, int& innerLeft, int& innerTop) {
-    left = outerMargin;
-    right = screenW - outerMargin;
-    top = outerMargin + headerHeight() + headerGap;
-    bottom = screenH - outerMargin;
-    drawFrameBox(title, left, top, right, bottom, centerX, innerLeft, innerTop);
-}
+// void drawContentFrameCustom(const std::string& title, int screenW, int screenH, int outerMargin, int headerGap,
+//                             int& left, int& top, int& right, int& bottom, int& centerX, int& innerLeft, int& innerTop) {
+//     left = outerMargin;
+//     right = screenW - outerMargin;
+//     top = outerMargin + headerHeight() + headerGap;
+//     bottom = screenH - outerMargin;
+//     drawFrameBox(title, left, top, right, bottom, centerX, innerLeft, innerTop);
+// }
 
 void drawLogFrame(const std::string& title, int left, int top, int right, int bottom,
                   int& centerX, int& innerLeft, int& innerTop) {
@@ -318,76 +317,6 @@ void drawLogFrame(const std::string& title, int left, int top, int right, int bo
     innerTop = top + 2 * lineH;
 }
 } 
-
-Button::Button(int x, int y, int width, int height, const std::string& label)
-    : x(x), y(y), width(width), height(height), label(label), isHovered(false) {
-}
-
-Button::~Button() {}
-
-void Button::draw() {
-    int color = isHovered ? COLOR_BUTTON_HOVER : COLOR_BUTTON;
-    setcolor(color);
-    rectangle(x, y, x + width, y + height);
-    
-    setcolor(COLOR_TEXT);
-    outtextxy(x + 5, y + 5, (char*)label.c_str());
-}
-
-bool Button::isClicked(int mouseX, int mouseY) {
-    return (mouseX >= x && mouseX <= x + width &&
-            mouseY >= y && mouseY <= y + height);
-}
-
-bool Button::handleMouseMove(int mouseX, int mouseY) {
-    bool wasHovered = isHovered;
-    isHovered = isClicked(mouseX, mouseY);
-    return isHovered != wasHovered;
-}
-
-void Button::setCallback(std::function<void()> cb) {
-    callback = cb;
-}
-
-void Button::getRect(int& rx, int& ry, int& rw, int& rh) const {
-    rx = x;
-    ry = y;
-    rw = width;
-    rh = height;
-}
-
-TextBox::TextBox(int x, int y, int width, int height)
-    : x(x), y(y), width(width), height(height), isActive(false) {
-}
-
-TextBox::~TextBox() {}
-
-void TextBox::draw() {
-    int color = isActive ? YELLOW : WHITE;
-    setcolor(color);
-    rectangle(x, y, x + width, y + height);
-    
-    setcolor(COLOR_TEXT);
-    if (!content.empty()) {
-        outtextxy(x + 5, y + 5, (char*)content.c_str());
-    }
-}
-
-void TextBox::setText(const std::string& text) {
-    content = text;
-}
-
-std::string TextBox::getText() const {
-    return content;
-}
-
-void TextBox::clear() {
-    content.clear();
-}
-
-void TextBox::setActive(bool active) {
-    isActive = active;
-}
 
 GUI::GUI() : screenWidth(WINDOW_WIDTH), screenHeight(WINDOW_HEIGHT) {
 }
@@ -441,84 +370,6 @@ void GUI::drawMenu() {
     drawLeftAlignedText(choiceInnerLeft, choiceTextY, MENU_PROMPT);
 }
 
-void GUI::drawInputMenu() {
-    clearScreen();
-    setbkcolor(COLOR_BACKGROUND);
-    
-    drawHeaderFrame(WINDOW_WIDTH);
-
-    int left, top, right, bottom, centerX, innerLeft, innerTop;
-    drawContentFrame("TẠO ĐỒ THỊ/ NHẬP ĐỒ THỊ TỪ FILE", WINDOW_WIDTH, WINDOW_HEIGHT,
-                     left, top, right, bottom, centerX, innerLeft, innerTop);
-
-    int lineH = approxLineHeight();
-    int y = innerTop + 10;
-
-    setcolor(YELLOW);
-    drawCenteredText(centerX, y, "Nhập thông tin đồ thị trong console."); y += lineH + 6;
-    drawCenteredText(centerX, y, "Số đỉnh:"); y += lineH + 6;
-    drawCenteredText(centerX, y, "Các cạnh (u v w lần lược là đỉnh nguồn, đỉnh đích, trọng số):");
-}
-
-void GUI::drawRunningScreen(const std::vector<std::string>& logs) {
-    size_t index = 0;
-    int lineH = approxLineHeight();
-    int maxLinesPerPage = 0;
-    std::vector<std::string> wrappedLogs;
-    const int safetyLines = 20;
-
-    while (true) {
-        clearScreen();
-        setbkcolor(COLOR_BACKGROUND);
-        
-        drawHeaderFrame(WINDOW_WIDTH);
-
-        int left, top, right, bottom, centerX, innerLeft, innerTop;
-        drawContentFrame("ĐANG CHẠY THUẬT TOÁN", WINDOW_WIDTH, WINDOW_HEIGHT,
-                         left, top, right, bottom, centerX, innerLeft, innerTop);
-
-        int maxWidth = right - innerLeft - 8;
-        if (wrappedLogs.empty()) {
-            wrappedLogs = wrapLinesToWidth(logs, maxWidth);
-            if (wrappedLogs.empty()) {
-                wrappedLogs.push_back("");
-            }
-        }
-
-        if (maxLinesPerPage == 0) {
-            int yProbe = innerTop + 6;
-            while (yProbe < bottom - lineH * 2) {
-                maxLinesPerPage++;
-                yProbe += lineH + 4;
-            }
-            if (maxLinesPerPage < 1) maxLinesPerPage = 1;
-            if (maxLinesPerPage > safetyLines) {
-                maxLinesPerPage -= safetyLines;
-            }
-        }
-
-        setcolor(LIGHTGREEN);
-        int yPos = innerTop + 6;
-        int count = 0;
-        while (index < wrappedLogs.size() && count < maxLinesPerPage) {
-            outtextxy(innerLeft, yPos, (char*)wrappedLogs[index].c_str());
-            yPos += lineH + 4;
-            index++;
-            count++;
-        }
-
-        bool hasMore = index < wrappedLogs.size();
-        setcolor(LIGHTCYAN);
-        if (hasMore) {
-            drawCenteredText(centerX, bottom - lineH - 4, "Nhấn phím bất kỳ để xem tiếp...");
-            getch();
-            continue;
-        }
-
-        drawCenteredText(centerX, bottom - lineH - 4, "Nhấn phím bất kỳ để quay lại menu...");
-        break;
-    }
-}
 
 void GUI::drawComparisonScreen(const std::vector<std::string>& logs) {
     size_t index = 0;
@@ -574,10 +425,6 @@ void GUI::drawComparisonScreen(const std::vector<std::string>& logs) {
         drawCenteredText(centerX, bottom - lineH - 4, "Nhấn phím bất kỳ để quay lại menu...");
         break;
     }
-}
-
-void GUI::handleEvent() {
-    // Event handling can be implemented here if needed
 }
 
 void GUI::clearScreen() {
@@ -857,7 +704,7 @@ void GUI::promptGraphInput(bool isDirected, int& numVertices, int& numEdges,
                 yEdgesStart += lineH + 4;
             }
             int availableLines = (errorY - lineH) - yEdgesStart;
-            int maxEdgeLines = availableLines / lineH;
+            int maxEdgeLines = INT_MAX;
             if (maxEdgeLines < 1) maxEdgeLines = 1;
             if (value > maxEdgeLines) {
                 showError("Số cạnh quá nhiều để nhập trong 1 khung. Tối đa " + std::to_string(maxEdgeLines) + ".");
@@ -983,42 +830,6 @@ void GUI::showMessage(const std::string& title, const std::vector<std::string>& 
     for (const auto& line : lines) {
         if (y > bottom - lineH * 2) break;
         drawLeftAlignedText(messageX, y, line);
-        y += lineH;
-    }
-
-    setcolor(LIGHTCYAN);
-    drawCenteredText(centerX, bottom - lineH - 4, PRESS_ANY_KEY);
-    waitForKey();
-}
-
-void GUI::showNotice(const std::string& title, const std::vector<std::string>& lines) {
-    clearScreen();
-    setbkcolor(COLOR_BACKGROUND);
-    drawHeaderFrame(WINDOW_WIDTH);
-
-    int left, top, right, bottom, centerX, innerLeft, innerTop;
-    drawContentFrame(title, WINDOW_WIDTH, WINDOW_HEIGHT,
-                     left, top, right, bottom, centerX, innerLeft, innerTop);
-
-    int lineH = approxLineHeight();
-    int y = innerTop + 4;
-    int messageX = bottomIndentX(left);
-
-    const std::string tag = "LƯU Ý:";
-    setcolor(LIGHTRED);
-    drawLeftAlignedText(messageX, y, tag);
-
-    setcolor(COLOR_TEXT);
-    int textX = messageX + approxTextWidth(tag) + approxCharWidth();
-    if (!lines.empty()) {
-        drawLeftAlignedText(textX, y, lines[0]);
-        y += lineH;
-        for (size_t i = 1; i < lines.size(); ++i) {
-            if (y > bottom - lineH * 2) break;
-            drawLeftAlignedText(messageX, y, lines[i]);
-            y += lineH;
-        }
-    } else {
         y += lineH;
     }
 

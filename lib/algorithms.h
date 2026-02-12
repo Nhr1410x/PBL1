@@ -36,8 +36,6 @@ public:
     std::vector<int> getShortestPath(const PathResult& result, int destination) const;
 
     int getDistance(const PathResult& result, int destination) const;
-
-    void visualizePath(const PathResult& result, int destination, const std::string& filename);
 };
 
 #endif
