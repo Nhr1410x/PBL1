@@ -2,7 +2,6 @@
 #include <filesystem>
 #include <fstream>
 
-// ==================== CONSTRUCTOR & DESTRUCTOR ====================
 Graph::Graph() : V(0), E(0) {
     std::filesystem::create_directories(DATA_FOLDER);
 }
@@ -17,8 +16,6 @@ Graph::Graph(int vertices) : V(0), E(0) {
 Graph::~Graph() {
     clear();
 }
-
-// ==================== GETTERS ====================
 int Graph::getVertexCount() const {
     return V;
 }
@@ -38,7 +35,6 @@ std::string Graph::getVertexLabel(int vertex) const {
     return "Invalid";
 }
 
-// ==================== GRAPH MODIFICATION ====================
 void Graph::clear() {
     adjList.clear();
     vertexLabels.clear();
@@ -90,7 +86,6 @@ void Graph::makeUndirected() {
     }
 }
 
-// ==================== FILE I/O ====================
 bool Graph::fileExists(const std::string& filename) const {
     return std::filesystem::exists(filename);
 }
@@ -212,7 +207,6 @@ bool Graph::exportForPython(const std::vector<int>& path) const {
     return exportWithPath(TEMP_EXPORT_FILE, path);
 }
 
-// ==================== VALIDATION ====================
 bool Graph::isValid() const {
     return V > 0;
 }

@@ -1,10 +1,8 @@
 #include "../lib/Comparison.h"
 #include <cmath>
 
-// ==================== CONSTRUCTOR ====================
 Comparison::Comparison(const Graph& g) : graph(g), algorithms(g) {}
 
-// ==================== PERFORMANCE MEASUREMENT ====================
 PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType type) {
     PerformanceMetrics metrics;
     int V = graph.getVertexCount();
@@ -13,7 +11,7 @@ PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType t
     if (type == AlgorithmType::DIJKSTRA) {
         metrics.algorithmName = "Dijkstra";
         
-        // Check for negative weights
+        // kiểm tra trong số âmm
         if (graph.hasNegativeWeights()) {
             metrics.success = false;
             metrics.executionTimeUs = 0;
@@ -47,7 +45,7 @@ PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType t
     return metrics;
 }
 
-// ==================== COMPARISON REPORT ====================
+
 ComparisonReport Comparison::comparePerformance(int startVertex, AlgorithmType type) {
     ComparisonReport report;
     report.startVertex = startVertex;

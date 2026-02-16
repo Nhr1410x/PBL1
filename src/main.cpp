@@ -14,7 +14,6 @@
 #include "../lib/Algorithms.h"
 #include "../lib/Comparison.h"
 
-// ==================== GLOBAL VARIABLES ====================
 Graph graph;
 Algorithms* algorithms = nullptr;
 Comparison* comparison = nullptr;
@@ -270,7 +269,6 @@ static void exportToPython() {
     }
 }
 
-// ==================== MAIN FUNCTION ====================
 int main() {
 #ifdef _WIN32
     initConsoleUtf8();
