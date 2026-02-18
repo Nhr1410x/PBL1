@@ -1,0 +1,99 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {chapter}{MỤC LỤC}{i}{Doc-Start}%
+\contentsline {chapter}{DANH MỤC HÌNH VẼ}{iii}{chapter*.1}%
+\contentsline {chapter}{MỞ ĐẦU}{1}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}TỔNG QUAN ĐỀ TÀI}{2}{chapter.1}%
+\contentsline {subsection}{\numberline {1.0.1}Bài toán tìm đường đi ngắn nhất và tầm quan trọng}{2}{subsection.1.0.1}%
+\contentsline {subsection}{\numberline {1.0.2}Mục đích và mục tiêu thực hiện đề tài}{2}{subsection.1.0.2}%
+\contentsline {subsection}{\numberline {1.0.3}Phạm vi và đối tượng nghiên cứu}{3}{subsection.1.0.3}%
+\contentsline {subsection}{\numberline {1.0.4}Phương pháp nghiên cứu}{3}{subsection.1.0.4}%
+\contentsline {subsection}{\numberline {1.0.5}Cấu trúc môn học}{3}{subsection.1.0.5}%
+\contentsline {chapter}{\numberline {2}CƠ SỞ LÝ THUYẾT}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Ý tưởng}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Thuật toán Dijkstra -- phương pháp tham lam}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Thuật toán Bellman Ford -- phương pháp quy hoạch động}{4}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}So sánh}{4}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Cơ sở lý thuyết}{5}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Kiến thức nền tảng về lý thuyết đồ thị}{5}{subsection.2.2.1}%
+\contentsline {subsubsection}{Định nghĩa và Phân loại}{5}{subsubsection*.4}%
+\contentsline {subsubsection}{Cách biểu diễn đồ thị}{5}{subsubsection*.5}%
+\contentsline {subsubsection}{Một số khái niệm liên quan}{5}{subsubsection*.6}%
+\contentsline {subsection}{\numberline {2.2.2}Nguyên lý tối ưu và tính đúng đắn}{6}{subsection.2.2.2}%
+\contentsline {subsubsection}{Nguyên lý tối ưu Dijkstra:}{6}{subsubsection*.7}%
+\contentsline {subsubsection}{Nguyên lý Tối ưu Bellman:}{6}{subsubsection*.8}%
+\contentsline {subsubsection}{Tính đúng đắn và sự hội tụ:}{7}{subsubsection*.9}%
+\contentsline {subsubsection}{Nguyên lý relaxation(nới lỏng cạnh): }{7}{subsubsection*.10}%
+\contentsline {chapter}{\numberline {3}TỔ CHỨC CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Phát biểu bài toán}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Cấu trúc dữ liệu}{8}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Các thư viện được sử dụng trong chương trình}{8}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Các cấu trúc dữ liệu tự xây dựng}{9}{subsection.3.2.2}%
+\contentsline {subsubsection}{\textcolor {darkred}{Cấu trúc dữ liệu Edge}}{9}{subsubsection*.11}%
+\contentsline {subsubsection}{\textcolor {darkred}{Class Graph}}{10}{subsubsection*.12}%
+\contentsline {subsubsection}{\textcolor {darkred}{Cấu trúc dữ liệu PathResult}}{10}{subsubsection*.13}%
+\contentsline {subsubsection}{\textcolor {darkred}{Cấu trúc dữ liệu PathResult}}{10}{subsubsection*.14}%
+\contentsline {subsubsection}{\textcolor {darkred}{Cấu trúc dữ liệu PerformanceMetrics}}{11}{subsubsection*.15}%
+\contentsline {subsubsection}{\textcolor {darkred}{Cấu trúc dữ liệu ComparisonReport}}{11}{subsubsection*.16}%
+\contentsline {subsubsection}{\textcolor {darkred}{Class Comparison}}{11}{subsubsection*.17}%
+\contentsline {subsubsection}{\textcolor {darkred}{Class GUI}}{11}{subsubsection*.18}%
+\contentsline {section}{\numberline {3.3}Thuật toán}{12}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Thuật toán Dijkstra}{12}{subsection.3.3.1}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Giới thiệu}}{12}{subsubsection*.19}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Nguyên lý hoạt động}}{12}{subsubsection*.20}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Các bước thực hiện thuật toán}}{13}{subsubsection*.21}%
+\contentsline {subsubsection}{Pseudocode}{13}{subsubsection*.22}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Phân tích độ phức tạp thời gian}}{14}{subsubsection*.23}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Phân tích bộ nhớ (phức tạp không gian)}}{14}{subsubsection*.24}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Ứng dụng và ghi chú}}{14}{subsubsection*.25}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Ví dụ minh họa chi tiết}}{15}{subsubsection*.26}%
+\contentsline {subsubsection}{Kết quả}{20}{subsubsection*.27}%
+\contentsline {subsection}{\numberline {3.3.2}Thuật toán Bellman-Ford}{21}{subsection.3.3.2}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Giới thiệu}}{21}{subsubsection*.28}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Nguyên lý hoạt động}}{21}{subsubsection*.29}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Các bước thực hiện thuật toán}}{22}{subsubsection*.30}%
+\contentsline {subsubsection}{Pseudocode}{22}{subsubsection*.31}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Phân tích độ phức tạp}}{23}{subsubsection*.32}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Ý tưởng tối ưu Bellman--Ford bằng SPFA (Shortest Path Faster Algorithm)}}{23}{subsubsection*.33}%
+\contentsline {subsubsection}{Nguyên lý và tổ chức hàng đợi}{23}{subsubsection*.34}%
+\contentsline {subsubsection}{Các bước thực hiện}{24}{subsubsection*.35}%
+\contentsline {subsubsection}{Độ phức tạp và đặc tính}{24}{subsubsection*.36}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Cách phát hiện chu trình âm}}{24}{subsubsection*.37}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Ứng dụng}}{25}{subsubsection*.38}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Ví dụ minh họa chi tiết}}{25}{subsubsection*.39}%
+\contentsline {subsection}{\numberline {3.3.3}Tổng kết}{29}{subsection.3.3.3}%
+\contentsline {chapter}{\numberline {4}CHƯƠNG TRÌNH VÀ KẾT QUẢ}{30}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tổ chức chương trình}{30}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Tổng quan cấu trúc}{30}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Chi tiết chức năng}{31}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Phân loại và mô tả chức năng các hàm trong chương trình}{31}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Ngôn ngữ cài đặt}{37}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Kết quả}{37}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Giao diện chính}{37}{subsection.4.3.1}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Giao diện chính của chương trình}}{37}{subsubsection*.40}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Giao diện nhập đồ thị}}{38}{subsubsection*.41}%
+\contentsline {subsection}{\numberline {4.3.2}Kết quả thực thi}{38}{subsection.4.3.2}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Đồ thị có trọng số dương}}{38}{subsubsection*.42}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Chức năng Thuật toán Dijkstra}}{39}{subsubsection*.43}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Chức năng Thuật toán Bellman-Ford}}{39}{subsubsection*.44}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Chức năng So sánh}}{40}{subsubsection*.45}%
+\contentsline {subsection}{\numberline {4.3.3}Nhận xét}{40}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {5}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kết luận}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Hướng phát triển}{41}{section.5.2}%
+\contentsline {chapter}{TÀI LIỆU THAM KHẢO}{42}{chapter*.46}%
+\contentsline {chapter}{PHỤ LỤC}{43}{appendix*.47}%
+\contentsline {section}{\numberline {.1}Toàn bộ chương trình và cài đặt}{43}{section.Alph0.1}%
+\contentsline {section}{\numberline {.2}Mã nguồn chương trình}{43}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {.2.1}Mã nguồn chương trình chính : main.cpp}{43}{subsection.Alph0.2.1}%
+\contentsline {subsection}{\numberline {.2.2}Mã nguồn chương trình ghi dữ liệu : graph.cpp}{48}{subsection.Alph0.2.2}%
+\contentsline {subsection}{\numberline {.2.3}Mã nguồn chương trình thực hiện thuật toán : algorithms.cpp}{53}{subsection.Alph0.2.3}%
+\contentsline {subsection}{\numberline {.2.4}Mã nguồn chương trình so sánh : comparison.cpp}{57}{subsection.Alph0.2.4}%
+\contentsline {subsection}{\numberline {.2.5}Mã nguồn chương trình vẽ giao diện : GUI.cpp}{61}{subsection.Alph0.2.5}%
+\contentsline {subsection}{\numberline {.2.6}Mã nguồn chương trình vẽ khung : graphics.cpp}{75}{subsection.Alph0.2.6}%
+\contentsline {section}{\numberline {.3}Mã nguồn các thư viện tự cài đặt}{79}{section.Alph0.3}%
+\contentsline {subsection}{\numberline {.3.1}Mã nguồn thư viện dữ liệu đồ thị : graph.h}{79}{subsection.Alph0.3.1}%
+\contentsline {subsection}{\numberline {.3.2}Mã nguồn thư viện thiết lập màu : Colors.h}{80}{subsection.Alph0.3.2}%
+\contentsline {subsection}{\numberline {.3.3}Mã nguồn thư viện toàn cục : Global.h}{80}{subsection.Alph0.3.3}%
+\contentsline {subsection}{\numberline {.3.4}Mã nguồn thư viện đồ họa : GUI.h}{81}{subsection.Alph0.3.4}%
+\contentsline {subsection}{\numberline {.3.5}Mã nguồn thư viện thuật toán : algorithms.h}{81}{subsection.Alph0.3.5}%
+\contentsline {subsection}{\numberline {.3.6}Mã nguồn thư viện so sánh : comparison.h}{82}{subsection.Alph0.3.6}%

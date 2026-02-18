@@ -1,0 +1,2130 @@
+\documentclass[14pt,a4paper]{report}
+
+% ======================================================
+% 1. CẤU HÌNH GÓI LỆNH
+% ======================================================
+\usepackage[T5]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+
+
+\usepackage[top=2.0cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{wrapfig}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+
+% --- Dãn dòng ---
+\linespread{1.3}
+
+% --- Màu code ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{darkblue}{RGB}{0,0,139} % xanh đậm
+\definecolor{darkred}{RGB}{139,0,0}
+\definecolor{darkgreen}{RGB}{0, 100, 0}
+\definecolor{darkyellow}{RGB}{204,153,0}
+\definecolor{headergray}{RGB}{45,45,45}
+\definecolor{rowline}{RGB}{80,80,80}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    captionpos=b,
+    numbers=left,
+    numbersep=5pt,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% --- Định dạng chương ---
+\titleformat{\chapter}[block]
+{\bfseries\Large\centering}
+{\chaptername\ \thechapter.}{0.5em}{}
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+
+% ======================================================
+% HEADER & FOOTER
+% ======================================================
+\pagestyle{fancy}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\fancyhead[L]{\small TRƯỜNG ĐẠI HỌC BÁCH KHOA}
+\fancyhead[R]{\small ĐỒ ÁN LẬP TRÌNH TÍNH TOÁN}
+
+\fancyfoot[L]{\small Nguyễn Hữu Rin - Huỳnh Nguyễn Hồng Nhi}
+\fancyfoot[R]{\thepage}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \renewcommand{\footrulewidth}{0.5pt}
+    \fancyhead[L]{\small TRƯỜNG ĐẠI HỌC BÁCH KHOA}
+    \fancyhead[R]{\small ĐỒ ÁN LẬP TRÌNH TÍNH TOÁN}
+    \fancyfoot[L]{\small Nguyễn Hữu Rin - Huỳnh Nguyễn Hồng Nhi}
+    \fancyfoot[R]{\thepage}
+}
+
+% \renewcommand{\thechapter}{\Roman{chapter}}
+
+
+\begin{document}
+
+% ======================================================
+% TRANG BÌA
+% ======================================================
+\begin{titlepage}
+\begin{tikzpicture}[remember picture, overlay]
+\draw [line width=2pt, draw=blue!80!black]
+($(current page.north west) + (3.0cm,-2.0cm)$)
+rectangle ($(current page.south east) + (-1.5cm,2.0cm)$);
+
+\draw [line width=0.5pt, draw=blue!80!black]
+($(current page.north west) + (3.1cm,-2.1cm)$)
+rectangle ($(current page.south east) + (-1.6cm,2.1cm)$);
+\end{tikzpicture}
+
+\begin{center}
+\textbf{\Large TRƯỜNG ĐẠI HỌC BÁCH KHOA} \\
+\textbf{\Large KHOA CÔNG NGHỆ THÔNG TIN} \\
+{\color{blue!80!black}\rule{7cm}{1.5pt}}
+
+\vspace{1cm}
+\includegraphics[width=0.22\textwidth]{logoITFaculty.png}
+
+\vspace{2.5cm}
+{\fontsize{20pt}{24pt}\selectfont
+\textbf{ĐỒ ÁN LẬP TRÌNH TÍNH TOÁN} \\}
+
+\vspace{1cm}
+{\fontsize{23pt}{28pt}\selectfont
+\textbf{ĐỀ TÀI: TÌM ĐƯỜNG ĐI NGẮN NHẤT}}
+
+\vspace{4.5cm}
+
+\begin{flushleft}
+\hspace{2.5cm}\textbf{Người hướng dẫn:} TS. Nguyễn Văn Hiệu\\
+\hspace{2.5cm}\textbf{Sinh viên thực hiện:}
+
+\vspace{0.2cm}
+\hspace{2.5cm}
+\begin{tabular}{lll}
+\textbf{Tên sinh viên 1:} & Nguyễn Hữu Rin & \textbf{Lớp: 25Nh.15A}\\
+\textbf{Tên sinh viên 2:} & Huỳnh Nguyễn Hồng Nhi & \textbf{Lớp: 25Nh.15A}
+\end{tabular}
+\end{flushleft}
+
+\vfill
+\textbf{Đà Nẵng, 06/2026}
+\end{center}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+
+% ======================================================
+% MỤC LỤC
+% ======================================================
+\pagenumbering{roman}
+\addcontentsline{toc}{chapter}{MỤC LỤC}
+\tableofcontents
+\newpage
+
+\addcontentsline{toc}{chapter}{DANH MỤC HÌNH VẼ} 
+\listoffigures 
+\newpage
+
+% ======================================================
+% NỘI DUNG
+% ======================================================
+\pagenumbering{arabic}
+
+\chapter*{MỞ ĐẦU}
+\addcontentsline{toc}{chapter}{MỞ ĐẦU}
+\justifying
+    \fontsize{12pt}{13pt}\selectfont
+    Sự phát triển của lý thuyết đồ thị trong thế kỷ XX đã đặt nền móng cho cuộc cách mạng trong khoa học máy tính và tối ưu hóa. Trong số các bài toán kinh điển, bài toán tìm đường đi ngắn nhất nổi lên như một thách thức trọng tâm với vô vàn ứng dụng thực tiễn. Việc xác định lộ trình tối ưu không chỉ đơn thuần là tìm kiếm khoảng cách vật lý nhỏ nhất mà còn liên quan đến việc tối ưu hóa chi phí, thời gian và tài nguyên trong các mạng lưới phức tạp. Đề tài \textbf{'Phân tích và đánh giá hiệu năng giữa thuật toán Dijkstra và Bellman-Ford'} được thực hiện nhằm mục đích giải soát các đặc tính thuật toán, phân tích sự tương quan về độ phức tạp và xác lập các điều kiện tối ưu cho từng kịch bản, tình huống dữ liệu cụ thể.
+    \vspace{2.5pt}
+    
+    Nghiên cứu này tập trung phân tích chuyên sâu về nguyên lý hoạt động, các bất biến thuật toán và đặc thù cấu trúc của Dijkstra cùng Bellman-Ford. Mục tiêu trọng tâm là thiết lập một hệ thống đánh giá hiệu năng đa chiều dựa trên ba chỉ số: thời gian thực thi, độ phức tạp bộ nhớ và tính ổn định khi xử lý đồ thị có trọng số âm.
+    \vspace{2.5pt}
+    
+   Để đảm bảo tính khách quan và khả năng tái lập, nghiên cứu được triển khai thực nghiệm trên các bộ dữ liệu tổng hợp, kết hợp các kỹ thuật trực quan hóa kết quả, tiến trình thuật toán.  Phạm vi nghiên cứu bao trùm trên cả cấu trúc đồ thị có hướng và vô hướng, đồng thời xác lập các điều kiện biên về trọng số (đặc biệt là xử lý trường hợp trọng số âm và chu trình âm). Phương pháp luận được xây dựng dựa trên sự phối hợp giữa mô hình hóa toán học và thực nghiệm định lượng. Cấu trúc đề tài được tổ chức tuyến tính từ cơ sở lý thuyết, phân tích thuật toán, đến kiểm chứng thực nghiệm, so sánh, tổng hợp kết quả và cuối cùng là rút ra nhận xét.
+   \vspace{2.5pt}
+   
+   Do thời gian và trình độ chuyên môn còn hạn chế, chúng em nhận thức rằng đồ án không tránh khỏi những thiếu sót . Chúng em xin chân thành cảm ơn sự hướng dẫn tận tâm của thầy \textbf{TS. Nguyễn Văn Hiệu} trong suốt quá trình thực hiện đề tài. Nhóm chúng em rất mong nhận được những ý kiến đóng góp quý báu từ quý thầy cô để hoàn thiện hơn nữa đề tài này.
+   \vspace{30pt}
+
+   \hfill Nhóm sinh viên thực hiện. 
+
+
+\chapter{TỔNG QUAN ĐỀ TÀI}
+
+\subsection{Bài toán tìm đường đi ngắn nhất và tầm quan trọng}
+% --- Bắt đầu chèn ảnh bên trái ---
+\begin{wrapfigure}{r}{0.4\textwidth} % {l} là trái, {0.4\textwidth} là chiều rộng của khung ảnh (40% trang)
+    \centering
+    \vspace{-5pt} % Điều chỉnh khoảng cách trên của ảnh nếu cần
+    \includegraphics[width=0.35\textwidth]{Picture/graph1.png} 
+    \caption{Hình minh họa lý thuyết đồ thị} % Chú thích cho ảnh
+    \label{fig:mang_luoi_minh_hoa}
+    \vspace{-10pt} % Điều chỉnh khoảng cách dưới của ảnh để văn bản sát hơn
+\end{wrapfigure}
+
+\justifying
+    \fontsize{12pt}{13pt}\selectfont
+    Bài toán đường đi ngắn nhất một nguồn (single-source shortest path) yêu cầu xác định khoảng cách nhỏ nhất từ một đỉnh nguồn $s$ tới tất cả các đỉnh còn lại trong đồ thị có trọng số $G=(V,E)$. Trọng số trên các cạnh mô tả chi phí, chiều dài hoặc thời gian di chuyển; tùy thuộc vào bản chất của trọng số (dương, bằng 0 hay âm), thuật toán sẽ có nhiều cách giải quyết khác nhau và có độ phức tạp riêng.
+    \vspace{2.5pt}
+    
+    Lý thuyết đồ thị và bài toán đường đi ngắn nhất nổi lên vào giữa thế kỷ XX cùng với sự phát triển của khoa học máy tính và nhu cầu tối ưu hóa mạng lưới giao thông, viễn thông và logistics. Hiện nay, các thuật toán tìm đường đi ngắn nhất là hạt nhân của nhiều hệ thống thực tế như định tuyến GPS, giao thông thông minh và giao thức mạng (OSPF, IS-IS). Vì vậy, tìm hiểu và lựa chọn thuật toán phù hợp là nhiệm vụ quan trọng trong cả nghiên cứu lẫn ứng dụng.
+    \vspace{2.5pt}
+
+    \textbf{Lịch sử phát triển các thuật toán liên quan}
+    \begin{itemize}
+      \item \textbf{Thuật toán Dijkstra} (Edsger W. Dijkstra, 1956) sử dụng phương pháp \textbf{tham lam} kết hợp hàng đợi ưu tiên để chọn đỉnh có nhãn tạm thời nhỏ nhất và cập nhật khoảng cách
+      Thuật toán này hoạt động hiệu quả trên đồ thị có trọng số không âm và đạt độ phức tạp thời gian $O(|E|\log|V|)$ khi sử dụng hàng đợi ưu tiên thích hợp
+      
+      \item \textbf{Thuật toán Bellman--Ford} (1956--1958) dựa trên quy hoạch động và thực hiện quá trình nới lỏng toàn bộ các cạnh $|V|-1$ lần; ưu điểm của nó là xử lý được trọng số âm và phát hiện chu trình âm nhưng độ phức tạp thời gian cao hơn, $O(|V||E|)$
+      
+      \item \textbf{Thuật toán Floyd--Warshall} (1962) là thuật toán động quy hoạch giải bài toán đường đi ngắn nhất cho mọi cặp đỉnh (all-pairs), với độ phức tạp $O(|V|^3)$. Đây là phương án tổng quát nhưng không phù hợp khi chỉ cần đường đi ngắn nhất từ một nguồn do chi phí tính toán lớn.
+    \end{itemize}
+        \vspace{2.5pt}
+    
+    Với đề tài này, nhóm lựa chọn so sánh hai thuật toán \textbf{Dijkstra} và \textbf{Bellman--Ford} vì chúng là những phương pháp kinh điển cho bài toán đường đi ngắn nhất một nguồn. Dijkstra nổi bật về hiệu năng trên đồ thị có trọng số không âm và được ứng dụng rộng rãi; trong khi đó, Bellman--Ford có khả năng phát hiện và xử lý trọng số âm nhưng tốn thời gian hơn. Việc phân tích và đánh giá hai thuật toán này giúp xác định điều kiện áp dụng phù hợp và đóng góp thiết thực cho các ứng dụng thực tiễn.
+
+
+\subsection{Mục đích và mục tiêu thực hiện đề tài}
+\justifying\fontsize{11.5pt}{12pt}\selectfont
+Mục đích của đề tài là nghiên cứu sâu về cách thức vận hành của hai thuật toán Dijkstra và Bellman-Ford từ cơ sở lý thuyết đến ứng dụng thực tiễn. Đề tài tập trung vào các mục tiêu:
+\begin{itemize}
+    \item\textbf{Phân tích chi tiết cơ sở toán học:} phương pháp tham lam (Greedy Approach) của Dijkstra và quy hoạch động (Dynamic Programming) của Bellman-Ford.
+    \item\textbf{Xây dựng quy trình thực hiện, mô tả cách tổ chức cấu trúc dữ liệu để tối ưu hóa hiệu năng.}
+    \item\textbf{So sánh sự khác biệt về độ phức tạp thời gian, không gian và khả năng xử lý các trường hợp biên như trọng số âm.} 
+    \item\textbf{Khảo sát các ứng dụng thực tiễn trong định tuyến mạng (OSPF, RIP) và tài chính.}
+\end{itemize}
+
+\subsection{Phạm vi và đối tượng nghiên cứu}
+\begin{itemize}
+    \item \textbf{Đối tượng nghiên cứu: } Thuật toán Dijkstra (sử dụng hàng đợi ưu tiên) và thuật toán Bellman-Ford (bao gồm kỹ thuật phát hiện chu trình âm).
+    \item \textbf{Phạm vi nghiên cứu: } Đồ thị có hướng, có trọng số ($G = (V, E)$), tập trung vào các trường hợp trọng số không âm và trọng số âm (không chứa chu trình âm hoặc chứa chu trình âm).
+\end{itemize}
+
+\subsection{Phương pháp nghiên cứu}
+\begin{itemize}
+    \item \textbf{Nghiên cứu lý thuyết: } Nghiên cứu, tổng hợp các tài liệu học thuật về lý thuyết đồ thị, thuật toán tìm đường đi ngắn nhất và nguyên lý relaxation (nới lỏng cạnh).
+    \item \textbf{Phân tích thuật toán: } Dựa trên độ phức tạp của thuật toán $O$(time) để đánh giá hiệu năng trên các cấu trúc dữ liệu Array, Heap, Edge List.
+    \item \textbf{So sánh đối chiếu: } Thiết lập bảng dựa trên ba tiêu chí đã đề ra để rút ra ưu/nhược điểm trong các điều kiện đồ thị khác nhau của từng thuật toán và đề xuất thuật toán phù hợp.
+\end{itemize}
+
+\subsection{Cấu trúc môn học}
+\fontsize{12pt}{13pt}\selectfont
+Nội dung đồ án được chia thành 5 chương chính với các nội dung cụ thể như sau:
+\begin{itemize}
+    \item \textbf{Chương 1: Tổng quan đề tài} – Giới thiệu về bài toán tìm đường đi ngắn nhất, tầm quan trọng và lý do lựa chọn so sánh hai thuật toán Dijkstra và Bellman-Ford.
+    \item \textbf{Chương 2: Cơ sở lý thuyết} - Giải thích tư tưởng tham lam và quy hoạch động, khái niệm relaxation (nới lỏng cạnh) và nguyên lý tối ưu Bellman.
+    \item \textbf{Chương 3: Tổ chức cấu trúc dữ liệu và thuật toán} Phát biểu bài toán, mô tả các cấu trúc dữ liệu được sử dụng, quá trình Input/Output, quy trình thực hiện thuật toán Dijkstra và Bellman-Ford.
+    \item \textbf{Chương 4: Chương trình và kết quả} Mô tả môi trường cài đặt (ngôn ngữ C), giao diện chương trình, các chức năng và trình bày kết quả thực thi trên các bộ dữ liệu khác nhau để đánh giá hiệu năng.
+    \item \textbf{Chương 5: Kết luận và hướng phát triển} - Tổng hợp, kết luận về bài nghiên cứu đồng thời đưa ra các phương án nhằm tối ưu và phát triển, mở rộng đề tài trong tương lai.
+\end{itemize}
+
+% DONE
+
+
+
+
+\chapter{CƠ SỞ LÝ THUYẾT}
+\section{Ý tưởng}
+\subsection{Thuật toán Dijkstra -- phương pháp tham lam}
+Dijkstra giải bài toán đường đi ngắn nhất một nguồn trên đồ thị có trọng số \textbf{không âm}. Ý tưởng cốt lõi là \textbf{tham lam}: tại mỗi bước, chọn đỉnh chưa xử lý có nhãn (khoảng cách tạm thời) nhỏ nhất, rồi cập nhật (nới lỏng cạnh) khoảng cách tới các đỉnh kề nếu đi qua đỉnh này cho tổng chi phí tốt hơn. Do mọi trọng số đều không âm, khi một đỉnh được chọn, khoảng cách tới đỉnh đó là tối ưu, vì không thể có đường khác ngắn hơn nữa đi qua các đỉnh chưa được xét. Thuật toán thường sử dụng \textbf{hàng đợi ưu tiên (priority queue) }để nhanh chóng chọn đỉnh có khoảng cách nhỏ nhất, nên độ phức tạp thời gian đạt $O(|E|\log|V|)$ với cấu trúc dữ liệu phù hợp. Đây là cách tiếp cận hiệu quả khi trọng số đều không âm và đồ thị có số cạnh lớn.
+
+\subsection{Thuật toán Bellman Ford -- phương pháp quy hoạch động}
+Bellman--Ford áp dụng \textbf{quy hoạch động} và nguyên lý tối ưu: ``bất kỳ đoạn con của một đường đi ngắn nhất cũng là đường đi ngắn nhất giữa hai điểm của nó''. Thuật toán khởi tạo khoảng cách từ nguồn tới mọi đỉnh bằng vô cùng (trừ nguồn bằng 0) và lặp lại quá trình nới lỏng toàn bộ các cạnh $|V|-1$ lần. Mỗi lần nới lỏng, nếu khoảng cách hiện tại có thể được giảm bằng cách đi qua cạnh $(u,v)$, ta cập nhật giá trị mới. Sau $|V|-1$ lần, khoảng cách thu được là tối ưu; một lần nới lỏng nữa sẽ phát hiện chu trình âm nếu tồn tại. Do phải duyệt toàn bộ các cạnh nhiều lần, thuật toán có độ phức tạp thời gian $O(|V||E|)$. Ưu điểm của Bellman--Ford là xử lý được trọng số âm và phát hiện chu trình âm; nhược điểm là chạy chậm hơn Dijkstra trên đồ thị lớn.
+
+\subsection{So sánh}
+Hai thuật toán đều dựa trên thao tác \textbf{nới lỏng cạnh} để cải thiện ước lượng khoảng cách. Dijkstra sử dụng chiến lược tham lam để mở rộng dần ``vòng tròn'' các đỉnh đã biết khoảng cách tối ưu, tận dụng hàng đợi ưu tiên để đạt hiệu năng cao trên trọng số không âm. Ngược lại, Bellman--Ford sử dụng phương pháp quy hoạch động, lặp lại việc nới lỏng tất cả các cạnh nhằm đảm bảo tính tối ưu dù có trọng số âm. Việc hiểu rõ hai ý tưởng này là tiền đề để phân tích cấu trúc, độ phức tạp và điều kiện áp dụng của từng thuật toán trong các chương tiếp theo.
+
+
+\vspace{50pt}\vspace{50pt}
+
+\section{Cơ sở lý thuyết}
+
+\subsection{Kiến thức nền tảng về lý thuyết đồ thị}
+\justifying\fontsize{12pt}{13pt}\selectfont
+Để giải quyết bài toán đường đi ngắn nhất một cách hiệu quả, việc nắm vững các kiến thức nền tảng của lý thuyết đồ thị là điều tiên quyết.
+\subsubsection{Định nghĩa và Phân loại}
+\justifying\fontsize{12pt}{13pt}\selectfont
+Một đồ thị được mô hình hóa toán học dưới dạng $G = (V, E)$, trong đó $V$ (Vertices) là tập hợp các đỉnh và $E$ (Edges) là tập hợp các cạnh biểu diễn mối quan hệ giữa chúng. Tùy thuộc vào tính chất liên kết và định lượng, đồ thị được phân loại thành:
+\begin{itemize}
+    \item \textbf{Có hướng hoặc vô hướng:} Xác định tính chất một chiều (digraph) hoặc hai chiều của các liên kết giữa các cặp nút.
+    \item \textbf{Có trọng số hoặc không trọng số:} Mỗi cạnh $(u, v)$ có thể mang trọng số $w(u, v)$ đại diện cho các thực thể vật lý như chi phí di chuyển, khoảng cách vật lý hoặc độ trễ thời gian.
+\end{itemize}
+
+\subsubsection{Cách biểu diễn đồ thị}
+\justifying\fontsize{12pt}{13pt}\selectfont
+Về mặt cấu trúc, đồ thị thường được biểu diễn dưới hai dạng phổ biến, mỗi loại có ưu điểm riêng về hiệu quả tính toán và sử dụng bộ nhớ:
+\begin{itemize}
+    \item \textbf{Ma trận kề (Adjacency Matrix): }  Phù hợp cho đồ thị dày, cho phép kiểm tra cạnh trong $O(1)$ nhưng tiêu tốn $O(V^2)$ không gian.
+    \item \textbf{Danh sách kề (Adjacency List): }  Giúp tiết kiệm bộ nhớ cho đồ thị thưa và là cấu trúc tối ưu cho việc duyệt các lân cận trong thuật toán Dijkstra và Bellman-Ford.
+\end{itemize}
+
+\subsubsection{Một số khái niệm liên quan}
+\justifying{\fontsize{12pt}{13pt}\selectfont
+Các khái niệm về cấu trúc đường đi đóng vai trò quan trọng trong việc xác định tính đúng đắn của thuật toán:
+\begin{itemize}
+    \item \textbf{Đường đi (path):} Một đường đi là một chuỗi các đỉnh liên tiếp $v_0, v_1, \dots, v_k$ sao cho với mỗi $i$ tồn tại cạnh nối $v_i$ và $v_{i+1}$. Trong đồ thị có trọng số, \textbf{trọng số của đường đi} được tính bằng tổng trọng số các cạnh trên đường đi đó.
+    \vspace{2.5pt}
+    
+    \item \textbf{Đường đi đơn (simple path):} Là đường đi không lặp lại bất kỳ đỉnh nào (mỗi đỉnh chỉ xuất hiện tối đa một lần). Trong đồ thị có $|V|$  đỉnh, một đường đi đơn chứa tối đa $|V|$ đỉnh phân biệt và do đó tối đa $|V| - 1$ cạnh. (Đây là lý do Bellman–Ford chỉ cần lặp $|V| - 1$ lần để xét mọi đường đi không lặp.)
+     \vspace{2.5pt}
+     
+    \item \textbf{Chu trình (cycle):} Là một đường đi bắt đầu và kết thúc tại cùng một đỉnh, ví dụ $v_0 \to v_1 \to \dots \to v_0$. Chu trình được gọi là chu trình đơn nếu không lặp lại các đỉnh khác (ngoài đỉnh đầu trùng với đỉnh cuối).
+    \vspace{2.5pt}
+    
+    \item \textbf{Chu trình âm (Negative cycle):} Trong đồ thị có trọng số, một chu trình âm là chu trình có tổng trọng số các cạnh trên chu trình nhỏ hơn 0:
+            $$ \sum_{e \in \text{cycle}} w(e) < 0 $$
+    Nếu một chu trình âm có thể tiếp cận được từ đỉnh nguồn, thì bài toán đường đi ngắn nhất \textbf{không có nghiệm hữu hạn} vì ta có thể đi qua chu trình đó nhiều lần để giảm tổng trọng số vô hạn(thuật toán Bellman-Ford có thể phát hiện chu trình âm và báo hiệu khi phát hiện chu trình này).
+    \item \textbf{Đồ thị liên thông (connected graph):} Trạng thái mà mọi cặp đỉnh trong đồ thị đều có ít nhất một đường đi kết nối chúng.Với đồ thị vô hướng, khái niệm liên thông là duy nhất, trong khi với đồ thị có hướng, có thể phân biệt liên thông mạnh và liên thông yếu. Trong bài toán đường đi ngắn nhất, khả năng tiếp cận từ đỉnh nguồn là yếu tố then chốt.
+\end{itemize}
+}
+
+\vspace{50pt}
+
+
+\subsection{Nguyên lý tối ưu và tính đúng đắn}
+\subsubsection{Nguyên lý tối ưu Dijkstra:}
+Dijkstra giải bài toán đường đi ngắn nhất trong đồ thị \textbf{không có trọng số âm}. Thuật toán khởi tạo mảng khoảng cách $d[\cdot]$ với $\infty$ cho mọi đỉnh, riêng nguồn $d[s]=0$. Ta quản lý hai tập: tập đỉnh đã tìm được khoảng cách tối ưu và tập đỉnh chưa biết. Ở mỗi bước, thuật toán \textbf{chọn đỉnh $u$ có $d(u)$ nhỏ nhất} trong tập chưa biết rồi \textbf{nới lỏng} các cạnh xuất phát từ $u$. Do trọng số không âm, khi đỉnh $u$ được chọn thì $d(u)$ chắc chắn là tối ưu. Việc lựa chọn tham lam này thường được hỗ trợ bằng \textbf{hàng đợi ưu tiên}, giúp tìm nhanh đỉnh có khoảng cách nhỏ nhất và đạt độ phức tạp $O(|E|\log|V|)$. Dijkstra sử dụng nguyên lý tối ưu ở dạng tham lam: một khi đỉnh được rút ra khỏi hàng đợi ưu tiên, khoảng cách của nó được ``cố định'' và sẽ không cần cập nhật nữa.
+
+\subsubsection{Nguyên lý Tối ưu Bellman:}
+% --- Bắt đầu chèn ảnh bên trái ---
+\begin{wrapfigure}{r}{0.4\textwidth} % {l} là trái, {0.4\textwidth} là chiều rộng của khung ảnh (40% trang)
+    \centering
+    \vspace{-5pt} % Điều chỉnh khoảng cách trên của ảnh nếu cần
+    \includegraphics[width=0.35\textwidth]{Picture/bellman_F1.jpg} 
+    \caption{Optimal Substructure} % Chú thích cho ảnh
+    \label{fig:mang_luoi_minh_hoa}
+    \vspace{-10pt} % Điều chỉnh khoảng cách dưới của ảnh để văn bản sát hơn
+\end{wrapfigure}
+\justifying\fontsize{12pt}{13pt}\selectfont
+Một đặc điểm quan trọng của đường đi ngắn nhất là tính chất cấu trúc con tối ưu (Optimal Substructure). Nếu $P$ là đường đi ngắn nhất từ $s$ đến $v$, thì bất kỳ đường đi con nào của $P$ cũng phải là đường đi ngắn nhất giữa các đỉnh tương ứng của nó. Đây là nền tảng để các thuật toán xây dựng dần các kết quả tối ưu từ các kết quả nhỏ hơn đã biết.
+
+\vspace{50pt}
+
+\subsubsection{Tính đúng đắn và sự hội tụ:}
+\justifying\fontsize{12pt}{13pt}\selectfont
+\begin{itemize}
+    \item \textbf{Với Dijkstra:}  Tính đúng đắn được chứng minh bằng phản chứng dựa trên giả định trọng số không âm. Nếu tồn tại một đường đi khác ngắn hơn đến một đỉnh vừa được kết nạp, đường đi đó buộc phải đi qua một đỉnh chưa được thăm. Do trọng số không âm, khoảng cách đến đỉnh chưa thăm đó đã lớn hơn hoặc bằng khoảng cách đến đỉnh hiện tại, dẫn đến mâu thuẫn.
+    \vspace{2.5pt}
+
+    \item \textbf{Với Bellman-Ford:} Thuật toán sử dụng quy nạp toán học để chứng minh rằng sau $i$ lần lặp, $d[v]$ sẽ là độ dài của đường đi ngắn nhất từ $s$ đến $v$ sử dụng tối đa $i$ cạnh. Sau $|V|-1$ lần lặp, mọi đường đi đơn đều được xét đến. Nếu sau lần lặp thứ $|V|$, một giá trị $d[v]$ vẫn có thể giảm xuống, điều đó chứng tỏ tồn tại một chu trình có tổng trọng số âm, khiến cho khái niệm "đường đi ngắn nhất" không còn tồn tại do tổng chi phí có thể giảm xuống âm vô cực bằng cách lặp lại chu trình đó.
+\end{itemize}
+
+\subsubsection{Nguyên lý relaxation(nới lỏng cạnh): }
+\justifying\fontsize{12pt}{13pt}\selectfont
+Cốt lõi của cả hai thuật toán là phép toán \textbf{relaxation:} Cho cạnh $e = (u, v)$ với trọng số $w(u, v)$. Gọi $d[u], d[v]$ là ước lượng khoảng cách từ nguồn $s$. Phép relaxation thực hiện như sau:
+\begin{center}
+    Nếu $d[v] > d[u] + w(u, v)$ thì cập nhật $d[v] = d[u] + w(u, v)$.
+\end{center}
+Phép toán này dựa trên bất đẳng thức tam giác trong lý thuyết đồ thị: khoảng cách trực tiếp đến $v$ không bao giờ được lớn hơn khoảng cách đi vòng qua một đỉnh trung gian $u$.
+
+
+
+
+
+
+\chapter{TỔ CHỨC CẤU TRÚC DỮ LIỆU VÀ THUẬT TOÁN}
+\justifying\fontsize{12pt}{13pt}\selectfont
+% Để hiện thực hóa các lý thuyết trên vào các hệ thống tính toán hiệu năng cao, việc thiết kế cấu trúc dữ liệu và quy trình thuật toán cần được thực hiện một cách chặt chẽ.
+\section{Phát biểu bài toán}
+\justifying\fontsize{12pt}{13pt}\selectfont
+Cho một đồ thị vô hướng hoặc có hướng $ G = (V, E) $ . 
+
+\begin{itemize}
+  \item \textbf{Dữ liệu vào (Input):}
+  \begin{itemize}
+    \item Số lượng đỉnh $n$ và số lượng cạnh $m$ của đồ thị.
+    \item Danh sách các cạnh: mỗi cạnh được mô tả bởi ba giá trị $(u, v, w)$ lần lượt là đỉnh xuất phát, đỉnh đích và trọng số $w$ (chi phí).
+    \item Đỉnh nguồn $s$ -- điểm xuất phát cần tìm đường đi ngắn nhất tới các đỉnh khác.
+    \item Lựa chọn chức năng.
+  \end{itemize}
+
+  \item \textbf{Kết quả (Output):}
+  \begin{itemize}
+    \item Mảng khoảng cách $d[i]$ biểu diễn chi phí ngắn nhất từ $s$ tới đỉnh $i$. Giá trị $\infty$ biểu thị đỉnh không thể tới được.
+    \item (Tùy chọn) Mảng đường đi trước $\texttt{pred}[i]$ để tái dựng đường đi cụ thể.
+    \item Thời gian thực thi và bộ nhớ sử dụng của thuật toán.
+  \end{itemize}
+\end{itemize}
+
+
+
+
+
+\section{Cấu trúc dữ liệu}
+\subsection{Các thư viện được sử dụng trong chương trình}
+\textbf{\textcolor{darkblue}{C++ Standard Library}}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{|>{\ttfamily}l|X|}
+\hline
+\textnormal{\textbf{Thư viện}} & \textbf{Mục đích sử dụng} \\ \hline
+iostream   & Nhập/xuất console. \\ \hline
+string     & Xử lý chuỗi. \\ \hline
+vector     & Mảng động. \\ \hline
+tuple      & Lưu cạnh $(u, v, w)$. \\ \hline
+limits     & Giá trị \texttt{INF}. \\ \hline
+chrono     & Đo thời gian chạy thuật toán. \\ \hline
+filesystem & Kiểm tra/tạo thư mục, kiểm tra file tồn tại. \\ \hline
+fstream    & Đọc/ghi file. \\ \hline
+algorithm  & Các thao tác tìm kiếm/xử lý trong \texttt{vector}. \\ \hline
+queue      & \texttt{priority\_queue} cho Dijkstra. \\ \hline
+sstream    & Ghép chuỗi/định dạng văn bản (format). \\ \hline
+iomanip    & Căn lề/định dạng khi in bảng. \\ \hline
+cmath      & \texttt{log} và các phép tính phục vụ phân tích độ phức tạp. \\ \hline
+cctype     & Kiểm tra ký tự nhập. \\ \hline
+cstdio     & Dùng \texttt{std::getchar()} trong graphics. \\ \hline
+\end{tabularx}
+\end{table}
+
+
+\textbf{\textcolor{darkblue}{Windows}}  \\
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{|>{\ttfamily}l|X|}
+\hline
+\textnormal{\textbf{Thư viện}} & \textbf{Mô tả} \\ \hline
+windows.h, cwchar & Bộ thư viện của Windows; dùng để chuyển console sang UTF--8 và thiết lập phông chữ khi biên dịch trên Windows (chỉ áp dụng khi \texttt{\_WIN32} được định nghĩa). \\ \hline
+\end{tabularx}
+
+\vspace{0.8em}
+\textbf{\textcolor{darkblue}{Các thư viện xây dựng nội bộ trong dự án}} \\
+\vspace{5pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{|>{\ttfamily}l|X|}
+\hline
+\textnormal{\textbf{Header}} & \textbf{Chức năng} \\ \hline
+graphics.h   & Định nghĩa lớp ``giả lập đồ họa'' bằng ký tự ANSI, cho phép vẽ giao diện trực quan trong console mà không cần thư viện đồ họa ngoài. \\ \hline
+Global.h     & Khai báo các hằng số toàn cục như kích thước cửa sổ và đường dẫn file mặc định. \\ \hline
+Colors.h     & Định nghĩa mã màu để sử dụng khi in ra console. \\ \hline
+GUI.h        & Xây dựng giao diện người dùng, bao gồm menu và prompt tương tác. \\ \hline
+Graph.h      & Mô tả cấu trúc dữ liệu đồ thị và cung cấp hàm đọc/ghi file. \\ \hline
+Algorithms.h & Khai báo và cài đặt các thuật toán Dijkstra và Bellman--Ford. \\ \hline
+Comparison.h & Chứa các hàm đo thời gian và bộ nhớ, phục vụ so sánh hiệu năng giữa hai thuật toán. \\ \hline
+\end{tabularx}
+
+\vspace{0.8em}
+\textbf{\textcolor{darkblue}{Thư viện Python(dùng cho chức năng trực quan hóa)}} \\
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{|>{\ttfamily}l|X|}
+\hline
+\textnormal{\textbf{Thư viện}} & \textbf{Mục đích sử dụng} \\ \hline
+networkx           & Hỗ trợ tạo, quản lý và thao tác trên đồ thị. \\ \hline
+matplotlib.pyplot  & Vẽ đồ thị và biểu diễn trực quan kết quả. \\ \hline
+os, sys            & Kiểm tra file tồn tại, xử lý tham số dòng lệnh và mã thoát (exit code). \\ \hline
+\end{tabularx}
+
+\subsection{Các cấu trúc dữ liệu tự xây dựng}
+
+Trong dự án chúng em cũng có xây dựng thêm một số cấu trúc dữ liệu nhằm dễ dàng hơn trong quá trình thực hiện thuật toán và quản lí.
+
+\subsubsection{\textcolor{darkred}{Cấu trúc dữ liệu Edge}}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+  \centering
+  \vspace{-20pt}
+  \includegraphics[width=0.5\textwidth]{pic/Edge.png}
+  \caption{Cấu trúc dữ liệu \texttt{Edge}}
+  \label{fig:mang_luoi_minh_hoa}
+\end{wrapfigure}
+
+\noindent \textbf{Mục đích:} biểu diễn cạnh trong đồ thị. \\
+\vspace{2.5pt}
+\textbf{Trường dữ liệu:} 
+\begin{itemize}
+    \vspace{-12.5pt}
+    \item \textbf{int destination} -- đỉnh đích.
+    \vspace{-10pt}
+    \item \textbf{int weight} -- trọng số.
+    \vspace{-10pt}
+\end{itemize}
+\vspace{2.5pt}
+\textbf{Dùng trong:} \texttt{Graph::adjList} để lưu danh sách cạnh (danh sách kề).
+\vspace{50pt}
+
+\subsubsection{\textcolor{darkred}{Class Graph}}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \centering
+  \vspace{-50pt}
+  \includegraphics[width=\linewidth]{pic/Graph.png}
+  \vspace{-40pt}
+  \caption{Cấu trúc dữ liệu \texttt{Graph}}
+  \label{fig:graph_struct}
+\end{wrapfigure}
+
+\noindent\textbf{Mục đích:} lưu cấu trúc đồ thị và hỗ trợ I/O.
+
+\noindent\textbf{Trường dữ liệu:}
+\begin{itemize}
+\vspace{-10pt}
+  \item \textbf{int V} --- số đỉnh.
+  \vspace{-10pt}
+  \item \textbf{int E} --- số cạnh.
+  \vspace{-10pt}
+  \item \textbf{vector<vector<Edge>> adjList} --- danh sách kề.
+  \vspace{-10pt}
+  \item \textbf{vector<string> vertexLabels} --- nhãn của đỉnh.
+\end{itemize}
+\vspace{-10pt}
+
+\noindent \textbf{Dùng trong:} \texttt{Graph::adjList} để lưu danh sách cạnh (danh sách kề).
+
+
+\subsubsection{\textcolor{darkred}{Cấu trúc dữ liệu PathResult}}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+  \centering
+  \vspace{-20pt}
+  \includegraphics[width=0.5\textwidth]{pic/Pathresult.png}
+    \vspace{-40pt}
+  \caption{Cấu trúc dữ liệu \texttt{PathResult}}
+  \label{fig:mang_luoi_minh_hoa}  
+\end{wrapfigure}
+
+\noindent \textbf{Mục đích:} đóng gói lại các kết quả của thuật toán/ kết quả của chương trình. \\
+\vspace{2.5pt}
+\textbf{Trường dữ liệu:} 
+\begin{itemize}
+    \vspace{-12.5pt}
+    \item \textbf{bool success} -- trạng thái thực hiện thuật toán (\textcolor{darkgreen}{Thành công}/ \textcolor{red}{Thất bại})
+    \vspace{-10pt}
+    \item \textbf{int startVertex} -- đỉnh bắt đầu.
+    \vspace{-10pt}
+    \item \textbf{std::vector<int> distances} -- khoảng cách từ đỉnh bắt đầu đến các đỉnh khác trong đồ thị.
+    \vspace{-10pt}
+    \item \textbf{std::vector<int> previousVertex} - mảng truy vết đường đi.
+    \vspace{-10pt}
+    \item \textbf{std::vector<int> shortestPath} -- lưu đường đi ngắn nhất từ đỉnh đỉnh\\ bắt đầu đến đỉnh đích.
+    \vspace{-10pt}
+    \item{\mbox{\textbf{std::vector<std::string> logs} -- lưu log thuật toán.}}
+    \vspace{-20pt}
+    \item \mbox{\textbf{bool hasNegativeCycle} -- phát hiện chu trình âm đối với thuật toán Bellman-Ford.}
+\end{itemize}
+\vspace{2.5pt}
+\textbf{Dùng trong:} \texttt{Graph::adjList} để lưu danh sách cạnh (danh sách kề).
+
+
+\subsubsection{\textcolor{darkred}{Cấu trúc dữ liệu PathResult}}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+  \centering
+  \vspace{-20pt}
+  \includegraphics[width=0.5\textwidth]{pic/Algorithms.png}
+  \vspace{-40pt}
+  \caption{Class \texttt{Algorithms}}
+  \label{fig:mang_luoi_minh_hoa}  
+\end{wrapfigure}
+
+\noindent \textbf{Mục đích:} triển khai thuật toán Dijkstra và Bellman–Ford. \\
+\vspace{2.5pt}
+\textbf{Cấu trúc dữ liệu dùng nội bộ:} 
+\begin{itemize}
+    \vspace{-12.5pt}
+    \item \textbf{std::priority\_queue<std::pair<int,\\ 
+    \textbf{int>, ...>}} -- hàng đợi ưu tiên dùng cho thuật toán dijkstra. 
+    \vspace{-10pt}
+    \item \textbf{std::vector<bool> visited} -- đánh dấu các đỉnh đã thăm.
+    \vspace{-10pt}
+\end{itemize}
+\vspace{5pt}
+\textbf{Liên kết:} giữ const Graph\& graph để đọc dữ liệu đồ thị. \\
+\vspace{50pt}
+
+\subsubsection{\textcolor{darkred}{Cấu trúc dữ liệu PerformanceMetrics}}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+  \centering
+  \vspace{-20pt}
+  \includegraphics[width=0.5\textwidth]{pic/PerformanceMetrics.png}
+    \vspace{-40pt}
+  \caption{{Cấu trúc dữ liệu \texttt{PerformanceMetrics}}}
+  \label{fig:mang_luoi_minh_hoa}  
+\end{wrapfigure}
+
+\noindent \textbf{Mục đích:} lưu thông số hiệu năng của từng thuật toán. \\
+\vspace{2.5pt}
+\textbf{Trường dữ liệu:} 
+\begin{itemize}
+    \vspace{-12.5pt}
+    \item \texttt{}{std::string algorithmName}
+    \vspace{-10pt}
+    \item \texttt{long long executionTimeUs}
+    \vspace{-10pt}
+    \item \texttt{}{long long memoryUsageBytes}
+    \vspace{-10pt}
+    \item \texttt{}{int distancesCalculated}
+    \vspace{-10pt}
+    \item \texttt{}{double complexity}
+    \vspace{-10pt}
+    \item \texttt{bool success}
+    \vspace{-10pt}
+\end{itemize}
+
+\subsubsection{\textcolor{darkred}{Cấu trúc dữ liệu ComparisonReport}}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+  \centering
+  \vspace{-20pt}
+  \includegraphics[width=0.5\textwidth]{pic/Comparison.png}
+  \vspace{-40pt}
+  \caption{Cấu trúc dữ liệu \texttt{ComparisonReport}}
+  \label{fig:mang_luoi_minh_hoa}  
+\end{wrapfigure}
+
+\noindent \textbf{Mục đích:}  tổng hợp dữ liệu tiến hành thực hiện so sánh hai thuật toán. \\
+\vspace{5pt}
+\textbf{Trường dữ liệu:} 
+\begin{itemize}
+    \vspace{-11pt}
+    \item \texttt{int startVertex}
+    \vspace{-9pt}
+    \item \texttt{int V, int E}
+    \vspace{-9pt}
+    \item \texttt{std::vector<PerformanceMetrics>\\ metrics}
+    \item \mbox{\texttt{std::vector<std::string> logs} --  log kết quả để hiển thị.}
+    \vspace{-10pt}
+\end{itemize}
+
+\subsubsection{\textcolor{darkred}{Class Comparison}}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+  \centering
+  \vspace{-20pt}
+  \includegraphics[width=0.5\textwidth]{pic/Class_Comparison.png}
+  \vspace{-40pt}
+  \caption{Class \texttt{Comparison}}
+  \label{fig:mang_luoi_minh_hoa}  
+\end{wrapfigure}
+
+\noindent \textbf{Mục đích:}   tính toán hiệu năng của các thuật toán và đưa ra kết quả báo cáo. \\
+\vspace{5pt}
+\textbf{Cấu trúc dữ liệu dùng nội bộ:} 
+\begin{itemize}
+    \vspace{-12.5pt}
+    \item \texttt{PerformanceMetrics}  cho từng thuật toán.
+    \vspace{-10pt}
+    \item \texttt{std::vector<std::string>}  để xuất bảng so sánh ra log.
+\end{itemize}
+Giữ \textt{const Graph\& graph} và \textt{Algorithms algorithms}.
+
+
+\subsubsection{\textcolor{darkred}{Class GUI}}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+  \centering
+  \vspace{-20pt}
+  \includegraphics[width=0.5\textwidth]{pic/GUI.png}
+  \vspace{-40pt}
+  \caption{Class \texttt{GUI}}
+  \label{fig:mang_luoi_minh_hoa}  
+\end{wrapfigure}
+
+\noindent \textbf{Mục đích:}    hiển thị menu, nhập dữ liệu từ người dùng, in log. \\
+\vspace{5pt}
+\textbf{Cấu trúc dữ liệu chính:} 
+\begin{itemize}
+    \vspace{-12.5pt}
+    \item \texttt{std::vector<std::string>} --  danh sách log hiển thị.
+    \vspace{-10pt}
+    \item \texttt{std::vector<std::tuple<int,int,\\int>>} -- danh sách cạnh khi nhập đồ thị.
+\end{itemize}
+\vspace{50pt}
+
+\section{Thuật toán}
+
+
+\subsection{Thuật toán Dijkstra}
+
+
+
+\subsubsection{\textcolor{darkblue}{Giới thiệu}}
+Thuật toán Dijkstra là một trong những thuật toán nền tảng của lý thuyết đồ thị và khoa học máy tính, được Edsger W. Dijkstra xây dựng vào năm 1956 và công bố chính thức năm 1959 trong bài báo \textit{``A note on two problems in connexion with graphs''}. Thuật toán này giải bài toán đường đi ngắn nhất từ một đỉnh nguồn (\textit{single-source shortest path}) đến mọi đỉnh còn lại trong đồ thị có trọng số, áp dụng được cho cả đồ thị vô hướng lẫn đồ thị có hướng, với điều kiện quan trọng là trọng số cạnh không âm.
+\vspace{2.5pt}
+
+Thuật toán Dijkstra ngày nay không chỉ được sử dụng trong định tuyến mạng 
+và hệ thống giao thông mà còn xuất hiện trong các bài toán lập kế hoạch robot, phân 
+tích mạng xã hội, xử lý ngôn ngữ tự nhiên và nhiều lĩnh vực khác. Mặc dù có một số 
+giới hạn như không xử lý được trọng số âm, nhưng với phạm vi áp dụng rộng và khả 
+năng mở rộng linh hoạt, Dijkstra vẫn là một công cụ không thể thiếu trong kho tàng 
+thuật toán đồ thị.
+\vspace{2.5pt}
+
+Trong phần này, thuật toán sẽ được trình bày chi tiết theo các nội dung: nguyên lý hoạt động, quy trình thực hiện (kèm ví dụ minh họa từng bước), ứng dụng và phân tích độ phức tạp theo các cách cài đặt phổ biến.
+
+
+\subsubsection{\textcolor{darkblue}{Nguyên lý hoạt động}}
+Thuật toán hoạt động theo nguyên tắc tham lam: luôn chọn đỉnh có khoảng cách tạm thời nhỏ nhất (chưa được ``chốt'' kết quả) để mở rộng. Mỗi khi lựa chọn một đỉnh, thuật toán thực hiện nới lỏng cạnh (\textit{relaxation}) các cạnh xuất phát từ đỉnh đó: nếu đi qua đỉnh hiện tại giúp giảm tổng chi phí tới đỉnh kề, ta cập nhật khoảng cách của đỉnh kề. Do mọi trọng số đều không âm, khi một đỉnh được chọn ra khỏi hàng đợi ưu tiên thì khoảng cách của nó đã là tối ưu và sẽ không bị cải thiện nữa. Để thực hiện việc lựa chọn nhanh, Dijkstra thường sử dụng hàng đợi ưu tiên (\textit{priority queue}) -- với đầu hàng đợi là đỉnh có khoảng cách tạm thời nhỏ nhất.
+
+Hoạt động của thuật toán có thể tóm lược qua ba thành phần chủ chốt:
+\begin{itemize}
+    \item \textbf{Khởi tạo:} gán giá trị vô cùng cho khoảng cách đến tất cả các đỉnh; riêng nguồn có khoảng cách $0$. Các đỉnh ban đầu nằm trong tập chưa xét (\textit{unvisited}).
+    \item \textbf{Lựa chọn tham lam:} lặp lại cho tới khi không còn đỉnh chưa xét; ở mỗi vòng, chọn đỉnh chưa xét $u$ có khoảng cách nhỏ nhất. Nếu đỉnh này có khoảng cách là vô cực, các đỉnh còn lại không thể tiếp cận và vòng lặp kết thúc.
+    \item \textbf{Nới lỏng  các cạnh kề:} đối với mọi đỉnh $v$ kề $u$, tính khoảng cách tạm thời $d[u] + w(u,v)$; nếu giá trị này nhỏ hơn $d[v]$, cập nhật
+    \[
+        d[v] \leftarrow d[u] + w(u,v),
+    \]
+    và lưu lại đường đi trước của $v$ là $u$. Sau khi nới lỏng  xong, loại $u$ khỏi tập chưa xét, đánh dấu khoảng cách của $u$ là cuối cùng.
+\end{itemize}
+
+Hoạt động lặp lại cho tới khi tất cả các đỉnh được xử lý. Thuật toán đảm bảo rằng mỗi đỉnh được xử lý đúng một lần và sau đó không cần xem xét lại nhờ trọng số không âm và cách chọn tham lam.
+
+\subsubsection{\textcolor{darkblue}{Các bước thực hiện thuật toán}}
+Dưới đây là phiên bản tóm tắt các bước thực hiện Dijkstra khi dùng danh sách kề và hàng đợi ưu tiên:
+\begin{enumerate}
+    \item Khởi tạo mảng khoảng cách \texttt{dist[]} với giá trị $\infty$ cho tất cả các đỉnh; đặt $\texttt{dist}[s] \leftarrow 0$ cho đỉnh nguồn $s$. Khởi tạo mảng \texttt{pred[]} để lưu đường đi trước, gán $\texttt{pred}[v] \leftarrow \texttt{undefined}$.
+    \item Khởi tạo hàng đợi ưu tiên $Q$ chứa cặp $(\texttt{dist}[v], v)$ cho các đỉnh; hoặc đơn giản chỉ chèn $(0,s)$ và chèn thêm các đỉnh khi phát hiện.
+    \item Lặp khi hàng đợi không rỗng: lấy đỉnh $u$ có khoảng cách tạm thời nhỏ nhất (\textit{extract-min}); nếu khoảng cách này lớn hơn giá trị đã lưu, bỏ qua.
+    \item nới lỏng  các cạnh kề: với mỗi đỉnh kề $v$ của $u$ có trọng số $w(u,v)$, nếu $\texttt{dist}[u] + w(u,v) < \texttt{dist}[v]$, cập nhật
+    $\texttt{dist}[v] \leftarrow \texttt{dist}[u] + w(u,v)$ và $\texttt{pred}[v] \leftarrow u$; đồng thời thêm $(\texttt{dist}[v], v)$ vào hàng đợi.
+    \item Lặp lại cho tới khi hàng đợi trống. Kết quả \texttt{dist} chứa khoảng cách ngắn nhất từ $s$ đến mọi đỉnh; \texttt{pred} cho phép phục hồi đường đi.
+\end{enumerate}
+
+\subsubsection{Pseudocode}
+\begin{verbatim}
+function Dijkstra(Graph, source):
+    for each vertex v in Graph:
+        dist[v] <- INF
+        pred[v] <- undefined
+    dist[source] <- 0
+    Q <- priority queue containing (0, source)
+    while Q is not empty:
+        (d, u) <- Q.extract_min()
+        if d > dist[u]:
+            continue
+        for each neighbor v of u:
+            alt <- dist[u] + weight(u, v)
+            if alt < dist[v]:
+                dist[v] <- alt
+                pred[v] <- u
+                Q.insert((dist[v], v))
+    return dist, pred
+\end{verbatim}
+
+\subsubsection{\textcolor{darkblue}{Phân tích độ phức tạp thời gian}}
+Độ phức tạp của thuật toán phụ thuộc vào cấu trúc dữ liệu dùng cho hàng đợi ưu tiên và biểu diễn đồ thị:
+\begin{itemize}
+    \item \textbf{Triển khai đơn giản bằng mảng hoặc danh sách tuyến tính:} nếu sử dụng mảng để tìm đỉnh có khoảng cách nhỏ nhất (phép tìm \textit{extract-min} có chi phí $O(|V|)$), mỗi lần nới lỏng  cần tối đa $|E|$ thao tác. Tổng thời gian là $O(|V|^2)$, thích hợp cho đồ thị dày. Trong trường hợp sử dụng danh sách tuyến tính và ma trận kề, độ phức tạp đơn giản nhất là $\Theta(|V|^2)$.
+    \item \textbf{Dùng hàng đợi ưu tiên kiểu heap (binary heap hoặc pairing heap):} thao tác \textit{extract-min} và \textit{decrease-key} chạy trong thời gian logarit. Với biểu diễn danh sách kề, thuật toán đạt độ phức tạp
+    \[
+        O\big((|V|+|E|)\log |V|\big),
+    \]
+    nếu xét đồ thị liên thông và thưa thì thường viết gọn là $O(|E|\log|V|)$.
+    \item \textbf{Dùng heap Fibonacci:} cải thiện thao tác \textit{decrease-key} để đạt độ phức tạp
+    \[
+        O\big(|E| + |V|\log|V|\big).
+    \]
+\end{itemize}
+
+Nhiều nghiên cứu thực nghiệm cho thấy trên các đồ thị thưa, cài đặt dùng hàng đợi ưu tiên nhị phân hoặc pairing heap cho hiệu năng tốt và dễ triển khai.
+
+\subsubsection{\textcolor{darkblue}{Phân tích bộ nhớ (phức tạp không gian)}}
+Thuật toán Dijkstra yêu cầu lưu trữ:
+\begin{itemize}
+    \item Mảng khoảng cách \texttt{dist[]} và mảng đường đi trước \texttt{pred[]} có kích thước $|V|$. Cả hai mảng chiếm không gian $O(|V|)$.
+    \item Hàng đợi ưu tiên: chứa tối đa $|V|$ đỉnh, nên chiếm $O(|V|)$ không gian.
+    \item Biểu diễn đồ thị: đối với danh sách kề, dung lượng lưu trữ là $O(|V|+|E|)$. Nếu sử dụng ma trận kề, dung lượng là $O(|V|^2)$.
+\end{itemize}
+
+Vì vậy, tổng bộ nhớ bổ sung của thuật toán (không kể dữ liệu đồ thị) là $O(|V|)$ cho việc lưu khoảng cách, đường đi và hàng đợi ưu tiên. Trong các ứng dụng thực tế, bộ nhớ chủ yếu bị chi phối bởi cấu trúc lưu đồ thị.
+
+\subsubsection{\textcolor{darkblue}{Ứng dụng và ghi chú}}
+Thuật toán Dijkstra có nhiều ứng dụng:
+\begin{itemize}
+    \item \textbf{Định tuyến mạng:} giao thức OSPF và IS--IS sử dụng Dijkstra để tính toán đường dẫn tối ưu cho gói tin.
+    \item \textbf{Hệ thống GPS và chỉ đường:} tìm đường đi ngắn nhất trên bản đồ có trọng số là thời gian hoặc khoảng cách.
+    \item \textbf{Phân tích đồ thị:} tính khoảng cách ngắn nhất trong mạng xã hội, đồ thị giao thông, mạng lưới điện,\ldots
+    \item \textbf{Mô phỏng và trò chơi:} tìm lộ trình cho nhân vật trong game hoặc mô phỏng robot di chuyển.
+\end{itemize}
+
+Dijkstra là cơ sở cho nhiều thuật toán mở rộng, như A* (sử dụng hàm heuristic để định hướng tìm kiếm) và định tuyến hai chiều (\textit{bidirectional Dijkstra}) nhằm giảm thời gian tìm kiếm trên đồ thị lớn. Tuy nhiên, do giả sử trọng số không âm, thuật toán này không áp dụng được cho đồ thị có trọng số âm; khi đó, Bellman--Ford là lựa chọn phù hợp hơn.
+
+\subsubsection{\textcolor{darkblue}{Ví dụ minh họa chi tiết}}
+
+Giả sử ta có đồ thị vô hướng như hình bên dưới với $7$ đỉnh và $11$ cạnh. Nhãn của mỗi đỉnh được kí hiệu bằng các chữ cái in hoa từ $A \rightarrow G$. Ta bắt đầu từ đỉnh nguồn $D$ và tìm đường đi ngắn nhất đến các đỉnh còn lại.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi1.png}
+    \caption{Đồ thị minh họa thuật toán Dijkstra}
+    \label{fig:minhhoadothi1}
+\end{figure}
+
+Để tìm đường đi ngắn nhất, thuật toán Dijkstra sử dụng một mảng chứa khoảng cách đến tất cả các đỉnh khác, và ban đầu đặt các khoảng cách này là vô cực. Và khoảng cách đến đỉnh mà ta bắt đầu (đỉnh nguồn) được đặt là 0.
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=6mm, right=3mm, top=3mm, bottom=3mm,
+  borderline west={3pt}{0pt}{green!60!black}
+]
+\texttt{distances = [inf, inf, inf, \textcolor{red}{0}, inf, inf, inf]}\\
+\texttt{\#vertices = [ A, \ \ B, \  \ C, \  \ D, \ \  E, \  \ F,\  \ G]}
+\end{tcolorbox}
+
+Hình ảnh bên dưới cho thấy khoảng cách vô hạn ban đầu từ đỉnh xuất phát D đến các đỉnh khác. Giá trị khoảng cách đến đỉnh D là 0 vì đó là điểm bắt đầu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi2.png}
+    \caption{Hình minh họa trạng thái ban đầu}
+    \label{fig:minhhoadothi1}
+\end{figure}
+
+Sau bước khởi tạo, thuật toán Dijkstra chọn đỉnh $D$ làm đỉnh hiện tại (đỉnh chưa thăm có khoảng cách tạm thời nhỏ nhất). Từ $D$, thuật toán xét các đỉnh kề của $D$ và thử cải thiện khoảng cách tạm thời đến chúng bằng cách đi qua $D$.
+
+Vì ban đầu khoảng cách từ nguồn đến $A$ và $E$ đều là vô hạn (chưa tìm thấy đường đi), nên khi xét các cạnh từ $D$:
+\begin{itemize}
+    \item Với cạnh $D \rightarrow A$ có trọng số $4$, khoảng cách mới đến $A$ qua $D$ là $\text{dist}[D] + 4$. Do $\text{dist}[D] = 0$ (vì $D$ là nguồn), ta có $\text{dist}[A] = 4$.
+    \item Với cạnh $D \rightarrow E$ có trọng số $2$, tương tự $\text{dist}[E] = \text{dist}[D] + 2 = 2$.
+\end{itemize}
+
+Thao tác ``thử cập nhật $\text{dist}[v]$ bằng $\text{dist}[u] + w(u,v)$ nếu nhỏ hơn'' này chính là \textit{relax} (nới lỏng) cạnh:
+\[
+\text{nếu } \text{dist}[u] + w(u,v) < \text{dist}[v] \text{ thì cập nhật } \text{dist}[v]
+\]
+và lưu $\text{prev}[v] = u$ để truy vết đường đi.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi3.png}
+    \caption{Các bước cập nhật trọng số đường đi}
+    \label{fig:minhhoadothi1}
+\end{figure}
+
+Sau khi \textit{nới lỏng} các đỉnh kề $A$ và $E$, thuật toán đánh dấu $D$ là đã thăm (\textit{visited}). Từ thời điểm này, Dijkstra coi khoảng cách ngắn nhất từ nguồn đến $D$ đã chắc chắn tối ưu, nên $D$ sẽ không được xét lại nữa.
+
+Tiếp theo, thuật toán cần chọn đỉnh hiện tại mới theo quy tắc:
+\begin{quote}
+-- Trong tất cả các đỉnh chưa thăm, chọn đỉnh có khoảng cách tạm thời $\text{dist}[\cdot]$ nhỏ nhất tính từ đỉnh nguồn (ở đây là $D$).
+\end{quote}
+
+Ở bước này, sau khi cập nhật:
+\[
+\text{dist}[A]=4,\qquad \text{dist}[E]=2,
+\]
+các đỉnh khác vẫn là $\infty$.
+
+Vì $E$ có khoảng cách tạm thời nhỏ nhất ($2$) trong nhóm chưa thăm, nên $E$ được chọn làm đỉnh hiện tại ngay sau $D$.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi4.png}
+    \caption{Các bước cập nhật trọng số đường đi}
+    \label{fig:minhhoadothi1}
+\end{figure}
+Giờ thuật toán đặt $E$ làm đỉnh hiện tại, nên ta sẽ \textit{relax} các đỉnh kề của $E$ mà chưa được thăm (tức là thử xem đi qua $E$ có làm đường đi ngắn hơn không). Vì ta đã có $\text{dist}[E]=2$, nên với mỗi đỉnh kề $v$ của $E$, ta tính:
+\[
+\text{alt} = \text{dist}[E] + w(E,v)
+\]
+sau đó so sánh với $\text{dist}[v]$ hiện tại.
+
+\begin{itemize}
+    \item \textbf{Đỉnh $A$:} nếu đi theo $D \rightarrow E \rightarrow A$ thì
+    \vspace{-10pt}
+    \[
+        \text{alt} = 2 + 4 = 6.
+        \vspace{-10pt}
+    \]
+    Nhưng $\text{dist}[A]$ hiện đang là $4$ (nhỏ hơn $6$), nên không cập nhật $\text{dist}[A]$.
+
+    \item \textbf{Đỉnh $C$:} đường $D \rightarrow E \rightarrow C$ cho
+    \vspace{-10pt}
+    \[
+        \text{alt} = 2 + 4 = 6.
+        \vspace{-10pt}
+    \]
+    Vì $\text{dist}[C]$ đang là $\infty$, nên cập nhật $\text{dist}[C] = 6$.
+
+    \item \textbf{Đỉnh $G$:} đường $D \rightarrow E \rightarrow G$ cho
+    \vspace{-10pt}
+    \[
+        \text{alt} = 2 + 5 = 7.
+        \vspace{-10pt}
+    \]
+    Vì $\text{dist}[G]$ đang là $\infty$, nên cập nhật $\text{dist}[G] = 7$.
+\end{itemize}
+
+Sau khi \textit{relax} xong các đỉnh kề, $E$ sẽ được đánh dấu đã thăm. Bước tiếp theo, thuật toán tiếp tục chọn đỉnh chưa thăm có $\text{dist}[\cdot]$ nhỏ nhất. Trong các đỉnh chưa thăm lúc này, $A$ có $\text{dist}[A]=4$ là nhỏ nhất, nên $A$ sẽ là đỉnh tiếp theo được chọn để thăm.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi5.png}
+    \caption{Các bước cập nhật trọng số đường đi}
+    \label{fig:minhhoadothi1}
+\end{figure}
+
+Khi $A$ được chọn làm đỉnh hiện tại, thuật toán sẽ \textit{relax} các đỉnh kề của $A$ mà chưa được thăm.
+
+\begin{itemize}
+    \item \textbf{Với đỉnh $C$:} nếu đi theo đường $D \rightarrow A \rightarrow C$ thì khoảng cách tạm thời mới là
+    \[
+        \text{alt} = \text{dist}[A] + w(A,C) = 4 + 3 = 7.
+    \]
+    Nhưng trước đó ta đã có $\text{dist}[C]=6$ (từ đường $D \rightarrow E \rightarrow C$), nhỏ hơn $7$. Vì vậy không cập nhật khoảng cách đến $C$ (giữ nguyên $6$).
+\end{itemize}
+
+Sau khi xét xong các láng giềng, $A$ được đánh dấu là đã thăm (\textit{visited}).
+
+Tiếp theo, thuật toán chọn đỉnh chưa thăm có $\text{dist}[\cdot]$ nhỏ nhất. Trong số các đỉnh còn lại chưa thăm, $C$ đang có $\text{dist}[C]=6$ là nhỏ nhất, nên $C$ sẽ là đỉnh tiếp theo được thăm.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi6.png}
+    \caption{Các bước cập nhật trọng số đường đi}
+    \label{fig:minhhoadothi1}
+\end{figure}
+
+Khi $C$ được chọn làm đỉnh hiện tại (vì $\text{dist}[C]=6$), thuật toán sẽ \textit{relax} các đỉnh kề của $C$ mà chưa được thăm, tức là thử cập nhật khoảng cách đến chúng bằng cách đi qua $C$.
+\vspace{-10pt}
+\begin{itemize}
+    \item \textbf{Đỉnh $F$:} khoảng cách mới theo đường $D \rightarrow \cdots \rightarrow C \rightarrow F$ là
+    \vspace{-10pt}
+    \[
+        \text{dist}[C] + w(C,F) = 6 + 5 = 11.
+        \vspace{-10pt}
+    \]
+    nên cập nhật $\text{dist}[F] = 11$.
+
+    \item \textbf{Đỉnh $B$:} khoảng cách mới theo đường $D \rightarrow \cdots \rightarrow C \rightarrow B$ là    \vspace{-10pt}
+
+    \[
+        \text{dist}[C] + w(C,B) = 6 + 2 = 8.
+        \vspace{-10pt}
+    \]
+    nên cập nhật $\text{dist}[B] = 8$.
+
+    \item \textbf{Đỉnh $G$:} nếu đi qua $C$ thì khoảng cách là
+        \vspace{-10pt}
+
+    \[
+        \text{dist}[C] + w(C,G) = 6 + 5 = 11.
+         \vspace{-10pt}
+    \]
+    Nhưng trước đó đã có $\text{dist}[G] = 7$ (ngắn hơn), nên không cập nhật khoảng cách đến $G$.
+\end{itemize}
+
+Sau khi xét xong các láng giềng, $C$ được đánh dấu là đã thăm (\textit{visited}).
+
+Tiếp theo, thuật toán chọn đỉnh chưa thăm có $\text{dist}[\cdot]$ nhỏ nhất. Trong các đỉnh còn lại chưa thăm, $G$ có khoảng cách nhỏ nhất ($7$), nên $G$ sẽ là đỉnh tiếp theo được thăm.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi7.png}
+    \caption{Các bước cập nhật trọng số đường đi}
+    \label{fig:minhhoadothi1}
+\end{figure}
+
+Khi $G$ được chọn làm đỉnh hiện tại (vì $\text{dist}[G]=7$), thuật toán xét các đỉnh kề của $G$ mà chưa được thăm và thử cập nhật khoảng cách đến chúng qua $G$.
+
+\begin{itemize}
+    \item \textbf{Đỉnh $F$:} hiện đã có $\text{dist}[F]=11$. Nếu đi theo đường
+    $D \rightarrow \cdots \rightarrow G \rightarrow F$ thì khoảng cách mới là
+    \vspace{-10pt}
+    \[
+        \text{dist}[G] + w(G,F) = 7 + 5 = 12.
+        \vspace{-10pt}
+    \]
+    Vì $12$ lớn hơn $11$, nên không cập nhật khoảng cách đến $F$.
+\end{itemize}
+
+Sau khi hoàn tất việc \textit{relax}, $G$ được đánh dấu là đã thăm (\textit{visited}).
+
+Tiếp theo, thuật toán chọn đỉnh chưa thăm có $\text{dist}[\cdot]$ nhỏ nhất. Trong các đỉnh chưa thăm còn lại, $B$ có khoảng cách nhỏ nhất ($8$), nên $B$ trở thành đỉnh hiện tại.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/minhhoadothi8.png}
+    \caption{Các bước cập nhật trọng số đường đi}
+    \label{fig:minhhoadothi1}
+\end{figure}
+
+Khi $B$ được chọn làm đỉnh hiện tại (vì $\text{dist}[B]=8$), thuật toán sẽ xét các đỉnh kề của $B$ mà chưa được thăm và thử cập nhật khoảng cách đến chúng bằng cách đi qua $B$.
+
+\begin{itemize}
+    \item \textbf{Đỉnh $F$:} khoảng cách mới theo đường $D \rightarrow \cdots \rightarrow B \rightarrow F$ là
+    \vspace{-10pt}
+    \[
+        \text{dist}[B] + w(B,F) = 8 + 2 = 10.
+        \vspace{-10pt}
+    \]
+    Vì $10$ nhỏ hơn khoảng cách hiện tại $\text{dist}[F]=11$, nên cập nhật $\text{dist}[F]=10$.
+\end{itemize}
+
+Sau khi \textit{relax} xong, $B$ được đánh dấu là đã thăm (\textit{visited}).
+
+Lúc này chỉ còn $F$ là đỉnh chưa thăm cuối cùng. Vì không còn đỉnh nào khác cần cập nhật thông qua $F$ (hoặc việc xét thêm cũng không làm thay đổi kết quả khoảng cách ngắn nhất đến các đỉnh đã ``chốt''), nên có thể coi thuật toán kết thúc.
+
+\subsubsection{Kết quả}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Picture/Dijfinal.png}
+    \caption{Kết quả cuối cùng của thuật toán}
+    \label{fig:placeholder}
+\end{figure}
+
+Kết quả của Dijkstra là: mỗi đỉnh được chọn làm ``đỉnh hiện tại'' đúng một lần, và thu được khoảng cách ngắn nhất từ đỉnh nguồn $D$ đến mọi đỉnh còn lại trong đồ thị.
+
+
+\newpage
+
+\subsection{Thuật toán Bellman-Ford}
+
+\subsubsection{\textcolor{darkblue}{Giới thiệu}}
+
+Thuật toán Bellman--Ford là một trong những thuật toán cổ điển nhất cho bài toán tìm đường đi ngắn nhất từ một đỉnh nguồn đến tất cả các đỉnh còn lại (\textit{single-source shortest path problem} -- SSSP) trong đồ thị có trọng số. Về nguồn gốc, ý tưởng của phương pháp này xuất hiện từ các nghiên cứu của Alfonso Shimbel (1955); sau đó Lester Ford Jr. giới thiệu rõ ràng hơn vào năm 1956, và Richard Bellman giúp thuật toán được biết đến rộng rãi qua các công bố vào năm 1958.
+
+Điểm mạnh cốt lõi của Bellman--Ford nằm ở cách tiếp cận ``lan truyền dần'' bằng thao tác \textit{relax} (nới lỏng) cạnh: thuật toán lặp lại việc xét tất cả các cạnh nhiều lần để cập nhật dần khoảng cách ngắn nhất. Nhờ đó, Bellman--Ford \textbf{xử lý được cạnh có trọng số âm} --- điều mà Dijkstra không đảm bảo đúng. Không chỉ vậy, thuật toán còn có thể phát hiện chu trình âm: nếu sau khi đã lặp đủ số vòng chuẩn mà vẫn còn cập nhật làm khoảng cách giảm, điều đó cho thấy tồn tại một chu trình có tổng trọng số âm (có thể đi tới từ nguồn), và khi ấy ``đường đi ngắn nhất'' không còn xác định hữu hạn.
+
+Trong thực tế, Bellman--Ford có giá trị lớn trong các bài toán cần ``cập nhật dần theo lan truyền thông tin'', đặc biệt là định tuyến mạng theo kiểu \textit{distance-vector} (mỗi nút cập nhật ước lượng chi phí dựa trên thông tin từ láng giềng). Ngoài ra, khả năng phát hiện chu trình âm cũng hữu ích trong các mô hình tối ưu hóa nơi ``vòng lặp có lợi'' có thể được biểu diễn như chu trình âm (ví dụ một số bài toán phân tích chênh lệch, lợi nhuận, hoặc ràng buộc chi phí).
+
+\subsubsection{\textcolor{darkblue}{Nguyên lý hoạt động}}
+
+Bellman--Ford được xây dựng trên cơ sở \textbf{quy hoạch động}. Nó thực hiện quy trình \textbf{nới lỏng} (\textit{relaxation}) lặp lại trên các cạnh: nếu khoảng cách tạm thời tới đỉnh $u$ là $d[u]$ và cạnh $(u,v)$ có trọng số $w(u,v)$, thì nếu
+\[
+d[u] + w(u,v) < d[v],
+\]
+ta cập nhật
+\[
+d[v] = d[u] + w(u,v).
+\]
+Nguyên lý là đường đi ngắn nhất từ nguồn tới một đỉnh bất kỳ luôn chứa không quá $|V|-1$ cạnh (với $|V|$ là số đỉnh). Do đó, sau khi nới lỏng toàn bộ các cạnh $|V|-1$ lần, mọi khoảng cách tối ưu đều đã được cập nhật. Những điểm cốt lõi của phương pháp này được trình bày ở dạng liệt kê:
+
+\begin{itemize}
+    \item Thuật toán đặt khoảng cách tới nguồn bằng $0$ và tới các đỉnh khác bằng $\infty$.
+    \item Lặp lại nới lỏng tất cả các cạnh đúng $|V|-1$ lần -- tương ứng với số cạnh tối đa của đường đi ngắn nhất. Mỗi lần nới lỏng giúp tìm các đường đi ngắn hơn thông qua đỉnh trung gian.
+    \item Sau khi hoàn thành $|V|-1$ lần nới lỏng, thuật toán kiểm tra thêm một vòng: nếu còn cạnh nào có thể được nới lỏng thì đồ thị chứa \textbf{chu trình âm}. Khi đó không tồn tại đường đi ngắn nhất vì ta có thể lặp chu trình âm để làm giảm chi phí vô hạn.
+\end{itemize}
+
+Khác với Dijkstra -- vốn tham lam chọn đỉnh có khoảng cách tạm thời nhỏ nhất -- Bellman--Ford không lựa chọn đỉnh cụ thể mà cập nhật toàn bộ các cạnh nhiều lần. Điều này bảo đảm tìm được khoảng cách tối ưu ngay cả khi các trọng số âm tồn tại. Ngoài ra, khả năng phát hiện chu trình âm khiến thuật toán trở nên đáng tin cậy trong các ứng dụng cần kiểm tra tính ổn định của mạng lưới.
+
+
+\subsubsection{\textcolor{darkblue}{Các bước thực hiện thuật toán}}
+
+Thuật toán có thể mô tả theo các bước cụ thể sau đây:
+
+\begin{enumerate}
+    \item \textbf{Khởi tạo:}
+    \begin{itemize}
+        \item Gán $d[\text{source}] = 0$ và $d[v] = \infty$ cho mọi đỉnh $v$ khác.
+        \item Tạo mảng \texttt{previousVertex[]} để lưu đỉnh trước đó trên đường đi ngắn nhất.
+    \end{itemize}
+
+    \item \textbf{Nới lỏng các cạnh:}
+    
+    Lặp $|V|-1$ lần:
+    \begin{itemize}
+        \item Với mỗi cạnh $(u,v)$ có trọng số $w(u,v)$, nếu $d[u] + w(u,v) < d[v]$ thì:
+        \begin{itemize}
+            \item Cập nhật $d[v] = d[u] + w(u,v)$.
+            \item Gán $\texttt{previousVertex}[v] = u$ 
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Kiểm tra chu trình âm:}
+    \begin{itemize}
+        \item Duyệt lại tất cả các cạnh.
+        \item Nếu tồn tại cạnh $(u,v)$ sao cho $d[u] + w(u,v) < d[v]$, thì phát hiện chu trình âm và kết luận không tồn tại đường đi ngắn nhất.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Pseudocode}
+\begin{verbatim}
+function BellmanFord(G, source):
+    // G: danh sách các cạnh (u, v, w), V: số đỉnh
+    for v in vertices:
+        dist[v] ← INF
+        pred[v] ← NIL
+    dist[source] ← 0
+
+    // Lặp V-1 lần
+    for i from 1 to V-1:
+        for each edge (u, v, w) in G:
+            if dist[u] + w < dist[v]:
+                dist[v] ← dist[u] + w
+                pred[v] ← u
+
+    // Kiểm tra chu trình âm
+    for each edge (u, v, w) in G:
+        if dist[u] + w < dist[v]:
+            report "Phát hiện chu trình âm"
+            return
+
+    return dist, pred
+
+\end{verbatim}
+
+\subsubsection{\textcolor{darkblue}{Phân tích độ phức tạp}}
+
+\textbf{Thời gian}\\
+Trong cài đặt cơ bản, thuật toán sử dụng hai vòng lặp lồng nhau: vòng ngoài chạy $|V|-1$ lần và vòng trong duyệt tất cả $|E|$ cạnh. Do đó, độ phức tạp thời gian của Bellman--Ford là:
+\begin{itemize}
+    \item \textbf{Trường hợp xấu nhất và trung bình:} $O(|V|\cdot|E|)$ -- cần nới lỏng toàn bộ các cạnh cho mỗi lần lặp.
+    \item \textbf{Trường hợp tốt nhất:} khi không cần nới lỏng cạnh (khoảng cách ban đầu đã tối ưu), thuật toán có thể dừng sau một lần duyệt qua các cạnh; khi đó thời gian là $O(|E|)$.
+\end{itemize}
+
+Thuật toán chậm hơn Dijkstra (độ phức tạp $O(|E|\log|V|)$) nhưng trở nên cần thiết khi trong đồ thị có trọng số âm hoặc cần phát hiện chu trình âm.
+
+\textbf{Bộ nhớ}\\
+Bellman--Ford cần lưu một mảng \texttt{dist[]} kích thước $|V|$ để lưu khoảng cách tạm thời và một mảng \texttt{pred[]} để lưu đỉnh trước đó. Danh sách cạnh của đồ thị được cung cấp sẵn hoặc xây dựng từ danh sách kề. Do đó, độ phức tạp không gian bổ sung là $O(|V|)$ -- tuyến tính theo số lượng đỉnh. Không cần cấu trúc dữ liệu phức tạp như hàng đợi ưu tiên; thuật toán chỉ cần mảng các cạnh và mảng khoảng cách.
+
+\subsubsection{\textcolor{darkblue}{Ý tưởng tối ưu Bellman--Ford bằng SPFA (Shortest Path Faster Algorithm)}}
+
+Bellman--Ford thực hiện \textbf{ |V| - 1 } lượt nới lỏng mọi cạnh để tìm đường đi ngắn nhất; điều này tốn kém khi đồ thị lớn nhưng chỉ một số đỉnh thực sự bị cập nhật. SPFA khắc phục bằng cách chỉ đưa vào hàng đợi những đỉnh có khoảng cách vừa được cải thiện. Khi hàng đợi rỗng, tức là không còn cạnh nào cần nới lỏng, thuật toán dừng. Cách làm này dựa trên quan sát rằng phần lớn thao tác nới lỏng trong Bellman--Ford không dẫn đến cập nhật nên có thể bỏ qua.
+
+\subsubsection{Nguyên lý và tổ chức hàng đợi}
+
+\begin{itemize}
+    \item \textbf{Hàng đợi vòng (\textit{circular queue}):} SPFA thường sử dụng mảng vòng với hai con trỏ \texttt{front} và \texttt{rear} để thực hiện các thao tác \texttt{push}/\texttt{pop} trong $O(1)$. Việc này tránh chi phí phân bổ động như trong \texttt{std::queue}.
+    \item \textbf{Mảng \texttt{dist[]} và \texttt{inQueue[]}:} Giống Bellman--Ford, \texttt{dist[v]} lưu khoảng cách tạm thời, còn \texttt{inQueue[v]} đánh dấu đỉnh đang nằm trong hàng đợi để tránh thêm trùng lặp.
+    \item \textbf{Đếm số lần vào hàng đợi:} Để phát hiện chu trình âm, SPFA đếm số lần mỗi đỉnh bị đưa vào hàng đợi (\texttt{cnt[v]}). Nếu một đỉnh bị đưa vào hàng đợi hơn $|V|$ lần thì tồn tại chu trình âm.
+\end{itemize}
+
+\subsubsection{Các bước thực hiện}
+
+\begin{enumerate}
+    \item \textbf{Khởi tạo:} gán $\texttt{dist}[s] = 0$ cho nguồn $s$, các đỉnh khác bằng $\infty$; đặt $\texttt{inQueue}[s] = \texttt{true}$; đưa $s$ vào hàng đợi vòng.
+    \item \textbf{Lặp cho tới khi hàng đợi rỗng:}
+    \begin{itemize}
+        \item Lấy đỉnh $u$ ra khỏi đầu hàng đợi, đặt $\texttt{inQueue}[u] = \texttt{false}$.
+        \item Duyệt tất cả các cạnh $(u,v,w)$. Nếu $\texttt{dist}[u] + w < \texttt{dist}[v]$ thì cập nhật $\texttt{dist}[v]$ và, nếu $v$ chưa có trong hàng đợi, đưa $v$ vào cuối (hoặc đầu nếu dùng kỹ thuật \textit{Small Label First}) và đặt $\texttt{inQueue}[v] = \texttt{true}$.
+        \item Tăng $\texttt{cnt}[v]$ và nếu $\texttt{cnt}[v] > |V|$ thì dừng và báo có chu trình âm.
+    \end{itemize}
+\end{enumerate}
+
+Hàng đợi vòng giúp các thao tác thêm/xóa diễn ra tuần tự mà không cần dịch chuyển phần tử như trong mảng thường; vì đầu và cuối ``nối tròn'', khi con trỏ \texttt{rear} vượt quá kích thước thì quay lại vị trí đầu mảng.
+
+\subsubsection{Độ phức tạp và đặc tính}
+
+\begin{itemize}
+    \item \textbf{Trung bình:} SPFA chạy nhanh hơn Bellman--Ford vì chỉ nới lỏng các cạnh ``có ích''. Trên nhiều đồ thị thực nghiệm, thuật toán đạt gần $O(|E|)$ thời gian.
+    \item \textbf{Tệ nhất:} SPFA vẫn có thể thoái hóa về $O(|V||E|)$, giống Bellman--Ford. Những đồ thị có cấu trúc đặc biệt (ví dụ chu trình hướng với trọng số dương) sẽ khiến hầu hết các đỉnh luôn được đưa trở lại hàng đợi.
+    \item \textbf{Bộ nhớ:} cần $O(|V|)$ cho mảng khoảng cách và mảng đánh dấu; ngoài ra hàng đợi vòng có kích thước tối đa $|V|$.
+\end{itemize}
+
+
+\subsubsection{\textcolor{darkblue}{Cách phát hiện chu trình âm}}
+
+Thuật toán Bellman--Ford thực hiện việc \textbf{nới lỏng cạnh} theo nguyên tắc quy hoạch động: lặp lại quá trình cập nhật khoảng cách cho tất cả các cạnh trong $|V|-1$ lần (với $|V|$ là số đỉnh) để đảm bảo rằng mọi đường đi đơn giản có tối đa $|V|-1$ cạnh đều được xét. Tuy nhiên, để kiểm tra chu trình âm, ta thực hiện thêm một vòng quét nữa qua tất cả các cạnh. Nếu tồn tại một cạnh $(u,v)$ thỏa mãn điều kiện
+\[
+\text{dist}[u] + w(u,v) < \text{dist}[v],
+\]
+nghĩa là việc nới lỏng cạnh này vẫn tiếp tục giảm được khoảng cách tới $v$ sau $|V|-1$ lần lặp, điều đó chỉ có thể xảy ra khi tồn tại một \textbf{chu trình âm} trong đồ thị. Khi đó, thuật toán sẽ đánh dấu có chu trình âm và kết thúc, vì không tồn tại khoảng cách ngắn nhất hữu hạn.
+
+Thuật toán có thể trả về mảng khoảng cách với giá trị đặc biệt (ví dụ \texttt{-1}) hoặc thông báo lỗi để chỉ ra rằng đồ thị chứa chu trình âm và việc tính đường đi ngắn nhất không khả thi.
+
+\begin{tcolorbox}
+    \textit{Thuật toán Bellman-Ford là thuật toán tìm đường đi ngắn nhất từ ​​một điểm xuất phát duy nhất . Nó hoạt động hiệu quả ngay cả trong trường hợp có cạnh âm và cũng có khả năng phát hiện chu trình âm. Thuật toán này hoạt động dựa trên nguyên tắc nới lỏng các cạnh.}
+\end{tcolorbox}
+
+\subsubsection{\textcolor{darkblue}{Ứng dụng}}
+
+\begin{itemize}
+    \item \textbf{Giao thức định tuyến (networking protocols)} -- Phiên bản phân tán của Bellman--Ford là nền tảng của các giao thức định tuyến theo vector khoảng cách như \textit{Routing Information Protocol (RIP)}. Mỗi router tính khoảng cách tới các router khác, gửi bảng khoảng cách cho hàng xóm và cập nhật lại khi nhận thông tin mới.
+
+    \item \textbf{Phát hiện cơ hội arbitrage} -- Trong lĩnh vực tài chính, Bellman--Ford có thể phát hiện chu trình âm bằng cách chuyển đổi tỷ giá hối đoái thành logarit âm. Nếu tồn tại chu trình âm, đó là dấu hiệu cho cơ hội \textit{arbitrage} (mua bán vòng quanh để thu lợi).
+
+    \item \textbf{Hệ thống định tuyến giao thông và GPS} -- Thuật toán được áp dụng trong các hệ thống lập lộ trình có cân nhắc tới nhiều yếu tố như kẹt xe và điều kiện đường sá, nơi trọng số (thời gian/chi phí) có thể thay đổi và đôi khi mang giá trị âm do ưu đãi.
+
+    \item \textbf{Sinh học tính toán và game} -- Bellman--Ford được sử dụng trong các bài toán xếp chuỗi (\textit{sequence alignment}), mô phỏng protein hoặc tìm đường đi trong môi trường game phức tạp với chi phí di chuyển khác nhau.
+\end{itemize}
+
+\subsubsection{\textcolor{darkblue}{Ví dụ minh họa chi tiết}}
+
+Giả sử ta có đồ thị có hướng như hình bên dưới với $5$ đỉnh và $8$ cạnh. Nhãn của mỗi đỉnh được kí hiệu bằng các chữ cái in hoa từ $A \rightarrow E$. Với đỉnh bắt đầu là $D$.
+
+\begin{figure}[H]
+    \centering
+    \vspace{10pt}
+    \includegraphics[width=0.5\linewidth]{Picture/bellman1.png}
+    \caption{Hình minh hóa thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+\newpage
+Khởi tạo khoảng cách ban đầu. \\
+\vspace{-20pt}
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black,
+  boxrule=0.8pt,
+  arc=2mm,
+  left=6mm, right=3mm, top=3mm, bottom=3mm,
+  borderline west={3pt}{0pt}{green!60!black}
+]
+
+
+\texttt{distances = [inf, inf, inf, \textcolor{red}{0}, inf]}\\
+\texttt{\#vertices = [ A, \ \ B, \  \ C, \  \ D, \ \  E]}
+\end{tcolorbox}
+
+Bốn cạnh đầu tiên được xét trong đồ thị là\textbf{ $A \rightarrow C$, $A \rightarrow E$, $B \rightarrow C$ và $C \rightarrow A$}. Tuy nhiên, ở thời điểm này các đỉnh xuất phát $A$, $B$ và $C$ vẫn có khoảng cách tạm thời vô hạn (chưa có đường đi nào từ đỉnh nguồn đến chúng), nên khi thử \textit{relax} các cạnh trên, ta không thể tạo ra một khoảng cách hữu hạn mới cho các đỉnh đích. Vì vậy, \textbf{không có cập nhật nào} xảy ra trong bốn lần kiểm tra cạnh đầu tiên này.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/bellman2.png}
+    \caption{Hình minh hóa thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+
+Sau khi đã thử \textit{relax} các cạnh xuất phát từ $A$, $B$, $C$ mà vẫn không có cập nhật (vì các đỉnh này đang có $\text{dist}=\infty$), thuật toán chuyển sang kiểm tra các cạnh đi ra từ đỉnh $D$.
+
+Vì khoảng cách tạm thời của $D$ bằng $0$ ($\text{dist}[D]=0$), nên khi \textit{relax} từng cạnh $D \rightarrow v$, ta có:
+\vspace{-10pt}
+\[
+\text{dist}[v] \leftarrow \min\big(\text{dist}[v],\ \text{dist}[D] + w(D,v)\big)
+= \min(\infty,\ 0 + w(D,v)) = w(D,v).
+\vspace{-10pt}
+\]
+
+Do đó, các đỉnh kề mà $D$ có cạnh đi ra sẽ được cập nhật khoảng cách đúng bằng trọng số của cạnh:
+\begin{itemize}
+    \vspace{-10pt}
+    \item $D \rightarrow A$ (trọng số $4$) $\Rightarrow\ \text{dist}[A]=4$.
+    \vspace{-10pt}
+    \item $D \rightarrow E$ (trọng số $3$) $\Rightarrow\ \text{dist}[E]=3$.
+    \vspace{-10pt}
+    \item $D \rightarrow C$ (trọng số $7$) $\Rightarrow\ \text{dist}[C]=7$.
+\end{itemize}
+
+
+
+
+\begin{figure}[H]
+    \centering
+
+    \includegraphics[width=0.5\linewidth]{Picture/bellman3.png}
+    \caption{Hình minh hóa thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+
+Sau khi các cạnh đi ra từ $D$ đã làm cho một số đỉnh có khoảng cách hữu hạn (đặc biệt là $\text{dist}[E]=3$), thuật toán tiếp tục kiểm tra các cạnh đi ra từ $E$. Vì $E$ đã có khoảng cách hữu hạn, nên việc \textit{relax} các cạnh từ $E$ có thể tạo ra cập nhật mới cho các đỉnh kề:
+
+\begin{itemize}
+    \item \textbf{Với cạnh $E \rightarrow B$ (trọng số $2$):}
+    \vspace{-10pt}
+    \[
+    \text{dist}[B] \leftarrow \min\big(\text{dist}[B],\, \text{dist}[E] + 2\big)
+    = \min(\infty,\, 3+2)=5.
+        \vspace{-10pt}
+    \]
+    $\Rightarrow$ cập nhật trọng số \text{dist}[B] = $5$.
+
+    \item \textbf{Với cạnh $E \rightarrow C$ (trọng số $3$):}
+    \vspace{-10pt}
+    \[
+    \text{dist}[C] \leftarrow \min\big(\text{dist}[C],\, \text{dist}[E] + 3\big)
+    = \min(7,\, 3+3)=6.
+    \vspace{-10pt}
+    \]
+    $\Rightarrow$ cập nhật trọng số \text{dist}[C] = $6$
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\linewidth]{Picture/bellman4.png}
+    \caption{Hình minh hóa thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+Sau khi đã duyệt toàn bộ các cạnh được $1$ lượt (vòng lặp thứ nhất), thuật toán vẫn phải lặp đủ $|V|-1$ lượt. Với đồ thị có $5$ đỉnh $(A,B,C,D,E)$ thì tổng số lượt là
+\[
+5-1=4.
+\]
+Vì vậy, sau lượt đầu tiên, thuật toán còn phải kiểm tra thêm $3$ lượt nữa trước khi kết thúc.
+
+Bước sang lượt kiểm tra thứ hai, thuật toán bắt đầu lại từ đầu và xét các cạnh đi ra từ đỉnh $A$. Tại thời điểm này ta đang có:
+\vspace{-10pt}
+\[
+\text{dist}[D]=0,\quad \text{dist}[A]=4,\quad \text{dist}[E]=3,\quad \text{dist}[B]=5,\quad \text{dist}[C]=6.
+\vspace{-10pt}
+\]
+
+Khi \textit{relax} các cạnh từ $A$:
+\begin{itemize}
+    \item \textbf{Với cạnh $A \rightarrow C$ (trọng số $4$):}
+    \vspace{-10pt}
+    \[
+    \text{alt}=\text{dist}[A]+4=4+4=8.
+    \vspace{-10pt}
+    \]
+    Trong khi đó $\text{dist}[C]=6$ đã nhỏ hơn $8$, nên không cập nhật khoảng cách đến $C$.
+    \vspace{-10pt}
+
+    \item \textbf{Với cạnh $A \rightarrow E$ (trọng số $5$):}
+    \[
+    \text{alt}=\text{dist}[A]+5=4+5=9.
+    \vspace{-10pt}
+    \]
+    Nhưng $\text{dist}[E]=3$ đã nhỏ hơn $9$, nên không cập nhật khoảng cách đến $E$.
+\end{itemize}
+
+Vì cả hai giá trị tính được đều không tốt hơn khoảng cách hiện tại, nên việc kiểm tra các cạnh $A \rightarrow C$ và $A \rightarrow E$ trong lượt thứ hai không tạo ra thay đổi nào. Sau đó, thuật toán sẽ tiếp tục kiểm tra các cạnh còn lại theo thứ tự đã định trong lượt kiểm tra này.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\linewidth]{Picture/bellman5.png}
+    \caption{Hình minh hóa thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+
+Cạnh tiếp theo được xét là $B \rightarrow C$. Ở thời điểm này, $\text{dist}[B]=5$ và trọng số cạnh $w(B,C)=-4$, nên khi \textit{relax} ta tính:
+\vspace{-10pt}
+\[
+\text{alt}=\text{dist}[B]+w(B,C)=5+(-4)=1.
+\vspace{-10pt}
+\]
+Vì $1$ nhỏ hơn khoảng cách hiện tại $\text{dist}[C]=6$, nên Bellman--Ford cập nhật: 
+\vspace{-10pt}
+
+\[
+\text{dist}[C] = 1
+\vspace{-10pt}
+\]
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\linewidth]{Picture/bellman6.png}
+    \caption{Hình minh hóa thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+
+Khi xét cạnh $C \rightarrow A$ với trọng số $-3$, tại thời điểm này ta vừa có $\text{dist}[C]=1$ nên khoảng cách ứng viên đến $A$ qua $C$ là:
+\vspace{-10pt}
+\[
+\text{alt}=\text{dist}[C]+w(C,A)=1+(-3)=-2.
+\vspace{-10pt}
+\]
+Vì $-2$ nhỏ hơn khoảng cách hiện tại $\text{dist}[A]=4$, nên thuật toán cập nhật:
+\vspace{-10pt}
+\[
+\text{dist}[A] =  -2.
+\vspace{-10pt}
+\]
+
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/bellman7.png}
+    \caption{Hình minh hóa thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+
+Trong vòng lặp thứ $2$, cạnh $C \rightarrow A$ đúng là ``cú cập nhật cuối cùng'' đối với đồ thị này: sau khi $\text{dist}[C]$ giảm xuống $1$, việc \textit{relax} $C \rightarrow A$ với trọng số $-3$ làm $\text{dist}[A]$ tiếp tục giảm, và từ thời điểm đó trở đi không còn cạnh nào tạo ra giá trị nhỏ hơn nữa. Vì vậy, dù thuật toán vẫn phải chạy tiếp thêm $2$ vòng (để đủ tổng cộng $|V|-1$ vòng), các vòng sau chỉ là kiểm tra xác nhận, không phát sinh cập nhật.
+
+Việc Bellman--Ford phải kiểm tra tất cả các cạnh $|V|-1$ lần thoạt nhìn có vẻ nhiều, nhưng đây là điểm bảo đảm tính đúng đắn:
+\begin{itemize}
+    \item Mỗi vòng \textit{relax} toàn bộ cạnh có thể ``lan truyền'' thông tin đường đi ngắn thêm một bước cạnh.
+    \item Sau $k$ vòng, thuật toán đã xét đầy đủ các đường đi có không quá $k$ cạnh.
+    \item Nếu đồ thị không có chu trình âm, thì mọi đường đi ngắn nhất hữu hạn luôn có thể biểu diễn bởi một đường đi đơn với tối đa $|V|-1$ cạnh.
+\end{itemize}
+
+Vì vậy, chạy đủ $|V|-1$ vòng sẽ đảm bảo rằng, dù đường đi tối ưu dài và phải ``truyền'' qua nhiều đỉnh trung gian, thuật toán vẫn tìm được khoảng cách ngắn nhất đến tất cả các đỉnh.
+``
+\subsection{Tổng kết}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{8pt}
+\caption{So sánh Dijkstra và Bellman--Ford}
+\label{tab:dij_bf_border}
+\vspace{10pt}
+
+\begin{tabular}{|p{0.28\textwidth}|p{0.34\textwidth}|p{0.34\textwidth}|}
+\hline
+\textbf{Tiêu chí} & \textbf{Dijkstra} & \textbf{Bellman--Ford} \\
+\hline
+\textbf{Loại bài toán} & SSSP & SSSP \\
+\hline
+\textbf{Điều kiện trọng số} & $w(e)\ge 0$ & Có thể âm; phát hiện chu trình âm \\
+\hline
+\textbf{Ý tưởng chính} & Tham lam + hàng đợi ưu tiên & Quy hoạch động + nới lỏng toàn bộ cạnh \\
+\hline
+\textbf{Độ phức tạp thời gian} & $O\big((|V|+|E|)\log|V|\big)$ & $O(|V||E|)$ \\
+\hline
+\textbf{Bộ nhớ (bổ sung)} & $O(|V|)$ & $O(|V|)$ \\
+\hline
+\textbf{Đồ thị thưa / lớn} & Rất phù hợp & Thường chậm \\
+\hline
+\textbf{Trọng số âm} & Không dùng được & Dùng được \\
+\hline
+\textbf{Chu trình âm} & Không xác định được & Xác định được \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+\chapter{CHƯƠNG TRÌNH VÀ KẾT QUẢ}
+\section{Tổ chức chương trình}
+
+\subsection{Tổng quan cấu trúc}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Picture/sodohethong.png}
+    \caption{Tổ chức chương trình}
+    \label{fig:placeholder}
+\end{figure}
+
+\begin{tcolorbox}[colback=white,colframe=black,boxrule=0.8pt,arc=2mm,breakable]
+\fontsize{11pt}{12pt}
+\begin{verbatim}
+Project_SPP/
+├─ src/
+│  ├─ main.cpp
+│  ├─ GUI.cpp
+│  ├─ graph.cpp
+│  ├─ algorithms.cpp
+│  ├─ comparison.cpp
+│  ├─ graphics.cpp
+│  └─ visualizer.py
+├─ lib/
+│  ├─ GUI.h
+│  ├─ graph.h
+│  ├─ Algorithms.h
+│  ├─ Comparison.h
+│  ├─ graphics.h
+│  ├─ Global.h
+│  ├─ Colors.h
+│  └─ graphics_setup.h
+└─ data/
+   └─ *.txt (graph, temp, report)
+
+\end{verbatim}
+\end{tcolorbox}
+
+\begin{figure}[H]
+    \centering
+    \caption{Tổ chức tệp tin}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection{Chi tiết chức năng}
+\begin{itemize}
+  \item \texttt{src/main.cpp} xử lý nhập xuất, đọc dữ liệu từ thư mục \texttt{data/}, hiển thị menu và gọi tới các thuật toán theo yêu cầu người dùng. Chương trình cho phép lựa chọn nhập đồ thị, thuật toán (Dijkstra hoặc Bellman--Ford), so sánh, trực quan hóa kết quả và in kết quả lên console.
+
+  \item \texttt{graph.cpp} xây dựng danh sách kề dựa trên dữ liệu đọc từ file; có thể chọn cách biểu diễn bằng danh sách hoặc ma trận kề.
+
+  \item \texttt{algorithms.cpp} cài đặt hai thuật toán dựa trên lý thuyết đã trình bày ở Chương 2. Dijkstra sử dụng hàng đợi ưu tiên (min-heap) nên đạt độ phức tạp thời gian $O\big((V+E)\log V\big)$. Bellman--Ford lặp qua tất cả các cạnh $V-1$ lần, do đó có độ phức tạp $O(V\cdot E)$ và cần thêm một lượt kiểm tra phát hiện chu trình âm.
+
+  \item \texttt{comparison.cpp} đo thời gian thực thi bằng thư viện \texttt{<chrono>} và ước lượng bộ nhớ bằng cách theo dõi kích thước cấu trúc dữ liệu (mảng khoảng cách, hàng đợi ưu tiên, danh sách kề). Số liệu bộ nhớ chỉ mang tính tương đối vì còn phụ thuộc vào trình biên dịch và hệ điều hành. Theo phân tích lý thuyết, cả hai thuật toán cần $O(V+E)$ bộ nhớ để lưu đồ thị và $O(V)$ cho mảng khoảng cách.
+
+  \item \texttt{GUI.cpp} xây dựng giao diện menu đơn giản trên console, cho phép người dùng nhập đỉnh nguồn, chọn thuật toán và hiển thị kết quả.
+\end{itemize}
+
+\subsection{Phân loại và mô tả chức năng các hàm trong chương trình}
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.8cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{Nhóm xử lý dữ liệu (đồ thị + file I/O)}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{Graph::Graph()} & \texttt{Graph.h, graph.cpp} & Khởi tạo đồ thị rỗng, tạo thư mục \texttt{DATA\_FOLDER} nếu chưa có.\\ \hline
+\texttt{Graph::Graph(int vertices)} & \texttt{Graph.h, graph.cpp} & Khởi tạo đồ thị với số đỉnh ban đầu, đặt nhãn \texttt{V0..V(n-1)}.\\ \hline
+\texttt{Graph::~Graph()} & \texttt{Graph.h, graph.cpp} & Giải phóng dữ liệu bằng \texttt{clear()}.\\ \hline
+\texttt{Graph::getVertexCount()} & \texttt{Graph.h, graph.cpp} & Trả về số đỉnh \texttt{V}.\\ \hline
+\texttt{Graph::getEdgeCount()} & \texttt{Graph.h, graph.cpp} & Trả về số cạnh \texttt{E}.\\ \hline
+\texttt{Graph::getAdjacencyList()} & \texttt{Graph.h, graph.cpp} & Trả về danh sách kề (const).\\ \hline
+\texttt{Graph::getVertexLabel(int)} & \texttt{Graph.h, graph.cpp} & Trả nhãn đỉnh nếu hợp lệ, ngược lại \texttt{"Invalid"}.\\ \hline
+\texttt{Graph::clear()} & \texttt{Graph.h, graph.cpp} & Xóa toàn bộ dữ liệu đồ thị, reset \texttt{V}, \texttt{E}.\\ \hline
+\texttt{Graph::addVertex(const std::string\&)} & \texttt{Graph.h, graph.cpp} & Thêm một đỉnh mới và nhãn tương ứng.\\ \hline
+\texttt{Graph::addEdge(int,int,int)} & \texttt{Graph.h, graph.cpp} & Thêm/cập nhật cạnh có trọng số; nếu đã có thì chỉ cập nhật trọng số.\\ \hline
+\texttt{Graph::hasEdge(int,int)} & \texttt{Graph.h, graph.cpp} & Kiểm tra tồn tại cạnh \texttt{source -> destination}.\\ \hline
+\texttt{Graph::makeUndirected()} & \texttt{Graph.h, graph.cpp} & Bổ sung cạnh ngược để biến đồ thị thành vô hướng.\\ \hline
+\texttt{Graph::fileExists(const std::string\&)} & \texttt{Graph.h, graph.cpp} & Kiểm tra file có tồn tại không.\\ \hline
+\texttt{Graph::readFromFile(const std::string\&, bool\&)} & \texttt{Graph.h, graph.cpp} & Đọc đồ thị từ file; nếu thiếu file đặt \texttt{needCreate=true}.\\ \hline
+\texttt{Graph::saveToFile(const std::string\&)} & \texttt{Graph.h, graph.cpp} & Ghi đồ thị ra file (\texttt{V}, nhãn, \texttt{E}, danh sách cạnh).\\ \hline
+\texttt{Graph::exportForPython(const std::string\&)} & \texttt{Graph.h, graph.cpp} & Xuất đồ thị theo định dạng cho Python.\\ \hline
+\texttt{Graph::exportWithPath(const std::string\&, const std::vector<int>\&)} & \texttt{Graph.h, graph.cpp} & Xuất đồ thị kèm đường đi vào file.\\ \hline
+\texttt{Graph::exportForPython(const std::vector<int>\&)} & \texttt{Graph.h, graph.cpp} & Xuất đồ thị kèm đường đi vào \texttt{TEMP\_EXPORT\_FILE}.\\ \hline
+\texttt{Graph::isValid()} & \texttt{Graph.h, graph.cpp} & Kiểm tra đồ thị có ít nhất 1 đỉnh.\\ \hline
+\texttt{Graph::hasNegativeWeights()} & \texttt{Graph.h, graph.cpp} & Kiểm tra có cạnh trọng số âm không.\\ \hline
+
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.9cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{ Nhóm hàm xử lý thuật toán (Algorithms)}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{Algorithms::Algorithms(const Graph\&)} &
+\texttt{Algorithms.h, algorithms.cpp} &
+Lưu tham chiếu đến đồ thị để xử lý.\\ \hline
+
+\texttt{Algorithms::dijkstra(int, bool)} &
+\texttt{Algorithms.h, algorithms.cpp} &
+Chạy Dijkstra, trả \texttt{PathResult}, có log nếu \texttt{showSteps=true}.\\ \hline
+
+\texttt{Algorithms::bellmanFord(int, bool)} &
+\texttt{Algorithms.h, algorithms.cpp} &
+Chạy Bellman--Ford, phát hiện chu trình âm.\\ \hline
+
+\texttt{Algorithms::getShortestPath()} &
+\texttt{Algorithms.h, algorithms.cpp} &
+Trả đường đi ngắn nhất tới đỉnh đích.\\ \hline
+
+\texttt{Algorithms::getDistance(const PathResult\&, int)} &
+\texttt{Algorithms.h, algorithms.cpp} &
+Trả khoảng cách tới đỉnh đích hoặc \texttt{-1} nếu lỗi.\\ \hline
+
+% \texttt{Algorithms::logStep(std::vector<std::string>\&, const std::string\&)} &
+\texttt{Algorithms::logStep()} &
+\texttt{Algorithms.h, algorithms.cpp} &
+(Private) Ghi log từng bước thuật toán.\\ \hline
+
+\texttt{Algorithms::reconstructPath( const std::vector<int>\&)} &
+\texttt{Algorithms.h, algorithms.cpp} &
+(Private) Dựng lại đường đi từ mảng \texttt{previousVertex}.\\ \hline
+
+\texttt{formatDistanceTable(const Graph\&, const std::vector<int>\&)} &
+\texttt{algorithms.cpp} &
+(Helper nội bộ) Định dạng bảng khoảng cách để in log.\\ \hline
+
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.8cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{Bảng 3: Nhóm hàm so sánh/đánh giá}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{Comparison::Comparison(const Graph\&)} &
+\texttt{Comparison.h, comparison.cpp} &
+Khởi tạo bộ so sánh với đồ thị và \texttt{Algorithms}.\\ \hline
+
+\texttt{Comparison::measureAlgorithm( int,AlgorithmType)} &
+\texttt{Comparison.h, comparison.cpp} &
+Đo thời gian, bộ nhớ, độ phức tạp, trạng thái thành công của thuật toán.\\ \hline
+
+\texttt{Comparison::comparePerformance( int, AlgorithmType)} &
+\texttt{Comparison.h, comparison.cpp} &
+Tạo báo cáo so sánh và log tổng hợp.\\ \hline
+
+\end{longtable}
+
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.8cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{Nhóm hàm giao diện (\texttt{GUI})}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{GUI::GUI()} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Khởi tạo kích thước màn hình theo \texttt{WINDOW\_WIDTH/HEIGHT}.\\ \hline
+
+\texttt{GUI::~GUI()} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Hủy đối tượng (không có logic đặc biệt).\\ \hline
+
+\texttt{GUI::drawMenu()} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Vẽ màn hình menu chính.\\ \hline
+
+\texttt{GUI::drawComparisonScreen(const std::vector<std::string>\& logs)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Hiển thị log so sánh theo nhiều trang.\\ \hline
+
+\texttt{GUI::clearScreen()} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Xóa màn hình.\\ \hline
+
+\texttt{GUI::promptMenuChoice()} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Hiển thị menu và đọc lựa chọn \texttt{1--6}.\\ \hline
+
+\texttt{GUI::promptChoice(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Hiển thị danh sách lựa chọn và đọc số trong khoảng.\\ \hline
+
+\texttt{GUI::promptInt(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Đọc số nguyên trong khoảng, có thông báo lỗi.\\ \hline
+
+\texttt{GUI::promptLine(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Đọc một dòng text, trả \texttt{defaultValue} nếu rỗng.\\ \hline
+
+\texttt{GUI::promptYesNo(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Hỏi yes/no, trả \texttt{true/false}.\\ \hline
+
+\texttt{GUI::promptGraphInput(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Nhập số đỉnh, số cạnh và danh sách cạnh từ người dùng.\\ \hline
+
+\texttt{GUI::promptStartEnd(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Nhập đỉnh bắt đầu và kết thúc, có kiểm tra hợp lệ.\\ \hline
+
+\texttt{GUI::showAlgorithmLogs(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Hiển thị log thuật toán (nhiều trang).\\ \hline
+
+\texttt{GUI::showMessage(...)} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Hiển thị hộp thoại thông báo.\\ \hline
+
+\texttt{GUI::waitForKey()} &
+\texttt{lib/GUI.h, src/GUI.cpp} &
+Chờ người dùng nhấn phím.\\ \hline
+
+\end{longtable}
+
+
+
+
+
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.8cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{Helper nội bộ GUI}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{approxCharWidth()} & \texttt{GUI.cpp} & Ước lượng chiều rộng ký tự theo kích thước cửa sổ.\\ \hline
+\texttt{approxLineHeight()} & \texttt{GUI.cpp} & Ước lượng chiều cao dòng.\\ \hline
+\texttt{headerHeight()} & \texttt{GUI.cpp} & Tính chiều cao vùng header.\\ \hline
+\texttt{menuHeight()} & \texttt{GUI.cpp} & Tính chiều cao vùng menu.\\ \hline
+\texttt{choiceHeight()} & \texttt{GUI.cpp} & Tính chiều cao vùng lựa chọn.\\ \hline
+\texttt{utf8CharCount(...)} & \texttt{GUI.cpp} & Đếm ký tự UTF-8.\\ \hline
+\texttt{approxTextWidth(...)} & \texttt{GUI.cpp} & Ước lượng độ dài text theo ký tự.\\ \hline
+\texttt{wrapLineToWidth(...)} & \texttt{GUI.cpp} & Ngắt dòng theo chiều rộng cho 1 dòng.\\ \hline
+\texttt{wrapLinesToWidth(...)} & \texttt{GUI.cpp} & Ngắt dòng theo chiều rộng cho nhiều dòng.\\ \hline
+\texttt{drawCenteredText(...)} & \texttt{GUI.cpp} & Vẽ text căn giữa.\\ \hline
+\texttt{drawLeftAlignedText(...)} & \texttt{GUI.cpp} & Vẽ text căn trái.\\ \hline
+\texttt{leftIndentX(...)} & \texttt{GUI.cpp} & Tính vị trí lề trái trong khung.\\ \hline
+\texttt{bottomIndentX(...)} & \texttt{GUI.cpp} & Tính vị trí lề dưới trong khung.\\ \hline
+\texttt{trim(...)} & \texttt{GUI.cpp} & Loại bỏ khoảng trắng đầu/cuối.\\ \hline
+\texttt{tryParseInt(...)} & \texttt{GUI.cpp} & Parse chuỗi thành số nguyên, kiểm tra hợp lệ.\\ \hline
+\texttt{tryParseEdgeLine(...)} & \texttt{GUI.cpp} & Parse dòng cạnh dạng \texttt{u v w}.\\ \hline
+\texttt{drawInputField(...)} & \texttt{GUI.cpp} & Vẽ ô nhập liệu.\\ \hline
+\texttt{clearTextLine(...)} & \texttt{GUI.cpp} & Xóa một dòng text trên màn hình.\\ \hline
+\texttt{readLineAt(...)} & \texttt{GUI.cpp} & Đọc chuỗi tại tọa độ màn hình, có filter.\\ \hline
+\texttt{drawHorizontalRule(...)} & \texttt{GUI.cpp} & Vẽ đường ngang phân cách.\\ \hline
+\texttt{drawFrameBox(...)} & \texttt{GUI.cpp} & Vẽ khung có tiêu đề, trả tọa độ bên trong.\\ \hline
+\texttt{drawHeaderFrame(...)} & \texttt{GUI.cpp} & Vẽ khung header chương trình.\\ \hline
+\texttt{drawContentFrame(...)} & \texttt{GUI.cpp} & Vẽ khung nội dung chính.\\ \hline
+\texttt{drawLogFrame(...)} & \texttt{GUI.cpp} & Vẽ khung hiển thị log.\\ \hline
+
+\end{longtable}
+
+
+
+
+
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.8cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{Graphics API}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{initgraph(...)} &
+\texttt{graphics.h, graphics.cpp} &
+Khởi tạo đồ họa giả lập ANSI, xóa màn hình.\\ \hline
+
+\texttt{graphresult()} &
+\texttt{graphics.h, graphics.cpp} &
+Trả trạng thái khởi tạo đồ họa.\\ \hline
+
+\texttt{closegraph()} &
+\texttt{graphics.h, graphics.cpp} &
+Reset màu/đóng đồ họa.\\ \hline
+
+\texttt{cleardevice()} &
+\texttt{graphics.h, graphics.cpp} &
+Xóa màn hình.\\ \hline
+
+\texttt{setcolor(int)} &
+\texttt{graphics.h, graphics.cpp} &
+Đặt màu vẽ hiện tại.\\ \hline
+
+\texttt{setbkcolor(int)} &
+\texttt{graphics.h, graphics.cpp} &
+Đặt màu nền (không dùng).\\ \hline
+
+\texttt{outtextxy(int, int, char*)} &
+\texttt{graphics.h, graphics.cpp} &
+Vẽ text tại \texttt{(x,y)}.\\ \hline
+
+\texttt{rectangle(...)} &
+\texttt{graphics.h, graphics.cpp} &
+Vẽ khung chữ nhật.\\ \hline
+
+\texttt{getch()} &
+\texttt{graphics.h, graphics.cpp} &
+Đọc một ký tự từ stdin.\\ \hline
+
+\end{longtable}
+
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.8cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{Helper nội bộ Graphics}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{setConsoleUtf8()} & \texttt{graphics.cpp} & Bật UTF-8 cho console Windows.\\ \hline
+\texttt{enableAnsi()} & \texttt{graphics.cpp} & Bật ANSI escape cho console.\\ \hline
+\texttt{mapX(int)} & \texttt{graphics.cpp} & Ánh xạ tọa độ X ảo $\rightarrow$ console.\\ \hline
+\texttt{mapY(int)} & \texttt{graphics.cpp} & Ánh xạ tọa độ Y ảo $\rightarrow$ console.\\ \hline
+\texttt{ansiColorCode(int)} & \texttt{graphics.cpp} & Ánh xạ mã màu BGI $\rightarrow$ ANSI.\\ \hline
+\texttt{moveCursor(int, int)} & \texttt{graphics.cpp} & Di chuyển con trỏ console.\\ \hline
+\texttt{applyColor()} & \texttt{graphics.cpp} & Áp dụng màu hiện tại.\\ \hline
+\texttt{writeUtf8(const char*)} & \texttt{graphics.cpp} & Ghi UTF-8 an toàn lên console.\\ \hline
+
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{|>{\bfseries\raggedright\arraybackslash}p{0.38\textwidth}|
+                   >{\bfseries\raggedright\arraybackslash}p{2.8cm}|
+                   >{\raggedright\arraybackslash}p{0.42\textwidth}|}
+\caption{Main + điều phối (\texttt{src/main.cpp})}\\
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{headergray}
+\color{white}\textbf{Hàm} & \color{white}\textbf{Vị trí} & \color{white}\textbf{Chức năng} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\texttt{initConsoleUtf8()} & \texttt{main.cpp} & Bật UTF-8 và font console (Windows).\\ \hline
+\texttt{promptGraphDirected()} & \texttt{main.cpp} & Hỏi đồ thị có hướng hay vô hướng.\\ \hline
+\texttt{createGraphFromGui(bool)} & \texttt{main.cpp} & Tạo đồ thị mới từ dữ liệu nhập GUI.\\ \hline
+\texttt{handleGraphInput()} & \texttt{main.cpp} & Xử lý luồng tải/tạo đồ thị.\\ \hline
+\texttt{runAlgorithm(AlgorithmType)} & \texttt{main.cpp} & Chạy Dijkstra/Bellman--Ford và hiển thị kết quả.\\ \hline
+\texttt{compareAlgorithms()} & \texttt{main.cpp} & So sánh hiệu năng 2 thuật toán.\\ \hline
+\texttt{exportToPython()} & \texttt{main.cpp} & Xuất đồ thị/đường đi ra file cho Python.\\ \hline
+\texttt{main()} & \texttt{main.cpp} & Khởi tạo hệ thống, vòng lặp menu, dọn dẹp tài nguyên.\\ \hline
+
+\end{longtable}
+
+
+
+
+\section{Ngôn ngữ cài đặt}
+Bài toán được triển khai chủ yếu bằng ngôn ngữ \textbf{C++} để đảm bảo hiệu năng cao khi thao tác trên đồ thị lớn. Ngoài thư viện chuẩn, chương trình còn sử dụng một số thư viện bổ trợ:
+
+\begin{itemize}
+  \item \texttt{windows.h} và \texttt{cwchar} (chỉ trên Windows) -- thay đổi chế độ console sang UTF-8 và thiết lập phông chữ khi biên dịch trên Windows; khai báo có điều kiện qua biến \texttt{\_WIN32}.
+
+  \item \texttt{graphics.h} -- lớp giả lập đồ họa trên console ANSI cho phép vẽ sơ đồ và hiển thị trực quan kết quả.
+
+  \item \texttt{Graph.h}, \texttt{Algorithms.h}, \texttt{Comparison.h}, \texttt{GUI.h} -- các header được định nghĩa trong thư mục \texttt{lib/} dùng để tổ chức mã nguồn thành nhiều module: cấu trúc đồ thị, cài đặt thuật toán Dijkstra và Bellman--Ford, chức năng đo thời gian chạy và bộ nhớ, và giao diện người dùng dạng menu.
+
+  \item \textbf{Python} -- được dùng trong script \texttt{visualizer.py} (thư mục \texttt{src/}) để trực quan hóa đồ thị và kết quả bằng \texttt{networkx} và \texttt{matplotlib}. Khi chạy trên Linux (WSL) có thể sử dụng Jupyter hoặc chạy trực tiếp bằng lệnh \texttt{python visualizer.py}.
+\end{itemize}
+
+
+\section{Kết quả}
+\subsection{Giao diện chính}
+\subsubsection{\textcolor{darkblue}{Giao diện chính của chương trình}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Picture/Giaodien/ux1.png}
+    \caption{Hình ảnh giao diện chính của chương trình}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{\textcolor{darkblue}{Giao diện nhập đồ thị}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Picture/Giaodien/ux2.png}
+    \caption{Hình ảnh giao diện nhập đồ thị}
+    \label{fig:placeholder}
+\end{figure}
+
+
+\subsection{Kết quả thực thi}
+
+\subsubsection{\textcolor{darkblue}{Đồ thị có trọng số dương}}
+\textit{\textbf{Ví dụ:}} Cho đồ thị vô hướng, không âm với:
+\begin{itemize}
+    \item Số đỉnh (V) : 7
+    \item Số cạnh (E) : 11
+    \item Danh sách cạnh (u, v, w) : \\
+
+    
+\end{itemize}
+
+\vspace{-30pt}
+
+\renewcommand{\arraystretch}{1.6}
+\setlength{\tabcolsep}{14pt}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ccccc}
+\texttt{1 3 3} & \texttt{2 3 2} & \texttt{3 6 5} & \texttt{4 5 2} & \texttt{6 7 5} \\
+\texttt{1 4 4} & \texttt{2 6 2} & \texttt{3 5 4} & \texttt{5 7 5} & \texttt{7 3 5} \\
+\texttt{1 5 4} &  &  &  &  \\
+\end{tabular}
+\vspace{-5pt}
+\caption{Danh sách cạnh}
+\end{table}\
+
+\textbf{Biểu diễn đồ thị}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Picture/graph2.png}
+    \caption{Biểu diễn đồ thị}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{\textcolor{darkblue}{Chức năng Thuật toán Dijkstra}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Picture/function/dijkstra.png}
+    \caption{Kết quả thuật toán Dijkstra}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{\textcolor{darkblue}{Chức năng Thuật toán Bellman-Ford}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Picture/function/bellman.png}
+    \caption{Kết quả thuật toán Bellman-Ford}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsubsection{\textcolor{darkblue}{Chức năng So sánh}}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Picture/function/sosanh.png}
+    \caption{Kết quả chức năng so sánh}
+    \label{fig:placeholder}
+\end{figure}
+
+
+
+\subsection{Nhận xét}
+
+
+
+
+
+
+
+\chapter{KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}
+\section{Kết luận}
+\section{Hướng phát triển}
+
+
+
+
+
+
+\chapter*{TÀI LIỆU THAM KHẢO}
+\addcontentsline{toc}{chapter}{TÀI LIỆU THAM KHẢO}
+
+% ======================================================
+% PHỤ LỤC
+% ======================================================
+\appendix
+\chapter*{PHỤ LỤC}
+\addcontentsline{toc}{chapter}{PHỤ LỤC}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\footnotesize, % Size nhỏ hơn một chút để chứa được nhiều code hơn
+    breaklines=true,                   % TỰ ĐỘNG XUỐNG DÒNG nếu dòng code quá dài
+    numbers=left,                      % Đánh số dòng để dễ theo dõi
+    numberstyle=\tiny\color{gray},
+    frame=lines,                       % Chỉ kẻ đường gạch ngang trên/dưới để tiết kiệm diện tích
+    rulecolor=\color{black},
+    tabsize=2,
+    showstringspaces=false,
+    keepspaces=true,
+    breakatwhitespace=false,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=
+    {á}{a}1 {à}{a}1 {ả}{a}1 {ã}{a}1 {ạ}{a}1
+    {ă}{a}1 {ắ}{a}1 {ằ}{a}1 {ẳ}{a}1 {ẵ}{a}1 {ặ}{a}1
+    {â}{a}1 {ấ}{a}1 {ầ}{a}1 {ẩ}{a}1 {ẫ}{a}1 {ậ}{a}1
+    {é}{e}1 {è}{e}1 {ẻ}{e}1 {ẽ}{e}1 {ẹ}{e}1
+    {ê}{e}1 {ế}{e}1 {ề}{e}1 {ể}{e}1 {ễ}{e}1 {ệ}{e}1
+    {í}{i}1 {ì}{i}1 {ỉ}{i}1 {ĩ}{i}1 {ị}{i}1
+    {ó}{o}1 {ò}{o}1 {ỏ}{o}1 {õ}{o}1 {ọ}{o}1
+    {ô}{o}1 {ố}{o}1 {ồ}{o}1 {ổ}{o}1 {ỗ}{o}1 {ộ}{o}1
+    {ơ}{o}1 {ớ}{o}1 {ờ}{o}1 {ở}{o}1 {ỡ}{o}1 {ợ}{o}1
+    {ú}{u}1 {ù}{u}1 {ủ}{u}1 {ũ}{u}1 {ụ}{u}1
+    {ư}{u}1 {ứ}{u}1 {ừ}{u}1 {ử}{u}1 {ữ}{u}1 {ự}{u}1
+    {ý}{y}1 {ỳ}{y}1 {ỷ}{y}1 {ỹ}{y}1 {ỵ}{y}1
+    {đ}{d}1 {Đ}{D}1
+    {Á}{A}1 {À}{A}1 {Ả}{A}1 {Ã}{A}1 {Ạ}{A}1
+    {Ă}{A}1 {Ắ}{A}1 {Ằ}{A}1 {Ẳ}{A}1 {Ẵ}{A}1 {Ặ}{A}1
+    {Â}{A}1 {Ấ}{A}1 {Ầ}{A}1 {Ẩ}{A}1 {Ẫ}{A}1 {Ậ}{A}1
+    {É}{E}1 {È}{E}1 {Ẻ}{E}1 {Ẽ}{E}1 {Ẹ}{E}1
+    {Ê}{E}1 {Ế}{E}1 {Ề}{E}1 {Ể}{E}1 {Ễ}{E}1 {Ệ}{E}1
+    {Í}{I}1 {Ì}{I}1 {Ỉ}{I}1 {Ĩ}{I}1 {Ị}{I}1
+    {Ó}{O}1 {Ò}{O}1 {Ỏ}{O}1 {Õ}{O}1 {Ọ}{O}1
+    {Ô}{O}1 {Ố}{O}1 {Ồ}{O}1 {Ổ}{O}1 {Ỗ}{O}1 {Ộ}{O}1
+    {Ơ}{O}1 {Ớ}{O}1 {Ờ}{O}1 {Ở}{O}1 {Ỡ}{O}1 {Ợ}{O}1
+    {Ú}{U}1 {Ù}{U}1 {Ủ}{U}1 {Ũ}{U}1 {Ụ}{U}1
+    {Ư}{U}1 {Ứ}{U}1 {Ừ}{U}1 {Ử}{U}1 {Ữ}{U}1 {Ự}{U}1
+    {Ý}{Y}1 {Ỳ}{Y}1 {Ỷ}{Y}1 {Ỹ}{Y}1 {Ỵ}{Y}1
+}
+
+\section{Toàn bộ chương trình và cài đặt}
+\begin{tcolorbox}[
+    colback=white!5,        
+    colframe=black!80!white,
+    title=\textbf{\faGithub \ Link GitHub}, 
+    arc=4pt,               
+    outer arc=4pt,
+    boxrule=1pt,            
+    halign=center           
+]
+    Toàn bộ mã nguồn và thông tin tại: 
+    \href{https://github.com/Nhr1410x/PBL1}{\textbf{\color{red}https://github.com/Nhr1410x/PBL1}}
+\end{tcolorbox}
+
+\section{Mã nguồn chương trình}
+
+\subsection{Mã nguồn chương trình chính : main.cpp}
+\lstinputlisting{src/main.cpp}
+
+\subsection{Mã nguồn chương trình ghi dữ liệu : graph.cpp}
+\lstinputlisting{src/graph.cpp}
+
+\subsection{Mã nguồn chương trình thực hiện thuật toán : algorithms.cpp}
+\lstinputlisting{src/algorithms.cpp}
+
+\subsection{Mã nguồn chương trình so sánh : comparison.cpp}
+\lstinputlisting{src/comparison.cpp}
+
+\subsection{Mã nguồn chương trình vẽ giao diện : GUI.cpp}
+\lstinputlisting{src/GUI.cpp}
+
+\subsection{Mã nguồn chương trình vẽ khung : graphics.cpp}
+\lstinputlisting{src/graphics.cpp}
+
+\section{Mã nguồn các thư viện tự cài đặt}
+
+\subsection{Mã nguồn thư viện dữ liệu đồ thị : graph.h}
+\lstinputlisting{lib/graph.h}
+
+\subsection{Mã nguồn thư viện thiết lập màu : Colors.h}
+\lstinputlisting{lib/Colors.h}
+
+\subsection{Mã nguồn thư viện toàn cục : Global.h}
+\lstinputlisting{lib/Global.h}
+
+\subsection{Mã nguồn thư viện đồ họa : GUI.h}
+\lstinputlisting{lib/GUI.h}
+
+\subsection{Mã nguồn thư viện thuật toán : algorithms.h}
+\lstinputlisting{lib/algorithms.h}
+
+\subsection{Mã nguồn thư viện so sánh : comparison.h}
+\lstinputlisting{lib/comparison.h}
+
+
+
+\end{document}

@@ -404,7 +404,7 @@ void GUI::drawComparisonScreen(const std::vector<std::string>& logs) {
             }
         }
 
-        setcolor(COLOR_TEXT);
+        setcolor(LIGHTGREEN);
         int yPos = innerTop + 6;
         int count = 0;
         while (index < wrappedLogs.size() && count < maxLinesPerPage) {
@@ -415,7 +415,7 @@ void GUI::drawComparisonScreen(const std::vector<std::string>& logs) {
         }
 
         bool hasMore = index < wrappedLogs.size();
-        setcolor(COLOR_TEXT);
+        setcolor(LIGHTCYAN);
         if (hasMore) {
             drawCenteredText(centerX, bottom - lineH - 4, "Nhấn phím bất kỳ để xem tiếp...");
             getch();
@@ -800,7 +800,7 @@ void GUI::showAlgorithmLogs(const std::string& title, const std::vector<std::str
         innerLeft = innerLeftBase;
         innerTop = innerTopBase;
 
-        setcolor(COLOR_TEXT);
+        setcolor(LIGHTGREEN);
         int yPos = innerTop;
         int count = 0;
         while (index < wrappedLogs.size() && count < maxLinesPerPage) {

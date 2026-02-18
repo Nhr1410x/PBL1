@@ -3,9 +3,6 @@
 #include <string>
 #include <vector>
 #include <chrono>
-#include <cstdlib>
-#include <filesystem>
-#include <sstream>
 #ifdef _WIN32
 #include <windows.h>
 #include <cwchar>
@@ -17,6 +14,7 @@
 #include "../lib/Algorithms.h"
 #include "../lib/Comparison.h"
 
+// ==================== GLOBAL VARIABLES ====================
 Graph graph;
 Algorithms* algorithms = nullptr;
 Comparison* comparison = nullptr;
@@ -176,32 +174,32 @@ static void runAlgorithm(AlgorithmType type) {
     result.shortestPath = algorithms->getShortestPath(result, end);
     lastResult = result;
     std::string algoTitle = (type == AlgorithmType::DIJKSTRA)
-        ? "QUÁ TRÌNH THỰC HIỆN THUẬT TOÁN DIJKSTRA"
-        : "QUÁ TRÌNH THỰC HIỆN THUẬT TOÁN BELLMAN-FORD";
+        ? "DIỄN BIẾN THUẬT TOÁN DIJKSTRA"
+        : "DIỄN BIẾN THUẬT TOÁN BELLMAN-FORD";
 
     std::vector<std::string> displayLogs;
     std::string startLabel = graph.getVertexLabel(start);
     std::string endLabel = graph.getVertexLabel(end);
     int dist = algorithms->getDistance(result, end);
-    // if (dist >= 0 && dist != INT_MAX) {
-    //     displayLogs.push_back("Đường đi ngắn nhất từ đỉnh " + startLabel + " đến đỉnh " + endLabel + " là " + std::to_string(dist));
-    // } 
+    if (dist >= 0 && dist != INT_MAX) {
+        displayLogs.push_back("Đường đi ngắn nhất từ đỉnh " + startLabel + " đến đỉnh " + endLabel + " là " + std::to_string(dist));
+    } 
     // else {
     //     displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
     // }
 
-    // if (result.shortestPath.empty()) {
-    //     displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
-    // } else {
-    //     std::string pathLine = "Đường đi: ";
-    //     for (size_t i = 0; i < result.shortestPath.size(); i++) {
-    //         if (i > 0) pathLine += " -> ";
-    //         pathLine += graph.getVertexLabel(result.shortestPath[i]);
-    //     }
-    //     displayLogs.push_back(pathLine);
-    // }
-    // displayLogs.push_back("Thời gian thực hiện: " + std::to_string(execUs) + " us");
-    // displayLogs.push_back("");
+    if (result.shortestPath.empty()) {
+        displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
+    } else {
+        std::string pathLine = "Đường đi: ";
+        for (size_t i = 0; i < result.shortestPath.size(); i++) {
+            if (i > 0) pathLine += " -> ";
+            pathLine += graph.getVertexLabel(result.shortestPath[i]);
+        }
+        displayLogs.push_back(pathLine);
+    }
+    displayLogs.push_back("Thời gian thực hiện: " + std::to_string(execUs) + " us");
+    displayLogs.push_back("");
     displayLogs.insert(displayLogs.end(), result.logs.begin(), result.logs.end());
 
     gui->showAlgorithmLogs(algoTitle, displayLogs);
@@ -263,111 +261,16 @@ static void exportToPython() {
     }
 
     if (ok) {
-        auto quote = [](const std::string& s) {
-            return "\"" + s + "\"";
-        };
-
-        auto findScript = []() {
-            namespace fs = std::filesystem;
-            fs::path cwd = fs::current_path();
-            fs::path p1 = cwd / "visualizer.py";
-            if (fs::exists(p1)) return p1.string();
-            fs::path p2 = cwd / "src" / "visualizer.py";
-            if (fs::exists(p2)) return p2.string();
-#ifdef _WIN32
-            char exePath[MAX_PATH] = {0};
-            DWORD len = GetModuleFileNameA(nullptr, exePath, MAX_PATH);
-            if (len > 0) {
-                fs::path exeDir = fs::path(exePath).parent_path();
-                fs::path p3 = exeDir / "visualizer.py";
-                if (fs::exists(p3)) return p3.string();
-                fs::path p4 = exeDir / "src" / "visualizer.py";
-                if (fs::exists(p4)) return p4.string();
-            }
-#endif
-            return std::string("visualizer.py");
-        };
-
-        struct Cmd {
-            std::string exe;
-            std::string extra;
-        };
-
-        auto buildCandidates = []() {
-            namespace fs = std::filesystem;
-            std::vector<Cmd> out;
-            if (const char* py = std::getenv("PYTHON")) {
-                out.push_back({py, ""});
-            }
-            if (const char* venv = std::getenv("VIRTUAL_ENV")) {
-                fs::path p = fs::path(venv) / "Scripts" / "python.exe";
-                if (fs::exists(p)) {
-                    out.push_back({p.string(), ""});
-                }
-            }
-            if (const char* conda = std::getenv("CONDA_PREFIX")) {
-                fs::path p = fs::path(conda) / "python.exe";
-                if (fs::exists(p)) {
-                    out.push_back({p.string(), ""});
-                }
-            }
-            fs::path cwd = fs::current_path();
-            fs::path venvLocal = cwd / ".venv" / "Scripts" / "python.exe";
-            if (fs::exists(venvLocal)) {
-                out.push_back({venvLocal.string(), ""});
-            }
-            fs::path venvParent = cwd.parent_path() / ".venv" / "Scripts" / "python.exe";
-            if (fs::exists(venvParent)) {
-                out.push_back({venvParent.string(), ""});
-            }
-            if (const char* user = std::getenv("USERPROFILE")) {
-                fs::path base(user);
-                const char* candidates[] = {"miniconda3", "Miniconda3", "anaconda3", "Anaconda3"};
-                for (const char* name : candidates) {
-                    fs::path p = base / name / "python.exe";
-                    if (fs::exists(p)) {
-                        out.push_back({p.string(), ""});
-                    }
-                }
-            }
-            out.push_back({"python", ""});
-#ifdef _WIN32
-            out.push_back({"py", "-3"});
-            out.push_back({"py", ""});
-#endif
-            return out;
-        };
-
-        std::string script = findScript();
-        auto candidates = buildCandidates();
-        int lastCode = -1;
-        std::string lastCmd;
-        for (const auto& cmd : candidates) {
-            std::string full = quote(cmd.exe);
-            if (!cmd.extra.empty()) {
-                full += " " + cmd.extra;
-            }
-            full += " " + quote(script);
-            lastCmd = full;
-            lastCode = std::system(full.c_str());
-            if (lastCode == 0) {
-                return;
-            }
-        }
-
-        std::ostringstream oss;
-        oss << "Đã xuất ra " << TEMP_EXPORT_FILE;
         gui->showMessage("XUẤT PYTHON", {
-            oss.str(),
-            "Không thể chạy visualizer.py.",
-            "Lệnh thử cuối: " + lastCmd,
-            "Bạn có thể chạy thủ công bằng Python đúng môi trường."
+            "Đã xuất ra " + TEMP_EXPORT_FILE,
+            "Chạy: python visualizer.py"
         });
     } else {
         gui->showMessage("XUẤT PYTHON", {"Xuất thất bại."});
     }
 }
 
+// ==================== MAIN FUNCTION ====================
 int main() {
 #ifdef _WIN32
     initConsoleUtf8();
