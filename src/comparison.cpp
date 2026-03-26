@@ -11,7 +11,7 @@ PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType t
     if (type == AlgorithmType::DIJKSTRA) {
         metrics.algorithmName = "Dijkstra";
         
-        // kiểm tra trong số âmm
+        // kiểm tra trong số âm
         if (graph.hasNegativeWeights()) {
             metrics.success = false;
             metrics.executionTimeUs = 0;
@@ -137,39 +137,21 @@ ComparisonReport Comparison::comparePerformance(int startVertex, AlgorithmType t
                                   fmtComplexity(b.complexity, "O(V × E)")));
         report.logs.push_back(row("Trạng thái", fmtStatus(d.success), fmtStatus(b.success)));
         report.logs.push_back(border);
-    } 
-    // else if (type == AlgorithmType::DIJKSTRA && report.metrics.size() == 1) {
-    //     const auto& metrics = report.metrics[0];
-    //     report.logs.push_back("--- THUẬT TOÁN DIJKSTRA ---");
-    //     report.logs.push_back("Thời gian chạy: " + std::to_string(metrics.executionTimeUs) + " us");
-    //     report.logs.push_back("Bộ nhớ sử dụng: " + std::to_string(metrics.memoryUsageBytes) + " bytes");
-    //     report.logs.push_back("Độ phức tạp: O(E log V) ≈ O(" + std::to_string((int)metrics.complexity) + ")");
-    //     report.logs.push_back("Trạng thái: " + std::string(metrics.success ? "Thành công" : "Thất bại"));
-    //     report.logs.push_back("");
-    // } else if (type == AlgorithmType::BELLMAN_FORD && report.metrics.size() == 1) {
-    //     const auto& metrics = report.metrics[0];
-    //     report.logs.push_back("--- THUẬT TOÁN BELLMAN-FORD ---");
-    //     report.logs.push_back("Thời gian chạy: " + std::to_string(metrics.executionTimeUs) + " us");
-    //     report.logs.push_back("Bộ nhớ sử dụng: " + std::to_string(metrics.memoryUsageBytes) + " bytes");
-    //     report.logs.push_back("Độ phức tạp: O(V × E) ≈ O(" + std::to_string((int)metrics.complexity) + ")");
-    //     report.logs.push_back("Trạng thái: " + std::string(metrics.success ? "Thành công" : "Thất bại"));
-    //     report.logs.push_back("");
-    // }
+    }
 
     if (type == AlgorithmType::BOTH && report.metrics.size() == 2) {
         report.logs.push_back("                        --- SO SÁNH ---");
         auto dijkstraTime = report.metrics[0].executionTimeUs;
-        auto bellmanTime = report.metrics[1].executionTimeUs;
+        auto bellmanTime  = report.metrics[1].executionTimeUs;
 
         if (bellmanTime > 0 && dijkstraTime > 0) {
             double ratio = static_cast<double>(bellmanTime) / dijkstraTime;
             report.logs.push_back("Bellman-Ford chậm hơn Dijkstra " + std::to_string(ratio) + " lần");
         } else {
-            report.logs.push_back("Không đủ độ chênh lệch thời gian để so sánh.");
+            report.logs.push_back("Phát hiện trọng số âm, không thể thực hiện thuật toán Dijkstra. KHÔNG THỂ SO SÁNH.");
         }
         report.logs.push_back("");
     }
-
 
     return report;
 }

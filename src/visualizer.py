@@ -96,15 +96,15 @@ def main():
         for node in G.nodes():
             if len(path) > 0:
                 if node == path[0]:
-                    node_colors.append('lightgreen')  
+                    node_colors.append('green')  
                 elif node == path[-1]:
-                    node_colors.append('lightcoral')  
+                    node_colors.append('coral')  
                 elif node in path:
-                    node_colors.append('lightyellow') 
+                    node_colors.append('yellow') 
                 else:
-                    node_colors.append('lightblue')  
+                    node_colors.append('blue')  
             else:
-                node_colors.append('lightblue')
+                node_colors.append('blue')
         
         nx.draw_networkx_nodes(G, pos,
                               node_color=node_colors,
@@ -116,10 +116,10 @@ def main():
 
         from matplotlib.patches import Patch
         legend_elements = [
-            Patch(facecolor='lightgreen', label='Start Node'),
-            Patch(facecolor='lightcoral', label='End Node'),
-            Patch(facecolor='lightyellow', label='Path Node'),
-            Patch(facecolor='lightblue', label='Other Node')
+            Patch(facecolor='green', label='Đỉnh bắt đầu'),
+            Patch(facecolor='coral', label='Đỉnh đích'),
+            Patch(facecolor='yellow', label='Đỉnh trên đường đi'),
+            Patch(facecolor='blue', label='Đỉnh khác')
         ]
         plt.legend(handles=legend_elements, loc='upper left', fontsize=10)
         

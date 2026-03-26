@@ -5,8 +5,8 @@
 #include <iomanip>
 
 namespace {
-std::vector<std::string> formatDistanceTable(const Graph& graph, const std::vector<int>& distances) {
-    std::vector<std::string> lines;
+std::vector<std::pair<int, std::string>> formatDistanceTable(const Graph& graph, const std::vector<int>& distances) {
+    std::vector<std::pair<int, std::string>> lines;
     if (distances.empty()) return lines;
 
     const int INF = std::numeric_limits<int>::max();
@@ -26,16 +26,16 @@ std::vector<std::string> formatDistanceTable(const Graph& graph, const std::vect
         }
     }
 
-    lines.push_back(header.str());
-    lines.push_back(values.str());
+    lines.push_back({15, header.str()});
+    lines.push_back({14, values.str()});
     return lines;
 }
 } // namespace
 
 Algorithms::Algorithms(const Graph& g) : graph(g) {}
 
-void Algorithms::logStep(std::vector<std::string>& logs, const std::string& message) {
-    logs.push_back(message);
+void Algorithms::logStep(std::vector<std::pair<int, std::string>>& logs, int color, const std::string& message) {
+    logs.push_back({color, message});
 }
 
 std::vector<int> Algorithms::reconstructPath(int destination, const std::vector<int>& previousVertex) const {
@@ -65,9 +65,9 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
     pq.push({0, start});
 
     if (showSteps) {
-        logStep(result.logs, "              ======= THUẬT TOÁN DIJKSTRA =======");
-        logStep(result.logs, "Đỉnh bắt đầu: " + graph.getVertexLabel(start));
-        logStep(result.logs, "Khởi tạo khoảng cách: tất cả = INF, riêng đỉnh bắt đầu = 0");
+        logStep(result.logs, 14, "              ======= THUẬT TOÁN DIJKSTRA =======");
+        logStep(result.logs, 11, "Đỉnh bắt đầu: " + graph.getVertexLabel(start));
+        logStep(result.logs, 7, "Khởi tạo khoảng cách: tất cả = INF, riêng đỉnh bắt đầu = 0");
     }
 
     std::vector<bool> visited(V, false);
@@ -82,9 +82,9 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
         iterations++;
 
         if (showSteps) {
-            logStep(result.logs, "");
-            logStep(result.logs, "[Lần lặp " + std::to_string(iterations) + "]");
-            logStep(result.logs, "Xử lý đỉnh: " + graph.getVertexLabel(u) +
+            logStep(result.logs, 15, "");
+            logStep(result.logs, 11, "[Lần lặp " + std::to_string(iterations) + "]");
+            logStep(result.logs, 10, "Xử lý đỉnh: " + graph.getVertexLabel(u) +
                                  " (khoảng cách = " + std::to_string(dist) + ")");
         }
 
@@ -100,7 +100,7 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
                 pq.push({result.distances[v], v});
 
                 if (showSteps) {
-                    logStep(result.logs, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
+                    logStep(result.logs, 13, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
                                          graph.getVertexLabel(v) +
                                          " (khoảng cách mới = " + std::to_string(result.distances[v]) + ")");
                 }
@@ -108,23 +108,23 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
         }
 
         if (showSteps) {
-            logStep(result.logs, "Khoảng cách sau lần lặp " + std::to_string(iterations) + ":");
+            logStep(result.logs, 15, "Khoảng cách sau lần lặp " + std::to_string(iterations) + ":");
             auto table = formatDistanceTable(graph, result.distances);
             for (const auto& line : table) {
-                logStep(result.logs, line);
+                logStep(result.logs, line.first, line.second);
             }
         }
     }
 
     if (showSteps) {
-        logStep(result.logs, "");
-        logStep(result.logs, "                  === KHOẢNG CÁCH CUỐI ===");
+        logStep(result.logs, 15, "");
+        logStep(result.logs, 14, "                  === KHOẢNG CÁCH CUỐI ===");
         for (int i = 0; i < V; i++) {
             if (result.distances[i] == INF) {
-                logStep(result.logs,"dist[" + std::to_string(i+1) + "] = INF (không tồn tại đường đi)");
+                logStep(result.logs, 11, "dist[" + std::to_string(i+1) + "] = INF (không tồn tại đường đi)");
             } 
             else {
-                logStep(result.logs,"dist[" + std::to_string(i+1) + "] = " + std::to_string(result.distances[i]));
+                logStep(result.logs, 11, "dist[" + std::to_string(i+1) + "] = " + std::to_string(result.distances[i]));
             }
         }
     }
@@ -146,17 +146,17 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
     result.distances[start] = 0;
 
     if (showSteps) {
-        logStep(result.logs, "           ======= THUẬT TOÁN BELLMAN-FORD =======");
-        logStep(result.logs, "Đỉnh bắt đầu: " + graph.getVertexLabel(start));
-        logStep(result.logs, "Khởi tạo khoảng cách: tất cả = INF, riêng đỉnh bắt đầu = 0");
+        logStep(result.logs, 14, "           ======= THUẬT TOÁN BELLMAN-FORD =======");
+        logStep(result.logs, 11, "Đỉnh bắt đầu: " + graph.getVertexLabel(start));
+        logStep(result.logs, 7, "Khởi tạo khoảng cách: tất cả = INF, riêng đỉnh bắt đầu = 0");
     }
 
     for (int i = 0; i < V - 1; i++) {
         bool updated = false;
 
         if (showSteps) {
-            logStep(result.logs, "");
-            logStep(result.logs, "[Lượt " + std::to_string(i + 1) + "/" + std::to_string(V - 1) + "]");
+            logStep(result.logs, 15, "");
+            logStep(result.logs, 11, "[Lượt " + std::to_string(i + 1) + "/" + std::to_string(V - 1) + "]");
         }
 
         for (int u = 0; u < V; u++) {
@@ -172,7 +172,7 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
                     updated = true;
 
                     if (showSteps) {
-                        logStep(result.logs, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
+                        logStep(result.logs, 13, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
                                              graph.getVertexLabel(v) +
                                              " (khoảng cách mới = " + std::to_string(result.distances[v]) + ")");
                     }
@@ -181,22 +181,22 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
         }
 
         if (!updated && showSteps) {
-            logStep(result.logs, "  (Không có cập nhật ở lượt này - có thể dừng sớm)");
+            logStep(result.logs, 7, "  (Không có cập nhật ở lượt này - có thể dừng sớm)");
         }
 
         if (showSteps) {
-            logStep(result.logs, "Bảng khoảng cách sau lượt " + std::to_string(i + 1) + ":");
+            logStep(result.logs, 15, "Bảng khoảng cách sau lượt " + std::to_string(i + 1) + ":");
             auto table = formatDistanceTable(graph, result.distances);
             for (const auto& line : table) {
-                logStep(result.logs, line);
+                logStep(result.logs, line.first, line.second);
             }
         }
     }
 
     result.hasNegativeCycle = false;
     if (showSteps) {
-        logStep(result.logs, "");
-        logStep(result.logs, "=== KIỂM TRA CHU TRÌNH ÂM ===");
+        logStep(result.logs, 15, "");
+        logStep(result.logs, 14, "=== KIỂM TRA CHU TRÌNH ÂM ===");
     }
 
     for (int u = 0; u < V; u++) {
@@ -209,8 +209,8 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
                 result.hasNegativeCycle = true;
 
                 if (showSteps) {
-                    logStep(result.logs, "PHÁT HIỆN CHU TRÌNH ÂM!");
-                    logStep(result.logs, "Cạnh: " + graph.getVertexLabel(u) + " -> " +
+                    logStep(result.logs, 12, "PHÁT HIỆN CHU TRÌNH ÂM!");
+                    logStep(result.logs, 12, "Cạnh: " + graph.getVertexLabel(u) + " -> " +
                                          graph.getVertexLabel(v) +
                                          " (trọng số = " + std::to_string(weight) + ")");
                 }
@@ -219,17 +219,17 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
     }
 
     if (!result.hasNegativeCycle && showSteps) {
-        logStep(result.logs, "Không phát hiện chu trình âm.");
+        logStep(result.logs, 10, "Không phát hiện chu trình âm.");
     }
 
     if (showSteps) {
-        logStep(result.logs, "");
-        logStep(result.logs, "=== KHOẢNG CÁCH CUỐI ===");
+        logStep(result.logs, 15, "");
+        logStep(result.logs, 14, "=== KHOẢNG CÁCH CUỐI ===");
         for (int i = 0; i < V; i++) {
             if (result.distances[i] == INF) {
-                logStep(result.logs, graph.getVertexLabel(i) + " = INF (không tới được)");
+                logStep(result.logs, 11, graph.getVertexLabel(i) + " = INF (không tới được)");
             } else {
-                logStep(result.logs, graph.getVertexLabel(i) + " = " + std::to_string(result.distances[i]));
+                logStep(result.logs, 11, graph.getVertexLabel(i) + " = " + std::to_string(result.distances[i]));
             }
         }
     }

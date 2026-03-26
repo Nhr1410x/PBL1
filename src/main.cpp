@@ -73,15 +73,18 @@ static void createGraphFromGui(bool isDirected) {
     if (!isDirected) {
         graph.makeUndirected();
     }
+    
+    gui->showGraphSummary(numVertices, numEdges, edges, isDirected);
 }
 
 static void handleGraphInput() {
     std::vector<std::string> options = {
         "[1]. Tải từ file",
         "[2]. Tạo đồ thị mới (nhập trực tiếp)",
-        "[3]. Quay lại"
+        "[3]. Các đồ thị mẫu dùng để so sánh",
+        "[4]. Quay lại"
     };
-    int choice = gui->promptChoice("TẠO/TẢI ĐỒ THỊ", options, "Nhập lựa chọn:", 1, 3);
+    int choice = gui->promptChoice("TẠO/TẢI ĐỒ THỊ", options, "Nhập lựa chọn:", 1, 4);
 
     if (choice == 1) {
         bool isDirected = promptGraphDirected();
@@ -106,16 +109,25 @@ static void handleGraphInput() {
                 gui->showMessage("TẢI ĐỒ THỊ", {"Tải file thất bại."});
             }
         } else {
+            std::vector<std::tuple<int, int, int>> fileEdges;
+            int V = graph.getVertexCount();
+            int fileE = graph.getEdgeCount();
+            auto adj = graph.getAdjacencyList();
+            for (int u = 0; u < V; ++u) {
+                for (const auto& edge : adj[u]) {
+                    fileEdges.push_back({u, edge.destination, edge.weight});
+                }
+            }
+
             if (!isDirected) {
                 graph.makeUndirected();
             }
             lastResult = PathResult();
-            gui->showMessage("TẢI ĐỒ THỊ", {
-                "Đã tải đồ thị: V = " + std::to_string(graph.getVertexCount()) +
-                ", E = " + std::to_string(graph.getEdgeCount()) + "."
-            });
+            
+            gui->showGraphSummary(V, fileE, fileEdges, isDirected);
         }
-    } else if (choice == 2) {
+    } 
+    else if (choice == 2) {
         bool isDirected = promptGraphDirected();
         createGraphFromGui(isDirected);
 
@@ -133,6 +145,10 @@ static void handleGraphInput() {
                 gui->showMessage("TẠO ĐỒ THỊ", {"Lưu đồ thị thất bại."});
             }
         }
+    }
+    else if(choice == 3){   
+        
+
     }
 }
 
@@ -179,29 +195,9 @@ static void runAlgorithm(AlgorithmType type) {
         ? "QUÁ TRÌNH THỰC HIỆN THUẬT TOÁN DIJKSTRA"
         : "QUÁ TRÌNH THỰC HIỆN THUẬT TOÁN BELLMAN-FORD";
 
-    std::vector<std::string> displayLogs;
+    std::vector<std::pair<int, std::string>> displayLogs;
     std::string startLabel = graph.getVertexLabel(start);
     std::string endLabel = graph.getVertexLabel(end);
-    int dist = algorithms->getDistance(result, end);
-    // if (dist >= 0 && dist != INT_MAX) {
-    //     displayLogs.push_back("Đường đi ngắn nhất từ đỉnh " + startLabel + " đến đỉnh " + endLabel + " là " + std::to_string(dist));
-    // } 
-    // else {
-    //     displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
-    // }
-
-    // if (result.shortestPath.empty()) {
-    //     displayLogs.push_back("Không tồn tại đường đi từ " + startLabel + " đến " + endLabel);
-    // } else {
-    //     std::string pathLine = "Đường đi: ";
-    //     for (size_t i = 0; i < result.shortestPath.size(); i++) {
-    //         if (i > 0) pathLine += " -> ";
-    //         pathLine += graph.getVertexLabel(result.shortestPath[i]);
-    //     }
-    //     displayLogs.push_back(pathLine);
-    // }
-    // displayLogs.push_back("Thời gian thực hiện: " + std::to_string(execUs) + " us");
-    // displayLogs.push_back("");
     displayLogs.insert(displayLogs.end(), result.logs.begin(), result.logs.end());
 
     gui->showAlgorithmLogs(algoTitle, displayLogs);
@@ -230,7 +226,6 @@ static void runAlgorithm(AlgorithmType type) {
     else {
         gui->showMessage("KẾT QUẢ THUẬT TOÁN BELLMAN-FORD", lines);
     }
-    // gui->showMessage("KẾT QUẢ", lines);
 }
 
 static void compareAlgorithms() {
@@ -241,13 +236,15 @@ static void compareAlgorithms() {
 
     int V = graph.getVertexCount();
     int startInput = gui->promptInt("CHỌN ĐỈNH",
-        "Đỉnh bắt đầu (1.." + std::to_string(V) + "): ", 1, V);
+        "Đỉnh bắt đầu (1..." + std::to_string(V) + "): ", 1, V);
     int start = startInput - 1;
 
     auto report = comparison->comparePerformance(start, AlgorithmType::BOTH);
     gui->drawComparisonScreen(report.logs);
     gui->waitForKey();
 }
+
+// Truyền lệnh xuất ra file python để xử lý trực quan hóa (visualizer)
 
 static void exportToPython() {
     if (!graph.isValid()) {
@@ -321,6 +318,10 @@ static void exportToPython() {
                 out.push_back({venvParent.string(), ""});
             }
             if (const char* user = std::getenv("USERPROFILE")) {
+                fs::path explicitPath = fs::path("C:\\Users\\LENOVO\\miniconda3\\python.exe");
+                if (fs::exists(explicitPath)) {
+                    out.push_back({explicitPath.string(), ""});
+                }
                 fs::path base(user);
                 const char* candidates[] = {"miniconda3", "Miniconda3", "anaconda3", "Anaconda3"};
                 for (const char* name : candidates) {
@@ -349,7 +350,14 @@ static void exportToPython() {
             }
             full += " " + quote(script);
             lastCmd = full;
-            lastCode = std::system(full.c_str());
+            
+#ifdef _WIN32
+            std::string runCmd = "\"" + full + "\"";
+#else
+            std::string runCmd = full;
+#endif
+            lastCode = std::system(runCmd.c_str());
+            
             if (lastCode == 0) {
                 return;
             }
@@ -380,11 +388,14 @@ int main() {
         std::cerr << "Khởi tạo đồ họa thất bại. Chuyển sang chế độ console.\n";
     }
 
+    // Khởi tạo thuật toán xử lý và giao diện
     algorithms = new Algorithms(graph);
     comparison = new Comparison(graph);
     gui = new GUI();
 
     bool running = true;
+
+    // Vòng lặp chính xử lý Menu
     while (running) {
         int choice = gui->promptMenuChoice();
 
@@ -412,6 +423,8 @@ int main() {
         }
     }
 
+
+    // Giải phóng bộ nhớ
     closegraph();
     delete algorithms;
     delete comparison;

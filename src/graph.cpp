@@ -3,11 +3,13 @@
 #include <fstream>
 
 Graph::Graph() : V(0), E(0) {
-    std::filesystem::create_directories(DATA_FOLDER);
+    std::error_code ec;
+    std::filesystem::create_directories(DATA_FOLDER, ec);
 }
 
 Graph::Graph(int vertices) : V(0), E(0) {
-    std::filesystem::create_directories(DATA_FOLDER);
+    std::error_code ec;
+    std::filesystem::create_directories(DATA_FOLDER, ec);
     for (int i = 0; i < vertices; i++) {
         addVertex("V" + std::to_string(i));
     }

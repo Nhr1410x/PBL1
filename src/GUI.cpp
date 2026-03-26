@@ -262,8 +262,7 @@ void drawHeaderFrame(int screenW) {
     y += lineH;
     drawCenteredText(centerX, y, "TRƯỜNG ĐẠI HỌC BÁCH KHOA - ĐẠI HỌC ĐÀ NẴNG");
     y += lineH + 4;
-    // drawCenteredText(centerX, y, "|");
-    // y += lineH + 2;
+    y += lineH + 4;
 
     setcolor(YELLOW);
     drawCenteredText(centerX, y, "PBL1 : ĐỒ ÁN LẬP TRÌNH TÍNH TOÁN");
@@ -290,15 +289,6 @@ void drawContentFrame(const std::string& title, int screenW, int screenH,
     bottom = screenH - OUTER_MARGIN;
     drawFrameBox(title, left, top, right, bottom, centerX, innerLeft, innerTop);
 }
-
-// void drawContentFrameCustom(const std::string& title, int screenW, int screenH, int outerMargin, int headerGap,
-//                             int& left, int& top, int& right, int& bottom, int& centerX, int& innerLeft, int& innerTop) {
-//     left = outerMargin;
-//     right = screenW - outerMargin;
-//     top = outerMargin + headerHeight() + headerGap;
-//     bottom = screenH - outerMargin;
-//     drawFrameBox(title, left, top, right, bottom, centerX, innerLeft, innerTop);
-// }
 
 void drawLogFrame(const std::string& title, int left, int top, int right, int bottom,
                   int& centerX, int& innerLeft, int& innerTop) {
@@ -346,11 +336,11 @@ void GUI::drawMenu() {
     setcolor(YELLOW);
     std :: cout << '\n';
     int menuTextX = leftIndentX(left);
-    drawLeftAlignedText(menuTextX, y, "[1]. Khởi tạo/Nạp đồ thị (từ file)"); y += lineH;
+    drawLeftAlignedText(menuTextX, y, "[1]. Khởi tạo/Nạp đồ thị (từ file)") ; y += lineH;
     drawLeftAlignedText(menuTextX, y, "[2]. Chạy thuật toán Dijkstra"); y += lineH;
     drawLeftAlignedText(menuTextX, y, "[3]. Chạy thuật toán Bellman-Ford"); y += lineH;
     drawLeftAlignedText(menuTextX, y, "[4]. So sánh hiệu năng"); y += lineH;
-    drawLeftAlignedText(menuTextX, y, "[5]. Trực quan hóa (Python)"); y += lineH;
+    drawLeftAlignedText(menuTextX, y, "[5]. Trực quan hóa"); y += lineH;
     drawLeftAlignedText(menuTextX, y, "[6]. Thoát"); y += lineH;
     std :: cout << '\n';
 
@@ -747,11 +737,50 @@ void GUI::promptGraphInput(bool isDirected, int& numVertices, int& numEdges,
     }
 }
 
-void GUI::showAlgorithmLogs(const std::string& title, const std::vector<std::string>& logs) {
+void GUI::showGraphSummary(int numVertices, int numEdges, const std::vector<std::tuple<int, int, int>>& edges, bool isDirected) {
+    std::vector<std::pair<int, std::string>> lines;
+    lines.push_back({14, "Số đỉnh: " + std::to_string(numVertices)});
+    lines.push_back({14, "Số cạnh: " + std::to_string(numEdges)});
+    lines.push_back({11, "Loại đồ thị: " + std::string(isDirected ? "Có hướng" : "Vô hướng")});
+    lines.push_back({15, ""});
+
+    if (numEdges > 0) {
+        lines.push_back({10, "Danh sách cạnh:"});
+        int displayCount = (int)edges.size();
+        int maxDisplayEdges = 10;
+        if (displayCount <= maxDisplayEdges + 2) {
+            for (int i = 0; i < displayCount; ++i) {
+                int u = std::get<0>(edges[i]) + 1;
+                int v = std::get<1>(edges[i]) + 1;
+                int w = std::get<2>(edges[i]);
+                lines.push_back({15, "  " + std::to_string(u) + " -> " + std::to_string(v) + " (trọng số: " + std::to_string(w) + ")"});
+            }
+        } else {
+            int half = maxDisplayEdges / 2;
+            for (int i = 0; i < half; ++i) {
+                int u = std::get<0>(edges[i]) + 1;
+                int v = std::get<1>(edges[i]) + 1;
+                int w = std::get<2>(edges[i]);
+                lines.push_back({15, "  " + std::to_string(u) + " -> " + std::to_string(v) + " (trọng số: " + std::to_string(w) + ")"});
+            }
+            lines.push_back({8, "  ..."});
+            for (int i = displayCount - half; i < displayCount; ++i) {
+                int u = std::get<0>(edges[i]) + 1;
+                int v = std::get<1>(edges[i]) + 1;
+                int w = std::get<2>(edges[i]);
+                lines.push_back({15, "  " + std::to_string(u) + " -> " + std::to_string(v) + " (trọng số: " + std::to_string(w) + ")"});
+            }
+        }
+    }
+
+    showMessageColored("THÔNG TIN ĐỒ THỊ VỪA NHẬP", lines);
+}
+
+void GUI::showAlgorithmLogs(const std::string& title, const std::vector<std::pair<int, std::string>>& logs) {
     size_t index = 0;
     int lineH = approxLineHeight();
     int lineStep = lineH;
-    std::vector<std::string> wrappedLogs;
+    std::vector<std::pair<int, std::string>> wrappedLogs;
     const int margin = 1;
     const int left = margin;
     const int right = WINDOW_WIDTH - margin;
@@ -767,9 +796,14 @@ void GUI::showAlgorithmLogs(const std::string& title, const std::vector<std::str
     int innerTopBase = top + 2 * lineH;
 
     int maxWidth = right - innerLeftBase - 2;
-    wrappedLogs = wrapLinesToWidth(logs, maxWidth);
+    for (const auto& log : logs) {
+        auto parts = wrapLineToWidth(log.second, maxWidth);
+        for (const auto& p : parts) {
+            wrappedLogs.push_back({log.first, p});
+        }
+    }
     if (wrappedLogs.empty()) {
-        wrappedLogs.push_back("");
+        wrappedLogs.push_back({COLOR_TEXT, ""});
     }
 
     int usableBottom = bottom - lineH;
@@ -800,11 +834,11 @@ void GUI::showAlgorithmLogs(const std::string& title, const std::vector<std::str
         innerLeft = innerLeftBase;
         innerTop = innerTopBase;
 
-        setcolor(COLOR_TEXT);
         int yPos = innerTop;
         int count = 0;
         while (index < wrappedLogs.size() && count < maxLinesPerPage) {
-            outtextxy(innerLeft, yPos, (char*)wrappedLogs[index].c_str());
+            setcolor(wrappedLogs[index].first);
+            outtextxy(innerLeft, yPos, (char*)wrappedLogs[index].second.c_str());
             yPos += lineStep;
             index++;
             count++;
@@ -830,6 +864,30 @@ void GUI::showMessage(const std::string& title, const std::vector<std::string>& 
     for (const auto& line : lines) {
         if (y > bottom - lineH * 2) break;
         drawLeftAlignedText(messageX, y, line);
+        y += lineH;
+    }
+
+    setcolor(LIGHTCYAN);
+    drawCenteredText(centerX, bottom - lineH - 4, PRESS_ANY_KEY);
+    waitForKey();
+}
+
+void GUI::showMessageColored(const std::string& title, const std::vector<std::pair<int, std::string>>& lines) {
+    clearScreen();
+    setbkcolor(COLOR_BACKGROUND);
+    drawHeaderFrame(WINDOW_WIDTH);
+
+    int left, top, right, bottom, centerX, innerLeft, innerTop;
+    drawContentFrame(title, WINDOW_WIDTH, WINDOW_HEIGHT,
+                     left, top, right, bottom, centerX, innerLeft, innerTop);
+
+    int lineH = approxLineHeight();
+    int y = innerTop + 4;
+    int messageX = bottomIndentX(left);
+    for (const auto& line : lines) {
+        if (y > bottom - lineH * 2) break;
+        setcolor(line.first);
+        drawLeftAlignedText(messageX, y, line.second);
         y += lineH;
     }
 

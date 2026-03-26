@@ -195,6 +195,7 @@ void rectangle(int left, int top, int right, int bottom) {
     std::cout << std::flush;
 }
 
+
 int getch() {
     int c = std::getchar();
     return c;
