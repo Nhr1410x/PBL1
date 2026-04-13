@@ -25,11 +25,9 @@ public:
     std::string promptLine(const std::string& title, const std::string& prompt, const std::string& defaultValue = "");
     bool promptYesNo(const std::string& title, const std::string& prompt);
     void promptGraphInput(bool isDirected, int& numVertices, int& numEdges, std::vector<std::tuple<int, int, int>>& edges);
-    void showGraphSummary(int numVertices, int numEdges, const std::vector<std::tuple<int, int, int>>& edges, bool isDirected);
     void promptStartEnd(const std::string& title, int minValue, int maxValue, int& startValue, int& endValue);
-    void showAlgorithmLogs(const std::string& title, const std::vector<std::pair<int, std::string>>& logs);
+    void showAlgorithmLogs(const std::string& title, const std::vector<std::string>& logs);
     void showMessage(const std::string& title, const std::vector<std::string>& lines);
-    void showMessageColored(const std::string& title, const std::vector<std::pair<int, std::string>>& lines);
     void waitForKey();
 };
 

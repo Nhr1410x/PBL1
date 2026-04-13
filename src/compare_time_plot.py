@@ -360,7 +360,7 @@ def main():
                         help="Write computed timings to CSV.")
     parser.add_argument("--unit", default=None, help="Unit label (us, ms, s, ns).")
     parser.add_argument("--scale", type=float, default=1.0, help="Scale factor applied to values.")
-    parser.add_argument("--title", default="Biểu đồ so sánh thời gian chạy của hai thuật toán Dijkstra và Bellman-Ford và Bellman-Ford trên đồ thị có hướng", help="Chart title.")
+    parser.add_argument("--title", default="Biểu đồ so sánh thời gian chạy của hai thuật toán Dijkstra và Bellman-Ford và Bellman-Ford trên đồ thị vô hướng", help="Chart title.")
     parser.add_argument("--label-prefix", default=None,
                         help="Override labels using prefix + index (e.g., G -> G1..Gn).")
     parser.add_argument("--out", default=None, help="Save chart to file (png, jpg, ...).")
