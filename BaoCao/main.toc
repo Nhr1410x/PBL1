@@ -76,24 +76,28 @@
 \contentsline {subsubsection}{\textcolor {darkblue}{Chức năng Thuật toán Dijkstra}}{39}{subsubsection*.43}%
 \contentsline {subsubsection}{\textcolor {darkblue}{Chức năng Thuật toán Bellman-Ford}}{39}{subsubsection*.44}%
 \contentsline {subsubsection}{\textcolor {darkblue}{Chức năng So sánh}}{40}{subsubsection*.45}%
-\contentsline {subsection}{\numberline {4.3.3}Nhận xét}{40}{subsection.4.3.3}%
-\contentsline {chapter}{\numberline {5}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{41}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Kết luận}{41}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Hướng phát triển}{41}{section.5.2}%
-\contentsline {chapter}{TÀI LIỆU THAM KHẢO}{42}{chapter*.46}%
-\contentsline {chapter}{PHỤ LỤC}{43}{appendix*.47}%
-\contentsline {section}{\numberline {.1}Toàn bộ chương trình và cài đặt}{43}{section.Alph0.1}%
-\contentsline {section}{\numberline {.2}Mã nguồn chương trình}{43}{section.Alph0.2}%
-\contentsline {subsection}{\numberline {.2.1}Mã nguồn chương trình chính : main.cpp}{43}{subsection.Alph0.2.1}%
-\contentsline {subsection}{\numberline {.2.2}Mã nguồn chương trình ghi dữ liệu : graph.cpp}{48}{subsection.Alph0.2.2}%
-\contentsline {subsection}{\numberline {.2.3}Mã nguồn chương trình thực hiện thuật toán : algorithms.cpp}{53}{subsection.Alph0.2.3}%
-\contentsline {subsection}{\numberline {.2.4}Mã nguồn chương trình so sánh : comparison.cpp}{57}{subsection.Alph0.2.4}%
-\contentsline {subsection}{\numberline {.2.5}Mã nguồn chương trình vẽ giao diện : GUI.cpp}{61}{subsection.Alph0.2.5}%
-\contentsline {subsection}{\numberline {.2.6}Mã nguồn chương trình vẽ khung : graphics.cpp}{75}{subsection.Alph0.2.6}%
-\contentsline {section}{\numberline {.3}Mã nguồn các thư viện tự cài đặt}{79}{section.Alph0.3}%
-\contentsline {subsection}{\numberline {.3.1}Mã nguồn thư viện dữ liệu đồ thị : graph.h}{79}{subsection.Alph0.3.1}%
-\contentsline {subsection}{\numberline {.3.2}Mã nguồn thư viện thiết lập màu : Colors.h}{80}{subsection.Alph0.3.2}%
-\contentsline {subsection}{\numberline {.3.3}Mã nguồn thư viện toàn cục : Global.h}{80}{subsection.Alph0.3.3}%
-\contentsline {subsection}{\numberline {.3.4}Mã nguồn thư viện đồ họa : GUI.h}{81}{subsection.Alph0.3.4}%
-\contentsline {subsection}{\numberline {.3.5}Mã nguồn thư viện thuật toán : algorithms.h}{81}{subsection.Alph0.3.5}%
-\contentsline {subsection}{\numberline {.3.6}Mã nguồn thư viện so sánh : comparison.h}{82}{subsection.Alph0.3.6}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Đồ thị có trọng số dương}}{40}{subsubsection*.46}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Chức năng Thuật toán Dijkstra}}{41}{subsubsection*.47}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Chức năng Thuật toán Bellman-Ford}}{41}{subsubsection*.48}%
+\contentsline {subsubsection}{\textcolor {darkblue}{Chức năng So sánh}}{42}{subsubsection*.49}%
+\contentsline {subsection}{\numberline {4.3.3}Nhận xét}{42}{subsection.4.3.3}%
+\contentsline {chapter}{\numberline {5}KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kết luận}{43}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Hướng phát triển}{43}{section.5.2}%
+\contentsline {chapter}{TÀI LIỆU THAM KHẢO}{44}{chapter*.50}%
+\contentsline {chapter}{PHỤ LỤC}{45}{appendix*.51}%
+\contentsline {section}{\numberline {.1}Toàn bộ chương trình và cài đặt}{45}{section.Alph0.1}%
+\contentsline {section}{\numberline {.2}Mã nguồn chương trình}{45}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {.2.1}Mã nguồn chương trình chính : main.cpp}{45}{subsection.Alph0.2.1}%
+\contentsline {subsection}{\numberline {.2.2}Mã nguồn chương trình ghi dữ liệu : graph.cpp}{50}{subsection.Alph0.2.2}%
+\contentsline {subsection}{\numberline {.2.3}Mã nguồn chương trình thực hiện thuật toán : algorithms.cpp}{55}{subsection.Alph0.2.3}%
+\contentsline {subsection}{\numberline {.2.4}Mã nguồn chương trình so sánh : comparison.cpp}{59}{subsection.Alph0.2.4}%
+\contentsline {subsection}{\numberline {.2.5}Mã nguồn chương trình vẽ giao diện : GUI.cpp}{63}{subsection.Alph0.2.5}%
+\contentsline {subsection}{\numberline {.2.6}Mã nguồn chương trình vẽ khung : graphics.cpp}{77}{subsection.Alph0.2.6}%
+\contentsline {section}{\numberline {.3}Mã nguồn các thư viện tự cài đặt}{81}{section.Alph0.3}%
+\contentsline {subsection}{\numberline {.3.1}Mã nguồn thư viện dữ liệu đồ thị : graph.h}{81}{subsection.Alph0.3.1}%
+\contentsline {subsection}{\numberline {.3.2}Mã nguồn thư viện thiết lập màu : Colors.h}{82}{subsection.Alph0.3.2}%
+\contentsline {subsection}{\numberline {.3.3}Mã nguồn thư viện toàn cục : Global.h}{82}{subsection.Alph0.3.3}%
+\contentsline {subsection}{\numberline {.3.4}Mã nguồn thư viện đồ họa : GUI.h}{83}{subsection.Alph0.3.4}%
+\contentsline {subsection}{\numberline {.3.5}Mã nguồn thư viện thuật toán : algorithms.h}{83}{subsection.Alph0.3.5}%
+\contentsline {subsection}{\numberline {.3.6}Mã nguồn thư viện so sánh : comparison.h}{84}{subsection.Alph0.3.6}%

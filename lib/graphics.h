@@ -14,6 +14,12 @@ void setcolor(int color);
 void setbkcolor(int color);
 void outtextxy(int x, int y, char *textstring);
 void rectangle(int left, int top, int right, int bottom);
+void line(int x1, int y1, int x2, int y2);
+void circle(int x, int y, int radius);
+void fillellipse(int x, int y, int xradius, int yradius);
+void bar(int left, int top, int right, int bottom);
+void setfillstyle(int pattern, int color);
+void settextstyle(int font, int direction, int charsize);
 
 int getch();
 

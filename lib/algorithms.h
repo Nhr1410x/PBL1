@@ -5,7 +5,7 @@
 #include <string>
 #include <utility>
 #include "Graph.h"
-
+#include "Colors.h"
 
 struct PathResult {
     bool success;
@@ -13,7 +13,7 @@ struct PathResult {
     std::vector<int> distances;
     std::vector<int> previousVertex;
     std::vector<int> shortestPath;
-    std::vector<std::string> logs;
+    std::vector<std::pair<int, std::string>> logs;
     bool hasNegativeCycle;
 
     PathResult() : success(false), startVertex(-1), hasNegativeCycle(false) {}
@@ -23,7 +23,7 @@ class Algorithms {
 private:
     const Graph& graph;
 
-    void logStep(std::vector<std::string>& logs, const std::string& message);
+    void logStep(std::vector<std::pair<int, std::string>>& logs, int color, const std::string& message);
     std::vector<int> reconstructPath(int destination, const std::vector<int>& previousVertex) const;
 
 public:

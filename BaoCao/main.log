@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.2.18)  18 FEB 2026 18:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.1) (preloaded format=pdflatex 2026.2.18)  18 FEB 2026 23:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex"
-(c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex
+**d:/PBL/Project_SPP/BaoCao/main.tex
+(d:/PBL/Project_SPP/BaoCao/main.tex
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
+L3 programming layer <2026-01-19>
 (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
@@ -192,15 +192,15 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2025/12/11 v25.17 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
+Package: babel 2026/01/26 v26.2 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
 \babel@savecnt=\count284
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2068.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2070.
-LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2072.
-LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2073.
-LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2074.
-LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2076.
-LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2101.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2078.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2080.
+LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2082.
+LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line 2083.
+LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2084.
+LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2086.
+LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2111.
 \U@D=\dimen149
 \l@unhyphenated=\language79
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
@@ -208,7 +208,7 @@ LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) o
 \bbl@dirlevel=\count285
 Package babel Info: Configuration files are deprecated, as
 (babel)             they can break document portability.
-(babel)             Reported on input line 4196.
+(babel)             Reported on input line 4206.
 
 *************************************
 * Local config file bblopts.cfg used
@@ -217,7 +217,7 @@ Package babel Info: Configuration files are deprecated, as
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/vi\babel-vietnamese.tex)
 Package babel Info: Importing font and identification data for vietnamese
-(babel)             from babel-vi.ini. Reported on input line 4320.
+(babel)             from babel-vi.ini. Reported on input line 4330.
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/babel-vietnamese\vietnamese.ldf
 Language: vietnamese 
 
@@ -353,7 +353,7 @@ Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2025-07-12 v7.01o Hypertext links for LaTeX
+Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
@@ -373,7 +373,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
@@ -392,7 +392,7 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count291
 \Hy@pagecounter=\count292
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2025-07-12 v7.01o Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 ) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
@@ -400,23 +400,23 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count293
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2025-07-12 v7.01o Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4195.
-Package hyperref Info: Link nesting OFF on input line 4200.
-Package hyperref Info: Hyper index ON on input line 4203.
-Package hyperref Info: Plain pages OFF on input line 4210.
-Package hyperref Info: Backreferencing OFF on input line 4215.
+Package hyperref Info: Hyper figures OFF on input line 4201.
+Package hyperref Info: Link nesting OFF on input line 4206.
+Package hyperref Info: Hyper index ON on input line 4209.
+Package hyperref Info: Plain pages OFF on input line 4216.
+Package hyperref Info: Backreferencing OFF on input line 4221.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4462.
+Package hyperref Info: Bookmarks ON on input line 4468.
 \c@Hy@tempcnt=\count294
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4801.
+LaTeX Info: Redefining \url on input line 4807.
 \XeTeXLinkMargin=\dimen166
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -426,20 +426,20 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 \Fld@menulength=\count295
 \Field@Width=\dimen167
 \Fld@charsize=\dimen168
-Package hyperref Info: Hyper figures OFF on input line 6078.
-Package hyperref Info: Link nesting OFF on input line 6083.
-Package hyperref Info: Hyper index ON on input line 6086.
-Package hyperref Info: backreferencing OFF on input line 6093.
-Package hyperref Info: Link coloring OFF on input line 6098.
-Package hyperref Info: Link coloring with OCG OFF on input line 6103.
-Package hyperref Info: PDF/A mode OFF on input line 6108.
+Package hyperref Info: Hyper figures OFF on input line 6084.
+Package hyperref Info: Link nesting OFF on input line 6089.
+Package hyperref Info: Hyper index ON on input line 6092.
+Package hyperref Info: backreferencing OFF on input line 6099.
+Package hyperref Info: Link coloring OFF on input line 6104.
+Package hyperref Info: Link coloring with OCG OFF on input line 6109.
+Package hyperref Info: PDF/A mode OFF on input line 6114.
 \Hy@abspage=\count296
 \c@Item=\count297
 \c@Hfootnote=\count298
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
+File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
 \Fld@listcount=\count299
 \c@bookmark@seq@number=\count300
  (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
@@ -999,6 +999,36 @@ LaTeX Warning: Label `fig:placeholder' multiply defined.
 
 LaTeX Warning: Label `fig:placeholder' multiply defined.
 
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
+
+LaTeX Warning: Label `fig:placeholder' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -1082,7 +1112,7 @@ Package hyperref Info: Link coloring OFF on input line 95.
 \openout4 = `main.out'.
 
 \c@lstlisting=\count367
-<logoITFaculty.png, id=254, 225.84375pt x 225.84375pt>
+<logoITFaculty.png, id=266, 225.84375pt x 225.84375pt>
 File: logoITFaculty.png Graphic file (type png)
 <use logoITFaculty.png>
 Package pdftex.def Info: logoITFaculty.png  used on input line 117.
@@ -1150,7 +1180,7 @@ Ch\uhorn \ohorn ng 1.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 187.
 
-<Picture/graph1.png, id=390, 1027.84pt x 715.67375pt>
+<Picture/graph1.png, id=425, 1027.84pt x 715.67375pt>
 File: Picture/graph1.png Graphic file (type png)
 <use Picture/graph1.png>
 Package pdftex.def Info: Picture/graph1.png  used on input line 192.
@@ -1219,7 +1249,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
 [5]
-<Picture/bellman_F1.jpg, id=419, 1284.8pt x 722.7pt>
+<Picture/bellman_F1.jpg, id=454, 1284.8pt x 722.7pt>
 File: Picture/bellman_F1.jpg Graphic file (type jpg)
 <use Picture/bellman_F1.jpg>
 Package pdftex.def Info: Picture/bellman_F1.jpg  used on input line 326.
@@ -1261,7 +1291,7 @@ Overfull \hbox (5.22098pt too wide) in paragraph at lines 423--437
   [] 
  []
 
-<pic/Edge.png, id=442, 1276.77pt x 544.0325pt>
+<pic/Edge.png, id=477, 1276.77pt x 544.0325pt>
 File: pic/Edge.png Graphic file (type png)
 <use pic/Edge.png>
 Package pdftex.def Info: pic/Edge.png  used on input line 458.
@@ -1274,7 +1304,7 @@ Underfull \hbox (badness 1331) in paragraph at lines 474--476
 
 Package wrapfig Warning: Collision between wrapping environments on input line 479.
 
-<pic/Graph.png, id=443, 1276.77pt x 644.4075pt>
+<pic/Graph.png, id=478, 1276.77pt x 644.4075pt>
 File: pic/Graph.png Graphic file (type png)
 <use pic/Graph.png>
 Package pdftex.def Info: pic/Graph.png  used on input line 482.
@@ -1295,7 +1325,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) h
                                                   \__shipout_drop_firstpage_...
 l.490 \noindent
                \textbf{Trường dữ liệu:} <./pic/Edge.png>]
-<pic/Pathresult.png, id=451, 1276.77pt x 945.5325pt>
+<pic/Pathresult.png, id=486, 1276.77pt x 945.5325pt>
 File: pic/Pathresult.png Graphic file (type png)
 <use pic/Pathresult.png>
 Package pdftex.def Info: pic/Pathresult.png  used on input line 511.
@@ -1315,7 +1345,7 @@ Overfull \hbox (248.50757pt too wide) in paragraph at lines 534--535
 [][] 
  []
 
-<pic/Algorithms.png, id=452, 1555.8125pt x 1246.6575pt>
+<pic/Algorithms.png, id=487, 1555.8125pt x 1246.6575pt>
 File: pic/Algorithms.png Graphic file (type png)
 <use pic/Algorithms.png>
 Package pdftex.def Info: pic/Algorithms.png  used on input line 545.
@@ -1325,7 +1355,7 @@ Overfull \hbox (12.40144pt too wide) in paragraph at lines 557--559
 []\T5/cmr/bx/n/12 std::priority_queue<std::pair<int, 
  []
 
-<pic/PerformanceMetrics.png, id=453, 1585.925pt x 895.345pt>
+<pic/PerformanceMetrics.png, id=488, 1585.925pt x 895.345pt>
 File: pic/PerformanceMetrics.png Graphic file (type png)
 <use pic/PerformanceMetrics.png>
 Package pdftex.def Info: pic/PerformanceMetrics.png  used on input line 571.
@@ -1353,7 +1383,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) h
                                                   \__shipout_drop_firstpage_...
 l.577 \noindent
                 \textbf{Mục đích:} lưu thông số hiệu năng của t... <./pic/Graph.png> <./pic/Pathresult.png> <./pic/Algorithms.png>]
-<pic/Comparison.png, id=464, 1585.925pt x 794.97pt>
+<pic/Comparison.png, id=499, 1585.925pt x 794.97pt>
 File: pic/Comparison.png Graphic file (type png)
 <use pic/Comparison.png>
 Package pdftex.def Info: pic/Comparison.png  used on input line 601.
@@ -1363,12 +1393,12 @@ Overfull \hbox (119.86967pt too wide) in paragraph at lines 617--619
 [][]
  []
 
-<pic/Class_Comparison.png, id=465, 1585.925pt x 945.5325pt>
+<pic/Class_Comparison.png, id=500, 1585.925pt x 945.5325pt>
 File: pic/Class_Comparison.png Graphic file (type png)
 <use pic/Class_Comparison.png>
 Package pdftex.def Info: pic/Class_Comparison.png  used on input line 626.
 (pdftex.def)             Requested size: 227.62206pt x 135.70644pt.
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:641: Undefined control sequence.
+d:/PBL/Project_SPP/BaoCao/main.tex:641: Undefined control sequence.
 l.641 Giữ \textt
                   {const Graph\& graph} và \textt{Algorithms algorithms}.
 The control sequence at the end of the top line
@@ -1377,7 +1407,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:641: Undefined control sequence.
+d:/PBL/Project_SPP/BaoCao/main.tex:641: Undefined control sequence.
 l.641 Giữ \textt{const Graph\& graph} và \textt
                                                   {Algorithms algorithms}.
 The control sequence at the end of the top line
@@ -1386,7 +1416,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<pic/GUI.png, id=466, 2467.2175pt x 1397.22pt>
+<pic/GUI.png, id=501, 2467.2175pt x 1397.22pt>
 File: pic/GUI.png Graphic file (type png)
 <use pic/GUI.png>
 Package pdftex.def Info: pic/GUI.png  used on input line 649.
@@ -1443,12 +1473,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
 [14]
-<Picture/minhhoadothi1.png, id=504, 508.14844pt x 341.02406pt>
+<Picture/minhhoadothi1.png, id=539, 508.14844pt x 341.02406pt>
 File: Picture/minhhoadothi1.png Graphic file (type png)
 <use Picture/minhhoadothi1.png>
 Package pdftex.def Info: Picture/minhhoadothi1.png  used on input line 779.
 (pdftex.def)             Requested size: 227.62206pt x 152.75691pt.
-<Picture/minhhoadothi2.png, id=505, 480.29437pt x 325.215pt>
+<Picture/minhhoadothi2.png, id=540, 480.29437pt x 325.215pt>
 File: Picture/minhhoadothi2.png Graphic file (type png)
 <use Picture/minhhoadothi2.png>
 Package pdftex.def Info: Picture/minhhoadothi2.png  used on input line 804.
@@ -1467,7 +1497,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9}) h
                                                   \__shipout_drop_firstpage_...
 l.808 
        <./Picture/minhhoadothi1.png>]
-<Picture/minhhoadothi3.png, id=513, 482.55281pt x 328.22626pt>
+<Picture/minhhoadothi3.png, id=548, 482.55281pt x 328.22626pt>
 File: Picture/minhhoadothi3.png Graphic file (type png)
 <use Picture/minhhoadothi3.png>
 Package pdftex.def Info: Picture/minhhoadothi3.png  used on input line 826.
@@ -1491,12 +1521,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11}) 
                                                   \__shipout_drop_firstpage_...
 l.836 \end{quote}
                   <./Picture/minhhoadothi2.png> <./Picture/minhhoadothi3.png>]
-<Picture/minhhoadothi4.png, id=520, 484.05844pt x 308.65312pt>
+<Picture/minhhoadothi4.png, id=555, 484.05844pt x 308.65312pt>
 File: Picture/minhhoadothi4.png Graphic file (type png)
 <use Picture/minhhoadothi4.png>
 Package pdftex.def Info: Picture/minhhoadothi4.png  used on input line 849.
 (pdftex.def)             Requested size: 227.62206pt x 145.14233pt.
-<Picture/minhhoadothi5.png, id=521, 482.55281pt x 319.94531pt>
+<Picture/minhhoadothi5.png, id=556, 482.55281pt x 319.94531pt>
 File: Picture/minhhoadothi5.png Graphic file (type png)
 <use Picture/minhhoadothi5.png>
 Package pdftex.def Info: Picture/minhhoadothi5.png  used on input line 889.
@@ -1515,7 +1545,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.12}) 
                                                   \__shipout_drop_firstpage_...
 l.893 
        <./Picture/minhhoadothi4.png>]
-<Picture/minhhoadothi6.png, id=527, 480.29437pt x 325.215pt>
+<Picture/minhhoadothi6.png, id=562, 480.29437pt x 325.215pt>
 File: Picture/minhhoadothi6.png Graphic file (type png)
 <use Picture/minhhoadothi6.png>
 Package pdftex.def Info: Picture/minhhoadothi6.png  used on input line 911.
@@ -1539,12 +1569,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.14}) 
                                                   \__shipout_drop_firstpage_...
 l.932     \]
              <./Picture/minhhoadothi5.png> <./Picture/minhhoadothi6.png>]
-<Picture/minhhoadothi7.png, id=534, 487.8225pt x 318.43968pt>
+<Picture/minhhoadothi7.png, id=569, 487.8225pt x 318.43968pt>
 File: Picture/minhhoadothi7.png Graphic file (type png)
 <use Picture/minhhoadothi7.png>
 Package pdftex.def Info: Picture/minhhoadothi7.png  used on input line 952.
 (pdftex.def)             Requested size: 227.62206pt x 148.58797pt.
-<Picture/minhhoadothi8.png, id=535, 476.53032pt x 324.46219pt>
+<Picture/minhhoadothi8.png, id=570, 476.53032pt x 324.46219pt>
 File: Picture/minhhoadothi8.png Graphic file (type png)
 <use Picture/minhhoadothi8.png>
 Package pdftex.def Info: Picture/minhhoadothi8.png  used on input line 977.
@@ -1568,7 +1598,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.16}) 
                                                   \__shipout_drop_firstpage_...
 l.983 
        <./Picture/minhhoadothi7.png> <./Picture/minhhoadothi8.png>]
-<Picture/Dijfinal.png, id=542, 487.06969pt x 324.46219pt>
+<Picture/Dijfinal.png, id=577, 487.06969pt x 324.46219pt>
 File: Picture/Dijfinal.png Graphic file (type png)
 <use Picture/Dijfinal.png>
 Package pdftex.def Info: Picture/Dijfinal.png  used on input line 1002.
@@ -1615,7 +1645,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [23]
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1158: LaTeX Error: Unicode character ​ (U+200B)
+d:/PBL/Project_SPP/BaoCao/main.tex:1158: LaTeX Error: Unicode character ​ (U+200B)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1628,7 +1658,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1158: LaTeX Error: Unicode character ​ (U+200B)
+d:/PBL/Project_SPP/BaoCao/main.tex:1158: LaTeX Error: Unicode character ​ (U+200B)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1648,7 +1678,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
 [24]
-<Picture/bellman1.png, id=583, 550.30594pt x 323.70938pt>
+<Picture/bellman1.png, id=618, 550.30594pt x 323.70938pt>
 File: Picture/bellman1.png Graphic file (type png)
 <use Picture/bellman1.png>
 Package pdftex.def Info: Picture/bellman1.png  used on input line 1180.
@@ -1667,12 +1697,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.18}) 
                                                   \__shipout_drop_firstpage_...
 l.1184 \newpage
                 <./Picture/bellman1.png>]
-<Picture/bellman2.png, id=591, 557.83406pt x 350.05782pt>
+<Picture/bellman2.png, id=626, 557.83406pt x 350.05782pt>
 File: Picture/bellman2.png Graphic file (type png)
 <use Picture/bellman2.png>
 Package pdftex.def Info: Picture/bellman2.png  used on input line 1208.
 (pdftex.def)             Requested size: 227.62206pt x 142.83557pt.
-<Picture/bellman3.png, id=592, 539.01375pt x 341.02406pt>
+<Picture/bellman3.png, id=627, 539.01375pt x 341.02406pt>
 File: Picture/bellman3.png Graphic file (type png)
 <use Picture/bellman3.png>
 Package pdftex.def Info: Picture/bellman3.png  used on input line 1239.
@@ -1696,12 +1726,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.20}) 
                                                   \__shipout_drop_firstpage_...
 l.1245 
         <./Picture/bellman2.png> <./Picture/bellman3.png>]
-<Picture/bellman4.png, id=599, 537.50812pt x 327.47343pt>
+<Picture/bellman4.png, id=634, 537.50812pt x 327.47343pt>
 File: Picture/bellman4.png Graphic file (type png)
 <use Picture/bellman4.png>
 Package pdftex.def Info: Picture/bellman4.png  used on input line 1268.
 (pdftex.def)             Requested size: 204.85846pt x 124.80597pt.
-<Picture/bellman5.png, id=600, 540.51938pt x 347.04657pt>
+<Picture/bellman5.png, id=635, 540.51938pt x 347.04657pt>
 File: Picture/bellman5.png Graphic file (type png)
 <use Picture/bellman5.png>
 Package pdftex.def Info: Picture/bellman5.png  used on input line 1309.
@@ -1720,12 +1750,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.21}) 
                                                   \__shipout_drop_firstpage_...
 l.1313 
         <./Picture/bellman4.png>]
-<Picture/bellman6.png, id=607, 551.81157pt x 336.50719pt>
+<Picture/bellman6.png, id=642, 551.81157pt x 336.50719pt>
 File: Picture/bellman6.png Graphic file (type png)
 <use Picture/bellman6.png>
 Package pdftex.def Info: Picture/bellman6.png  used on input line 1331.
 (pdftex.def)             Requested size: 204.85846pt x 124.92674pt.
-<Picture/bellman7.png, id=608, 552.56438pt x 346.29375pt>
+<Picture/bellman7.png, id=643, 552.56438pt x 346.29375pt>
 File: Picture/bellman7.png Graphic file (type png)
 <use Picture/bellman7.png>
 Package pdftex.def Info: Picture/bellman7.png  used on input line 1354.
@@ -1772,13 +1802,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) ha
 l.1409 \chapter
                {CHƯƠNG TRÌNH VÀ KẾT QUẢ}]
 Ch\uhorn \ohorn ng 4.
-<Picture/sodohethong.png, id=621, 652.4375pt x 407.5225pt>
+<Picture/sodohethong.png, id=656, 652.4375pt x 407.5225pt>
 File: Picture/sodohethong.png Graphic file (type png)
 <use Picture/sodohethong.png>
 Package pdftex.def Info: Picture/sodohethong.png  used on input line 1416.
 (pdftex.def)             Requested size: 295.90588pt x 184.83229pt.
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1425: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1425: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1791,7 +1821,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1425: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1425: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1804,7 +1834,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1426: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1426: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1817,7 +1847,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1426: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1426: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1830,7 +1860,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1426: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1426: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1843,7 +1873,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1427: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1427: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1856,7 +1886,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1427: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1427: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1869,7 +1899,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1427: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1427: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1882,7 +1912,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1428: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1428: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1895,7 +1925,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1428: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1428: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1908,7 +1938,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1428: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1428: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1921,7 +1951,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1429: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1429: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1934,7 +1964,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1429: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1429: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1947,7 +1977,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1429: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1429: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1960,7 +1990,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1430: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1430: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1973,7 +2003,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1430: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1430: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1986,7 +2016,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1430: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1430: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -1999,7 +2029,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1431: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1431: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2012,7 +2042,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1431: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1431: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2025,7 +2055,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1431: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1431: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2038,7 +2068,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1432: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1432: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2051,7 +2081,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1432: LaTeX Error: Unicode character └ (U+2514)
+d:/PBL/Project_SPP/BaoCao/main.tex:1432: LaTeX Error: Unicode character └ (U+2514)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2064,7 +2094,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1432: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1432: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2077,7 +2107,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1433: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1433: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2090,7 +2120,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1433: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1433: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2103,7 +2133,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1434: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1434: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2116,7 +2146,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1434: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1434: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2129,7 +2159,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1434: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1434: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2142,7 +2172,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1435: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1435: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2155,7 +2185,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1435: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1435: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2168,7 +2198,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1435: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1435: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2181,7 +2211,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1436: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1436: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2194,7 +2224,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1436: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1436: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2207,7 +2237,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1436: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1436: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2220,7 +2250,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1437: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1437: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2233,7 +2263,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1437: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1437: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2246,7 +2276,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1437: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1437: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2259,7 +2289,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1438: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1438: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2272,7 +2302,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1438: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1438: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2285,7 +2315,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1438: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1438: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2298,7 +2328,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1439: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1439: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2311,7 +2341,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1439: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1439: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2324,7 +2354,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1439: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1439: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2337,7 +2367,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1440: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1440: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2350,7 +2380,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1440: LaTeX Error: Unicode character ├ (U+251C)
+d:/PBL/Project_SPP/BaoCao/main.tex:1440: LaTeX Error: Unicode character ├ (U+251C)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2363,7 +2393,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1440: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1440: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2376,7 +2406,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1441: LaTeX Error: Unicode character │ (U+2502)
+d:/PBL/Project_SPP/BaoCao/main.tex:1441: LaTeX Error: Unicode character │ (U+2502)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2389,7 +2419,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1441: LaTeX Error: Unicode character └ (U+2514)
+d:/PBL/Project_SPP/BaoCao/main.tex:1441: LaTeX Error: Unicode character └ (U+2514)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2402,7 +2432,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1441: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1441: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2415,7 +2445,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1442: LaTeX Error: Unicode character └ (U+2514)
+d:/PBL/Project_SPP/BaoCao/main.tex:1442: LaTeX Error: Unicode character └ (U+2514)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2428,7 +2458,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1442: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1442: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2441,7 +2471,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1443: LaTeX Error: Unicode character └ (U+2514)
+d:/PBL/Project_SPP/BaoCao/main.tex:1443: LaTeX Error: Unicode character └ (U+2514)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2454,7 +2484,7 @@ You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1443: LaTeX Error: Unicode character ─ (U+2500)
+d:/PBL/Project_SPP/BaoCao/main.tex:1443: LaTeX Error: Unicode character ─ (U+2500)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -2510,7 +2540,7 @@ Overfull \hbox (26.22034pt too wide) in alignment at lines 1492--1515
  [] [] [] 
  []
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1515: ignored error: Infinite glue shrinkage found in box being split
+d:/PBL/Project_SPP/BaoCao/main.tex:1515: ignored: Infinite glue shrinkage found in box being split
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2593,7 +2623,7 @@ Overfull \hbox (29.06535pt too wide) in alignment at lines 1540--1575
  [] [] [] 
  []
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1575: ignored error: Infinite glue shrinkage found in box being split
+d:/PBL/Project_SPP/BaoCao/main.tex:1575: ignored: Infinite glue shrinkage found in box being split
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2696,7 +2726,7 @@ Overfull \hbox (26.22034pt too wide) in alignment at lines 1640--1702
  [] [] [] 
  []
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1702: ignored error: Infinite glue shrinkage found in box being split
+d:/PBL/Project_SPP/BaoCao/main.tex:1702: ignored: Infinite glue shrinkage found in box being split
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2729,7 +2759,7 @@ Overfull \hbox (26.22034pt too wide) in alignment at lines 1732--1759
  [] [] [] 
  []
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1759: ignored error: Infinite glue shrinkage found in box being split
+d:/PBL/Project_SPP/BaoCao/main.tex:1759: ignored: Infinite glue shrinkage found in box being split
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2762,7 +2792,7 @@ Overfull \hbox (26.22034pt too wide) in alignment at lines 1789--1827
  [] [] [] 
  []
 
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:1827: ignored error: Infinite glue shrinkage found in box being split
+d:/PBL/Project_SPP/BaoCao/main.tex:1827: ignored: Infinite glue shrinkage found in box being split
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2828,12 +2858,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
 [36]
-<Picture/Giaodien/ux1.png, id=660, 1731.46875pt x 796.47563pt>
+<Picture/Giaodien/ux1.png, id=695, 1731.46875pt x 796.47563pt>
 File: Picture/Giaodien/ux1.png Graphic file (type png)
 <use Picture/Giaodien/ux1.png>
 Package pdftex.def Info: Picture/Giaodien/ux1.png  used on input line 1925.
 (pdftex.def)             Requested size: 364.19667pt x 167.53218pt.
-<Picture/Giaodien/ux2.png, id=661, 1729.21031pt x 1138.2525pt>
+<Picture/Giaodien/ux2.png, id=696, 1729.21031pt x 1138.2525pt>
 File: Picture/Giaodien/ux2.png Graphic file (type png)
 <use Picture/Giaodien/ux2.png>
 Package pdftex.def Info: Picture/Giaodien/ux2.png  used on input line 1934.
@@ -2856,12 +2886,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1947--1948
 
  []
 
-<Picture/graph2.png, id=671, 339.51843pt x 184.43906pt>
+<Picture/graph2.png, id=703, 339.51843pt x 184.43906pt>
 File: Picture/graph2.png Graphic file (type png)
 <use Picture/graph2.png>
 Package pdftex.def Info: Picture/graph2.png  used on input line 1971.
 (pdftex.def)             Requested size: 227.62206pt x 123.65231pt.
-<Picture/function/dijkstra.png, id=672, 1717.16531pt x 1132.98282pt>
+<Picture/function/dijkstra.png, id=704, 1717.16531pt x 1132.98282pt>
 File: Picture/function/dijkstra.png Graphic file (type png)
 <use Picture/function/dijkstra.png>
 Package pdftex.def Info: Picture/function/dijkstra.png  used on input line 1980.
@@ -2889,12 +2919,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) h
                                                   \__shipout_drop_firstpage_...
 l.1984 
         <./Picture/Giaodien/ux2.png> <./Picture/graph2.png>]
-<Picture/function/bellman.png, id=685, 1723.94063pt x 1135.24126pt>
+<Picture/function/bellman.png, id=714, 1723.94063pt x 1135.24126pt>
 File: Picture/function/bellman.png Graphic file (type png)
 <use Picture/function/bellman.png>
 Package pdftex.def Info: Picture/function/bellman.png  used on input line 1989.
 (pdftex.def)             Requested size: 364.19667pt x 239.82813pt.
-<Picture/function/sosanh.png, id=686, 1723.1878pt x 1131.47719pt>
+<Picture/function/sosanh.png, id=715, 1723.1878pt x 1131.47719pt>
 File: Picture/function/sosanh.png Graphic file (type png)
 <use Picture/function/sosanh.png>
 Package pdftex.def Info: Picture/function/sosanh.png  used on input line 1998.
@@ -2918,6 +2948,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7}) h
                                                   \__shipout_drop_firstpage_...
 l.2002 
         <./Picture/function/dijkstra.png> <./Picture/function/bellman.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2009--2010
+
+ []
+
+File: Picture/graph2.png Graphic file (type png)
+<use Picture/graph2.png>
+Package pdftex.def Info: Picture/graph2.png  used on input line 2033.
+(pdftex.def)             Requested size: 227.62206pt x 123.65231pt.
+File: Picture/function/dijkstra.png Graphic file (type png)
+<use Picture/function/dijkstra.png>
+Package pdftex.def Info: Picture/function/dijkstra.png  used on input line 2042.
+(pdftex.def)             Requested size: 364.19667pt x 240.28456pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2929,9 +2971,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2013 \chapter
-               {KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN} <./Picture/function/sosanh.png>]
-Ch\uhorn \ohorn ng 5.
+l.2046 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{table.4.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2046 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2046 
+        <./Picture/function/sosanh.png>]
+File: Picture/function/bellman.png Graphic file (type png)
+<use Picture/function/bellman.png>
+Package pdftex.def Info: Picture/function/bellman.png  used on input line 2051.
+(pdftex.def)             Requested size: 364.19667pt x 239.82813pt.
+File: Picture/function/sosanh.png Graphic file (type png)
+<use Picture/function/sosanh.png>
+Package pdftex.def Info: Picture/function/sosanh.png  used on input line 2060.
+(pdftex.def)             Requested size: 364.19667pt x 239.13654pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2940,8 +3000,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
 [41
-
-]
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2064 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2064 
+       ]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2950,25 +3018,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
 [42
-
-] (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-)
-c:/Users/LENOVO/Downloads/Báo_Cáo_Lập_Trình_Tính_Toán (1)/main.tex:2083: Undefined control sequence.
-<recently read> \faGithub 
-                          
-l.2083 ]
-        
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 2091.
-(src/main.cpp
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.2074 \chapter
+               {KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN}]
+Ch\uhorn \ohorn ng 5.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2986,7 +3041,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[44]
+[44
+
+] (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (C:\Users\LENOVO\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+)
+d:/PBL/Project_SPP/BaoCao/main.tex:2144: Undefined control sequence.
+<recently read> \faGithub 
+                          
+l.2144 ]
+        
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 2152.
+(src/main.cpp
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -2994,7 +3068,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[45]
+[45
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3010,7 +3086,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[47])
+[47]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3018,7 +3094,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[48] (src/graph.cpp
+[48]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3026,7 +3102,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[49]
+[49])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3034,7 +3110,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[50]
+[50] (src/graph.cpp
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3042,7 +3118,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[51])
+[51]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3050,7 +3126,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[52] (src/algorithms.cpp
+[52]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3058,7 +3134,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[53]
+[53])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3066,7 +3142,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[54]
+[54] (src/algorithms.cpp
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3082,7 +3158,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[56]) (src/comparison.cpp
+[56]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3098,7 +3174,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[58]
+[58]) (src/comparison.cpp
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.5163pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.5163pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
+
+[59]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.5163pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.5163pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
+
+[60]
 
 src/comparison.cpp:127: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@\lst@EC�).
 
@@ -3136,7 +3228,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[59]
+[61]
 
 src/comparison.cpp:139: LaTeX Error: Invalid UTF-8 byte sequence (�\lst@FillFixed@).
 
@@ -3264,23 +3356,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[60]) (src/GUI.cpp
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.5163pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.5163pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
-
-[61]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.5163pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.5163pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
-
-[62]
+[62]) (src/GUI.cpp
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3376,7 +3452,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[74]) (src/graphics.cpp
+[74]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3392,7 +3468,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[76]
+[76]) (src/graphics.cpp
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3408,7 +3484,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[78]) (lib/graph.h
+[78]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3416,7 +3492,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[79]) (lib/Colors.h) (lib/Global.h)
+[79]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3424,7 +3500,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[80] (lib/GUI.h) (lib/algorithms.h
+[80]) (lib/graph.h
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3432,7 +3508,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[81]) (lib/comparison.h
+[81]) (lib/Colors.h) (lib/Global.h)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3440,7 +3516,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[82])
+[82] (lib/GUI.h) (lib/algorithms.h
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.5163pt, for example:
@@ -3448,10 +3524,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
 
-[83] (main.aux)
+[83]) (lib/comparison.h
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.5163pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.5163pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
+
+[84])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.5163pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.5163pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.5163pt}.
+
+[85] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-24>
+L3 programming layer <2026-01-19>
  ***********
 
 
@@ -3461,36 +3553,21 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 6F28EFBEA491328F118152A35B930A73;12077
-(rerunfilecheck)             After:  01975107ABDB6599190861CB1BFF99B6;12485.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 55ACA6A4BB3EAD97F316EF3F818CD4CD;12485.
  ) 
 Here is how much of TeX's memory you used:
- 34210 strings out of 467871
- 667465 string characters out of 5417892
- 1922698 words of memory out of 5000000
- 60047 multiletter control sequences out of 15000+600000
+ 34224 strings out of 467866
+ 666672 string characters out of 5417841
+ 1922794 words of memory out of 5000000
+ 60058 multiletter control sequences out of 15000+600000
  652242 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,17n,118p,1155b,2206s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{appendix*.41} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{chapter*.40} has been referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.4.2.1} has been referenced but does not exist, replaced by a fixed one
-
+ 98i,17n,118p,1114b,2206s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\LENOVO\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1200.pk> <C:\Users\LENOVO\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnbxti10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr5.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnr9.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vnti12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt10.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt12.pfb><C:/Users/LENOVO/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt8.pfb>
-Output written on main.pdf (87 pages, 3114368 bytes).
+Output written on main.pdf (89 pages, 3239656 bytes).
 PDF statistics:
- 3754 PDF objects out of 4296 (max. 8388607)
- 2504 named destinations out of 2984 (max. 500000)
- 751 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3791 PDF objects out of 4296 (max. 8388607)
+ 2512 named destinations out of 2984 (max. 500000)
+ 775 words of extra memory for PDF output out of 10000 (max. 10000000)
 

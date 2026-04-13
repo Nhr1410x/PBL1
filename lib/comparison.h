@@ -40,7 +40,6 @@ public:
     explicit Comparison(const Graph& g);
 
     ComparisonReport comparePerformance(int startVertex, AlgorithmType type = AlgorithmType::BOTH);
-
     PerformanceMetrics measureAlgorithm(int startVertex, AlgorithmType type);
 };
 

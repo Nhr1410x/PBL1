@@ -1,0 +1,26 @@
+\chapter{PHỤ LỤC} % [cite: 62]
+\label{appendix:code}
+
+% Cấu hình font 12, dãn dòng 1.3 và căn lề cho phần giới thiệu 
+\fontsize{12}{15.6}\selectfont
+\justifying
+Sinh viên bỏ Code từng phần vào đây. % 
+
+\vspace{0.5cm}
+
+% Thiết lập hiển thị mã nguồn tối ưu để tránh treo máy
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\fontsize{10}{13}\selectfont, % Code nên để nhỏ hơn một chút (size 10) để dễ nhìn
+    breaklines=true,      % Tự động xuống dòng khi dòng code quá dài [cite: 64]
+    numbers=left,         % Đánh số dòng bên trái để giảng viên dễ theo dõi
+    numberstyle=\tiny\color{gray},
+    frame=single,         % Đóng khung quanh mã nguồn
+    tabsize=2,
+    showstringspaces=false,
+    captionpos=t          % Tên file hiển thị phía trên khối code
+}
+
+\section{Mã nguồn thuật toán Dijkstra}
+% Lệnh gọi trực tiếp file Dijkstra.c trong cùng thư mục
+\lstinputlisting[caption={Dijkstra.c}]{Dijkstra.c}

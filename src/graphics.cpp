@@ -196,6 +196,106 @@ void rectangle(int left, int top, int right, int bottom) {
 }
 
 
+static void plotPoint(int col, int row, const char* str = "*") {
+    if (!g_ansi_enabled) return;
+    if (col < 1 || col > g_console_cols || row < 1 || row > g_console_rows) return;
+    moveCursor(row, col);
+    applyColor();
+    std::cout << str;
+}
+
+void line(int x1, int y1, int x2, int y2) {
+    if (!g_ansi_enabled) return;
+    int c1 = mapX(x1);
+    int r1 = mapY(y1);
+    int c2 = mapX(x2);
+    int r2 = mapY(y2);
+
+    int dc = abs(c2 - c1), sc = c1 < c2 ? 1 : -1;
+    int dr = -abs(r2 - r1), sr = r1 < r2 ? 1 : -1;
+    int err = dc + dr, e2;
+
+    while (true) {
+        const char* c = "*";
+        if (dc == 0) c = "│";
+        else if (dr == 0) c = "─";
+        else if ((sc > 0 && sr > 0) || (sc < 0 && sr < 0)) c = "╲";
+        else c = "╱";
+
+        plotPoint(c1, r1, c);
+        if (c1 == c2 && r1 == r2) break;
+        e2 = 2 * err;
+        if (e2 >= dr) { err += dr; c1 += sc; }
+        if (e2 <= dc) { err += dc; r1 += sr; }
+    }
+    std::cout << std::flush;
+}
+
+#include <cmath>
+
+void circle(int x, int y, int radius) {
+    if (!g_ansi_enabled) return;
+    int c = mapX(x);
+    int r = mapY(y);
+    int radC = mapX(x + radius) - c;
+    int radR = mapY(y + radius) - r;
+
+    for (int angle = 0; angle < 360; angle += 5) {
+        double rad = angle * 3.14159265 / 180.0;
+        int plotC = c + (int)(radC * std::cos(rad));
+        int plotR = r + (int)(radR * std::sin(rad));
+        plotPoint(plotC, plotR, "o");
+    }
+    std::cout << std::flush;
+}
+
+void fillellipse(int x, int y, int xradius, int yradius) {
+    if (!g_ansi_enabled) return;
+    int c = mapX(x);
+    int r = mapY(y);
+    int radC = mapX(x + xradius) - c;
+    int radR = mapY(y + yradius) - r;
+
+    for (int row = r - radR; row <= r + radR; ++row) {
+        for (int col = c - radC; col <= c + radC; ++col) {
+            double dc = (col - c) / (double)(radC > 0 ? radC : 1);
+            double dr = (row - r) / (double)(radR > 0 ? radR : 1);
+            if (dc * dc + dr * dr <= 1.0) {
+                plotPoint(col, row, "O");
+            }
+        }
+    }
+    std::cout << std::flush;
+}
+
+void bar(int left, int top, int right, int bottom) {
+    if (!g_ansi_enabled) return;
+    int c1 = mapX(left);
+    int r1 = mapY(top);
+    int c2 = mapX(right);
+    int r2 = mapY(bottom);
+    if (c1 > c2) std::swap(c1, c2);
+    if (r1 > r2) std::swap(r1, r2);
+
+    for (int r = r1; r <= r2; ++r) {
+        for (int c = c1; c <= c2; ++c) {
+            plotPoint(c, r, "#"); 
+        }
+    }
+    std::cout << std::flush;
+}
+
+void setfillstyle(int pattern, int color) {
+    (void)pattern;
+    setcolor(color);
+}
+
+void settextstyle(int font, int direction, int charsize) {
+    (void)font;
+    (void)direction;
+    (void)charsize;
+}
+
 int getch() {
     int c = std::getchar();
     return c;

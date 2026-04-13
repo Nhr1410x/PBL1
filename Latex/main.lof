@@ -1,0 +1,47 @@
+\babel@toc {vietnamese}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Hình minh họa lý thuyết đồ thị}}{2}{figure.caption.4}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Optimal Substructure}}{6}{figure.caption.10}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Cấu trúc dữ liệu \texttt {Edge}}}{9}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Cấu trúc dữ liệu \texttt {Graph}}}{10}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Cấu trúc dữ liệu \texttt {PathResult}}}{10}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Class \texttt {Algorithms}}}{10}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces {Cấu trúc dữ liệu \texttt {PerformanceMetrics}}}}{11}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Cấu trúc dữ liệu \texttt {ComparisonReport}}}{11}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Class \texttt {Comparison}}}{11}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Class \texttt {GUI}}}{11}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Đồ thị minh họa thuật toán Dijkstra}}{15}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Hình minh họa trạng thái ban đầu}}{16}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Các bước cập nhật trọng số đường đi}}{16}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Các bước cập nhật trọng số đường đi}}{17}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Các bước cập nhật trọng số đường đi}}{18}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Các bước cập nhật trọng số đường đi}}{18}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Các bước cập nhật trọng số đường đi}}{19}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Các bước cập nhật trọng số đường đi}}{19}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Kết quả cuối cùng của thuật toán}}{20}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Hình minh hóa thuật toán Bellman-Ford}}{25}{figure.caption.60}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Hình minh hóa thuật toán Bellman-Ford}}{26}{figure.caption.61}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Hình minh hóa thuật toán Bellman-Ford}}{26}{figure.caption.62}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Hình minh hóa thuật toán Bellman-Ford}}{27}{figure.caption.63}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Hình minh hóa thuật toán Bellman-Ford}}{28}{figure.caption.64}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Hình minh hóa thuật toán Bellman-Ford}}{28}{figure.caption.65}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Hình minh hóa thuật toán Bellman-Ford}}{28}{figure.caption.66}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Tổ chức chương trình}}{30}{figure.caption.68}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Tổ chức tệp tin}}{30}{figure.caption.69}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Hình ảnh giao diện chính của chương trình}}{37}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Hình ảnh giao diện nhập đồ thị}}{38}{figure.caption.73}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Biểu diễn đồ thị}}{38}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Kết quả thuật toán Dijkstra}}{39}{figure.caption.78}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Kết quả thuật toán Bellman-Ford}}{39}{figure.caption.80}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Kết quả chức năng so sánh}}{40}{figure.caption.82}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Biểu diễn đồ thị}}{40}{figure.caption.85}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Kết quả thuật toán Dijkstra}}{41}{figure.caption.87}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Kết quả thuật toán Bellman-Ford}}{41}{figure.caption.89}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Kết quả chức năng so sánh}}{42}{figure.caption.91}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Biểu diễn đồ thị}}{42}{figure.caption.94}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Kết quả thuật toán Dijkstra}}{43}{figure.caption.96}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Quá trình cập nhật của thuật toán Bellman-Ford}}{43}{figure.caption.98}%
+\addvspace {10\p@ }
