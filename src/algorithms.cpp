@@ -38,6 +38,10 @@ void Algorithms::logStep(std::vector<std::pair<int, std::string>>& logs, int col
     logs.push_back({color, message});
 }
 
+static void pushTrace(PathResult& result, TraceStep step) {
+    result.traceSteps.push_back(std::move(step));
+}
+
 std::vector<int> Algorithms::reconstructPath(int destination, const std::vector<int>& previousVertex) const {
     std::vector<int> path;
     int current = destination;
@@ -81,6 +85,17 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
         visited[u] = true;
         iterations++;
 
+        // TraceStep: Visit
+        {
+            TraceStep ts;
+            ts.type = "visit";
+            ts.node = u;
+            ts.dist = (dist == std::numeric_limits<int>::max()) ? -1 : dist;
+            ts.desc = "Xet dinh " + graph.getVertexLabel(u) +
+                      " (d=" + (dist == std::numeric_limits<int>::max() ? "INF" : std::to_string(dist)) + ")";
+            pushTrace(result, ts);
+        }
+
         if (showSteps) {
             logStep(result.logs, 15, "");
             logStep(result.logs, 11, "[Lần lặp " + std::to_string(iterations) + "]");
@@ -98,6 +113,19 @@ PathResult Algorithms::dijkstra(int start, bool showSteps) {
                 result.distances[v] = result.distances[u] + weight;
                 result.previousVertex[v] = u;
                 pq.push({result.distances[v], v});
+
+                // TraceStep: Relax
+                {
+                    TraceStep ts;
+                    ts.type = "relax";
+                    ts.from = u;
+                    ts.to = v;
+                    ts.dist = result.distances[u];
+                    ts.new_dist = result.distances[v];
+                    ts.desc = "Noi long " + graph.getVertexLabel(u) + " -> " + graph.getVertexLabel(v) +
+                              ", d[" + graph.getVertexLabel(v) + "]=" + std::to_string(result.distances[v]);
+                    pushTrace(result, ts);
+                }
 
                 if (showSteps) {
                     logStep(result.logs, 13, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
@@ -160,6 +188,17 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
         }
 
         for (int u = 0; u < V; u++) {
+            // TraceStep: Visit
+            {
+                TraceStep ts;
+                ts.type = "visit";
+                ts.node = u;
+                ts.dist = (result.distances[u] == INF) ? -1 : result.distances[u];
+                ts.desc = "Xet dinh " + graph.getVertexLabel(u) +
+                          " (d=" + (result.distances[u] == INF ? "INF" : std::to_string(result.distances[u])) + ")";
+                pushTrace(result, ts);
+            }
+
             for (const auto& edge : adjList[u]) {
                 int v = edge.destination;
                 int weight = edge.weight;
@@ -170,6 +209,19 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
                     result.distances[v] = result.distances[u] + weight;
                     result.previousVertex[v] = u;
                     updated = true;
+
+                    // TraceStep: Relax
+                    {
+                        TraceStep ts;
+                        ts.type = "relax";
+                        ts.from = u;
+                        ts.to = v;
+                        ts.dist = result.distances[u];
+                        ts.new_dist = result.distances[v];
+                        ts.desc = "Noi long " + graph.getVertexLabel(u) + " -> " + graph.getVertexLabel(v) +
+                                  ", d[" + graph.getVertexLabel(v) + "]=" + std::to_string(result.distances[v]);
+                        pushTrace(result, ts);
+                    }
 
                     if (showSteps) {
                         logStep(result.logs, 13, "  Cập nhật: " + graph.getVertexLabel(u) + " -> " +
@@ -207,6 +259,17 @@ PathResult Algorithms::bellmanFord(int start, bool showSteps) {
             if (result.distances[u] != INF && 
                 result.distances[u] + weight < result.distances[v]) {
                 result.hasNegativeCycle = true;
+
+                // TraceStep: Negative Cycle
+                {
+                    TraceStep ts;
+                    ts.type = "negative_cycle";
+                    ts.from = u;
+                    ts.to = v;
+                    ts.dist = result.distances[u];
+                    ts.desc = "Phat hien chu trinh am tai: " + graph.getVertexLabel(u) + " -> " + graph.getVertexLabel(v);
+                    pushTrace(result, ts);
+                }
 
                 if (showSteps) {
                     logStep(result.logs, 12, "PHÁT HIỆN CHU TRÌNH ÂM!");

@@ -5,6 +5,7 @@
 #include <vector>
 #include <chrono>
 #include "Algorithms.h"
+#include "AdvancedAlgorithms.h"
 #include "Graph.h"
 
 struct PerformanceMetrics {
@@ -12,12 +13,13 @@ struct PerformanceMetrics {
     long long executionTimeUs;       // tinh bang micro giay
     long long memoryUsageBytes;      // byte
     int distancesCalculated;
-    double complexity;              // do phuc tap
+    double complexity;              // do phuc tap (giá trị ước lượng, dùng cho nội bộ)
+    std::string complexityLabel;    // nhãn hiển thị (VD: "O(E log V)")
     bool success;
 
     PerformanceMetrics() : algorithmName(""), executionTimeUs(0), 
                           memoryUsageBytes(0), distancesCalculated(0), 
-                          complexity(0.0), success(false) {}
+                          complexity(0.0), complexityLabel(""), success(false) {}
 };
 
 
@@ -35,13 +37,16 @@ class Comparison {
 private:
     const Graph& graph;
     Algorithms algorithms;
+    AdvancedAlgorithms advancedAlgorithms;
+
+    static std::string escapeJson(const std::string& s);
 
 public:
     explicit Comparison(const Graph& g);
 
     ComparisonReport comparePerformance(int startVertex, AlgorithmType type = AlgorithmType::BOTH);
-
     PerformanceMetrics measureAlgorithm(int startVertex, AlgorithmType type);
+    bool exportStatsToJson(const std::vector<PerformanceMetrics>& metrics) const;
 };
 
 #endif

@@ -1,7 +1,27 @@
 #include "../lib/Comparison.h"
 #include <cmath>
+#include <filesystem>
+#include <fstream>
+#include <limits>
+#include <sstream>
 
-Comparison::Comparison(const Graph& g) : graph(g), algorithms(g) {}
+Comparison::Comparison(const Graph& g) : graph(g), algorithms(g), advancedAlgorithms(g) {}
+
+std::string Comparison::escapeJson(const std::string& s) {
+    std::string out;
+    out.reserve(s.size() + 8);
+    for (unsigned char c : s) {
+        switch (c) {
+            case '"':  out += "\\\""; break;
+            case '\\': out += "\\\\"; break;
+            case '\n': out += "\\n";  break;
+            case '\r': out += "\\r";  break;
+            case '\t': out += "\\t";  break;
+            default:   out += static_cast<char>(c); break;
+        }
+    }
+    return out;
+}
 
 PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType type) {
     PerformanceMetrics metrics;
@@ -10,6 +30,7 @@ PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType t
 
     if (type == AlgorithmType::DIJKSTRA) {
         metrics.algorithmName = "Dijkstra";
+        metrics.complexityLabel = "O(E log V)";
         
         // kiểm tra trong số âm
         if (graph.hasNegativeWeights()) {
@@ -30,6 +51,7 @@ PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType t
 
     } else if (type == AlgorithmType::BELLMAN_FORD) {
         metrics.algorithmName = "Bellman-Ford";
+        metrics.complexityLabel = "O(V × E)";
 
         auto start = std::chrono::high_resolution_clock::now();
         PathResult result = algorithms.bellmanFord(startVertex, false);
@@ -40,6 +62,32 @@ PerformanceMetrics Comparison::measureAlgorithm(int startVertex, AlgorithmType t
         metrics.memoryUsageBytes = (V * sizeof(int) * 2) + (E * sizeof(Edge));
         metrics.complexity = V * E;
         metrics.success = result.success && !result.hasNegativeCycle;
+    } else if (type == AlgorithmType::ADVANCED_BMSSP) {
+        metrics.algorithmName = "BMSSP";
+        metrics.complexityLabel = "BMSSP 2025";
+
+        // Thuật toán mới chỉ áp dụng cho trọng số không âm (theo implementation hiện tại)
+        if (graph.hasNegativeWeights()) {
+            metrics.success = false;
+            metrics.executionTimeUs = 0;
+            return metrics;
+        }
+
+        auto start = std::chrono::high_resolution_clock::now();
+        PathResult result = advancedAlgorithms.breakingSortingBarrier(startVertex, false);
+        auto end = std::chrono::high_resolution_clock::now();
+
+        metrics.executionTimeUs = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+        metrics.distancesCalculated = static_cast<int>(result.distances.size());
+
+        // Ước lượng thô: distances + previous + một phần overhead. (Không đo RSS thực tế.)
+        metrics.memoryUsageBytes =
+            (V * sizeof(int) * 2) +                   // distances + previous
+            (E * sizeof(Edge)) +                      // adjacency
+            (V * static_cast<int>(sizeof(long long))); // ước lượng distances_ nội bộ
+
+        metrics.complexity = E * std::log(std::max(2, V));
+        metrics.success = result.success;
     }
 
     return metrics;
@@ -52,106 +100,44 @@ ComparisonReport Comparison::comparePerformance(int startVertex, AlgorithmType t
     report.V = graph.getVertexCount();
     report.E = graph.getEdgeCount();
 
-    report.logs.push_back("        ========================================");
-    report.logs.push_back("                BÁO CÁO SO SÁNH HIỆU NĂNG");
-    report.logs.push_back("        ========================================");
-    report.logs.push_back("Đỉnh bắt đầu: " + std::to_string(startVertex + 1) + "   Số đỉnh (V): " + std::to_string(report.V) + "  Số cạnh (E): " + std::to_string(report.E));
+    // Requirement: always measure all 3 algorithms.
+    (void)type;
+    report.metrics.clear();
+    report.metrics.push_back(measureAlgorithm(startVertex, AlgorithmType::DIJKSTRA));
+    report.metrics.push_back(measureAlgorithm(startVertex, AlgorithmType::BELLMAN_FORD));
+    report.metrics.push_back(measureAlgorithm(startVertex, AlgorithmType::ADVANCED_BMSSP));
 
-    if (type == AlgorithmType::DIJKSTRA || type == AlgorithmType::BOTH) {
-        auto metrics = measureAlgorithm(startVertex, AlgorithmType::DIJKSTRA);
-        report.metrics.push_back(metrics);
-    }
-
-    if (type == AlgorithmType::BELLMAN_FORD || type == AlgorithmType::BOTH) {
-        auto metrics = measureAlgorithm(startVertex, AlgorithmType::BELLMAN_FORD);
-        report.metrics.push_back(metrics);
-    }
-
-    if (type == AlgorithmType::BOTH && report.metrics.size() == 2) {
-        const auto& d = report.metrics[0];
-        const auto& b = report.metrics[1];
-
-        const int labelW = 16;
-        const int colW = 20;
-
-        auto utf8Len = [](const std::string& s) {
-            int count = 0;
-            for (unsigned char c : s) {
-                if ((c & 0xC0) != 0x80) {
-                    count++;
-                }
-            }
-            return count;
-        };
-
-        auto fit = [&](const std::string& s, int width) {
-            if (width <= 0) return std::string();
-            int len = utf8Len(s);
-            if (len == width) return s;
-            if (len < width) return s + std::string(width - len, ' ');
-
-            std::string out;
-            out.reserve(s.size());
-            int count = 0;
-            for (size_t i = 0; i < s.size() && count < width; i++) {
-                unsigned char c = static_cast<unsigned char>(s[i]);
-                if ((c & 0xC0) != 0x80) {
-                    if (count >= width) break;
-                    count++;
-                }
-                out.push_back(s[i]);
-            }
-            int outLen = utf8Len(out);
-            if (outLen < width) {
-                out += std::string(width - outLen, ' ');
-            }
-            return out;
-        };
-
-        auto row = [&](const std::string& label, const std::string& dv, const std::string& bv) {
-            return std::string("|") + fit(label, labelW) + "|"
-                + fit(dv, colW) + "|" + fit(bv, colW) + "|";
-        };
-
-        std::string border = "+" + std::string(labelW, '-') +
-                             "+" + std::string(colW, '-') +
-                             "+" + std::string(colW, '-') + "+";
-
-        auto fmtStatus = [](bool ok) {
-            return ok ? std::string("Thành công") : std::string("Thất bại");
-        };
-
-        auto fmtComplexity = [](double value, const std::string& form) {
-            return form + " ≈ O(" + std::to_string(static_cast<int>(value)) + ")";
-        };
-
-        report.logs.push_back(border);
-        report.logs.push_back(row("", "DIJKSTRA", "BELLMAN-FORD"));
-        report.logs.push_back(border);
-        report.logs.push_back(row("Thời gian chạy", std::to_string(d.executionTimeUs) + " us",
-                                  std::to_string(b.executionTimeUs) + " us"));
-        report.logs.push_back(row("Bộ nhớ dùng", std::to_string(d.memoryUsageBytes) + " bytes",
-                                  std::to_string(b.memoryUsageBytes) + " bytes"));
-        report.logs.push_back(row("Độ phức tạp",
-                                  fmtComplexity(d.complexity, "O(E log V)"),
-                                  fmtComplexity(b.complexity, "O(V × E)")));
-        report.logs.push_back(row("Trạng thái", fmtStatus(d.success), fmtStatus(b.success)));
-        report.logs.push_back(border);
-    }
-
-    if (type == AlgorithmType::BOTH && report.metrics.size() == 2) {
-        report.logs.push_back("                        --- SO SÁNH ---");
-        auto dijkstraTime = report.metrics[0].executionTimeUs;
-        auto bellmanTime  = report.metrics[1].executionTimeUs;
-
-        if (bellmanTime > 0 && dijkstraTime > 0) {
-            double ratio = static_cast<double>(bellmanTime) / dijkstraTime;
-            report.logs.push_back("Bellman-Ford chậm hơn Dijkstra " + std::to_string(ratio) + " lần");
-        } else {
-            report.logs.push_back("Phát hiện trọng số âm, không thể thực hiện thuật toán Dijkstra. KHÔNG THỂ SO SÁNH.");
-        }
-        report.logs.push_back("");
-    }
+    exportStatsToJson(report.metrics);
 
     return report;
+}
+
+bool Comparison::exportStatsToJson(const std::vector<PerformanceMetrics>& metrics) const {
+    std::error_code ec;
+    std::filesystem::create_directories(DATA_FOLDER, ec);
+
+    const std::string outPath = "../data/compare_stats.json";
+    std::ofstream file(outPath);
+    if (!file.is_open()) {
+        return false;
+    }
+
+    std::ostringstream ss;
+    ss << "{\n";
+    ss << "  \"stats\": [\n";
+    for (std::size_t i = 0; i < metrics.size(); ++i) {
+        const auto& m = metrics[i];
+        ss << "    {";
+        ss << "\"name\": \"" << escapeJson(m.algorithmName) << "\"";
+        ss << ", \"time_us\": " << m.executionTimeUs;
+        ss << ", \"memory_bytes\": " << m.memoryUsageBytes;
+        ss << "}";
+        if (i + 1 < metrics.size()) ss << ",";
+        ss << "\n";
+    }
+    ss << "  ]\n";
+    ss << "}\n";
+
+    file << ss.str();
+    return file.good();
 }

@@ -1,0 +1,3 @@
+/d/PBL - Copy/Project_SPP/build/CMakeFiles/app_gui.dir
+/d/PBL - Copy/Project_SPP/build/CMakeFiles/edit_cache.dir
+/d/PBL - Copy/Project_SPP/build/CMakeFiles/rebuild_cache.dir
