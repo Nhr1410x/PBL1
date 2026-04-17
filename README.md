@@ -2,23 +2,23 @@
 
 ## 1. Giới thiệu
 
-Đây là ứng dụng desktop viết bằng **C++17 + GTKmm 3** để:
+Dự án của chúng em được viết bằng **C++17 + GTKmm 3** để:
 
 - nạp dữ liệu đồ thị có trọng số (có hướng hoặc vô hướng),
 - chạy thuật toán tìm đường đi ngắn nhất,
 - theo dõi bảng trạng thái đỉnh + log từng bước,
 - so sánh hiệu năng các thuật toán,
-- trực quan hóa tiến trình chạy thuật toán ngay trong UI (canvas native C++).
+- trực quan hóa tiến trình chạy thuật toán ngay trong UI,
 
 Project tập trung vào 3 thuật toán:
 
 - **Dijkstra**
 - **Bellman-Ford**
-- **BMSSP 2025** (phiên bản nâng cao trong project)
+- **BMSSP 2025** (thuật toán tìm đường đi ngắn nhất, nhanh nhất, mới nhất vừa được công bố vào năm 2025)
 
 ## 2. Tính năng chính
 
-- Welcome page + sidebar thao tác rõ ràng.
+- Welcome page - giới thiệu chung về nhóm và 
 - Nạp đồ thị từ:
   - file `.txt`,
   - hoặc nhập trực tiếp danh sách cạnh.
@@ -29,52 +29,30 @@ Project tập trung vào 3 thuật toán:
   - log cấu trúc theo mức thông tin,
   - kết quả cuối (đường đi, chi phí, thời gian).
 - Compare page để so sánh thời gian/bộ nhớ 3 thuật toán.
-- Visualizer page native C++:
-  - zoom/pan/drag node,
-  - animation theo trace steps,
-  - hiển thị legend, bảng `d[v]`, progress bar.
+- Trực quan hóa quá trình cập nhật trọng số giúp các bạn có thể dễ hình dung hơn.
 
 ## 3. Công nghệ sử dụng
 
 - **C++17**
 - **GTKmm 3.0**
-- **Cairo/Cairomm** (vẽ canvas)
+- **Cairo/Cairomm** 
 - **CMake** hoặc `g++` + `pkg-config`
 
 ## 4. Yêu cầu môi trường
 
-Bạn cần có:
+Để chương trình có thể chạy môi trường cần có:
 
 - Trình biên dịch C++ hỗ trợ C++17 (`g++`/`clang++`)
 - `pkg-config`
 - `gtkmm-3.0` (headers + libs)
-- (Tùy chọn) `cmake >= 3.10`
-
-Ví dụ trên Ubuntu/Debian:
-
-```bash
-sudo apt update
-sudo apt install -y build-essential cmake pkg-config libgtkmm-3.0-dev
-```
+- (Tùy chọn) `cmake >= 3.10.
 
 ## 5. Build và chạy
-
-### Cách 1: Build nhanh bằng script
 
 ```bash
 ./build.sh
 ./app_gui.exe
 ```
-
-### Cách 2: Build bằng CMake
-
-```bash
-cmake -S . -B build
-cmake --build build
-./build/app_gui
-```
-
-Trên Windows (MSYS2/MinGW), file chạy có thể là `app_gui.exe`.
 
 ## 6. Hướng dẫn sử dụng nhanh
 
