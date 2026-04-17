@@ -167,27 +167,4 @@ Project_SPP/
 - `src/comparison.cpp` + `lib/comparison.h`: đo và so sánh hiệu năng.
 - `lib/Global.h`: hằng số và enum dùng chung.
 
-## 10. Dữ liệu output trong runtime
 
-- `data/compare_stats.json`: kết quả so sánh hiệu năng.
-- `data/trace.json`: dữ liệu trace (nếu được export bởi logic thuật toán).
-- `data/*.txt`: bộ dữ liệu mẫu đầu vào.
-
-## 11. Lỗi thường gặp
-
-- `fatal error: gtkmm.h: No such file or directory`
-  - Chưa cài `gtkmm-3.0`.
-- Link lỗi `pkg-config`/`gtkmm-3.0 not found`
-  - Kiểm tra lại biến môi trường và package `pkg-config`.
-- Chạy app nhưng không nạp được file
-  - Kiểm tra đúng format ở mục 7 và đường dẫn file.
-
-## 12. Định hướng phát triển
-
-- Thêm test tự động cho parser và thuật toán.
-- Chuẩn hóa CMake cho đa nền tảng (Windows/Linux/macOS).
-- Tối ưu thêm layout/routing cho đồ thị dày và rất lớn.
-
----
-
-Nếu bạn cần, mình có thể tách thêm một file `docs/USER_GUIDE.md` để hướng dẫn người dùng cuối và giữ `README.md` gọn hơn cho developer.
